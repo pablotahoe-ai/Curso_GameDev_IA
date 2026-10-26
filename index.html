@@ -119,6 +119,168 @@ html[data-theme="pixel"] .idea h3{font-size:clamp(.6em,.8vw,.78em)}
 .idea .go{font-size:.75em;color:var(--cur);margin-top:auto}
 .grid.c3.fixed{grid-template-columns:repeat(3,1fr)}
 .grid.c2.fixed{grid-template-columns:repeat(2,1fr)}
+.grid.c4.fixed{grid-template-columns:repeat(4,1fr);gap:clamp(10px,1.2vw,16px)}
+@media (max-width:1100px){.grid.c4.fixed{grid-template-columns:repeat(2,1fr)}}
+.ico-row{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.ico-row .cn{margin-bottom:2px}.ico-row h3{margin:0}
+canvas.ico{width:56px;height:56px;flex:none;image-rendering:pixelated;border:var(--bw) solid var(--line);background:#0e1630;border-radius:var(--radius)}
+.grid.c4.fixed .card p{font-size:1.02em;line-height:1.45}
+.sv{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:20px;align-items:start}
+.sv h4{margin:0 0 8px}
+.sv-row{display:flex;align-items:center;gap:10px;padding:5px 8px;margin-bottom:6px;border:var(--bw) solid var(--line);border-radius:var(--radius);background:var(--panel);cursor:pointer}
+.sv-row.on{border-color:var(--cur);box-shadow:0 0 0 1px var(--cur)}
+.sv-row canvas{width:100%;max-width:300px;height:auto;aspect-ratio:4/1;cursor:pointer}
+.sv-l{font-family:var(--font-px);font-size:.62em;color:var(--cur);min-width:74px;display:flex;flex-direction:column;gap:4px}
+.sv-l small{font-family:var(--font-ui);font-size:.95em;color:var(--muted);letter-spacing:0}
+html[data-theme="minimal"] .sv-l,html[data-theme="neo"] .sv-l,html[data-theme="glass"] .sv-l{font-family:var(--font-ui);font-weight:800;font-size:.8em;letter-spacing:.08em}
+.sv-game #svStage{max-width:640px;display:block}
+.sv-info{display:flex;gap:12px;align-items:center;margin-top:10px}
+.sv-ctl{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
+@media (max-width:900px){.sv{grid-template-columns:1fr}}
+/* E02 · B2 */
+.pb{display:grid;grid-template-columns:1.3fr 1fr;gap:20px;align-items:start}
+.pb-flow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px;font-size:.85em;color:var(--muted)}
+.pb-flow b{color:var(--cur);margin-right:4px}.pb-flow i{font-style:normal;color:var(--dim)}
+.gdd-form.pb-fields{grid-template-columns:1fr 1fr;gap:10px}
+.lg{display:grid;grid-template-columns:1fr 1.3fr;gap:24px;align-items:start}
+.lg-timer{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.lg-dig{font-family:var(--font-px);font-size:2.6em;background:#000;color:#3ee6ff;padding:8px 18px;border:var(--bw) solid var(--line);border-radius:var(--radius);letter-spacing:.05em}
+.lg-dig.alarm{color:#ff5a5a;animation:lgb .6s steps(2) infinite}@keyframes lgb{50%{opacity:.35}}
+.lg-steps{margin:16px 0 0 20px;font-size:1.12em;line-height:1.7}
+.lg-drop{aspect-ratio:16/10;max-height:46vh;width:100%;border:var(--bw) dashed var(--line);border-radius:var(--radius);display:flex;align-items:center;justify-content:center;background:var(--bg2);overflow:hidden;color:var(--dim)}
+.lg-drop img{max-width:100%;max-height:100%;object-fit:contain}
+.lg-btns{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.px-why{padding:10px 14px;border-left:4px solid var(--cur);background:var(--panel);margin-bottom:12px;font-size:1.02em;line-height:1.45}
+.px3{display:grid;grid-template-columns:1fr 1.1fr 1.6fr;gap:14px;align-items:stretch}
+.px3 .card h4{margin:2px 0 10px}
+.px-opt{margin-bottom:10px}.px-opt label{display:block;font-size:.8em;color:var(--muted);margin-bottom:4px;font-weight:600}
+.px-res{display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap}.px-res small{display:block}
+.sty-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.sty{border:var(--bw) solid var(--line);border-radius:var(--radius);background:var(--panel);cursor:pointer;overflow:hidden;display:flex;flex-direction:column}
+.sty.on{border-color:var(--cur);box-shadow:0 0 0 2px var(--cur)}
+.sty canvas{width:100%;height:var(--vis-h,110px);aspect-ratio:auto;object-fit:cover;object-position:50% 100%;display:block}
+.sty-t{padding:8px 12px;display:flex;flex-direction:column;gap:2px}.sty-t small{color:var(--muted)}.sty-t .ref{color:var(--dim);font-size:.75em}
+.sty-bot{display:grid;grid-template-columns:1.3fr 1fr;gap:14px;margin-top:12px}
+.pal{display:flex;gap:8px}.pal input{width:44px;height:36px;padding:0;border:var(--bw) solid var(--line);background:none;cursor:pointer}
+
+/* E02 · B2 v21 — pickers, popup, timers, actividad */
+.pick-grid{display:grid;gap:12px}
+.pick-grid.bits{grid-template-columns:repeat(4,1fr)}
+.pick-grid.style{grid-template-columns:repeat(3,1fr)}
+.pickc{position:relative;border:var(--bw) solid var(--line);border-radius:var(--radius);background:var(--panel);cursor:pointer;overflow:hidden;display:flex;flex-direction:column;transition:transform .12s}
+.pickc:hover{transform:translateY(-2px);border-color:var(--cur)}
+.pickc.on{border-color:var(--cur);box-shadow:0 0 0 3px var(--cur)}
+.pickc canvas{width:100%;height:var(--vis-h,110px);aspect-ratio:auto;object-fit:cover;display:block;background:#000}
+.pk-t{padding:8px 12px;display:flex;flex-direction:column;gap:2px}.pk-t small{color:var(--muted);line-height:1.3}
+.pk-ok{display:none;position:absolute;top:8px;right:8px;background:var(--cur);color:#000;font-weight:900;padding:2px 8px;border-radius:var(--radius)}
+.pickc.on .pk-ok{display:block}
+.pk-star{position:absolute;top:8px;left:8px;background:#000a;color:#ffd84a;padding:1px 8px;border-radius:var(--radius);font-size:.9em}
+.pk{display:grid;grid-template-columns:1.1fr 1fr;gap:20px;align-items:start}
+.pk-l canvas{width:100%;aspect-ratio:200/110;height:auto;display:block;background:#000;border:var(--bw) solid var(--line);border-radius:var(--radius)}
+.pk-r{display:flex;flex-direction:column;gap:10px}
+.pk-d{margin:0;font-size:1.05em;line-height:1.5}
+.pk-row{display:flex;flex-direction:column;gap:4px;font-size:.95em}.pk-row b{color:var(--cur);font-size:.8em;text-transform:uppercase;letter-spacing:.08em}
+.pk-chips{display:flex;flex-wrap:wrap;gap:6px}.pk-chips i{font-style:normal;background:var(--panel);border:1px solid var(--line);padding:3px 10px;border-radius:99px;font-size:.92em}
+.pk-rec{color:#ffd84a;font-weight:700}
+.pk-nav{grid-column:1/-1;display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center}
+.pk-nav>button:first-child{justify-self:start}.pk-nav>button:last-child{justify-self:end}
+.pk-btns{display:flex;gap:8px}
+.pb-top{display:flex;gap:18px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.pb-top .pb-flow{margin:0}
+.lg-dig.sm{font-size:1.5em;padding:4px 12px}
+.act-wide{width:100%;margin:0 0 14px}
+.act-steps{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.act-steps li{display:flex;gap:10px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;margin:0;font-size:1.02em;line-height:1.45}
+.act-steps .n{flex:none;font-family:var(--font-px);background:var(--cur);color:#000;min-width:30px;height:30px;display:flex;align-items:center;justify-content:center;border-radius:var(--radius);font-size:.8em}
+.card.recorda{width:100%;padding:16px 22px}.card.recorda .cn{font-size:.8em}.card.recorda h3{font-size:1.5em;margin:4px 0 6px}.card.recorda p{font-size:1.2em;line-height:1.5;margin:0}
+.pb-fields .field:first-child{grid-column:1/-1}.pb-fields .field input{text-overflow:ellipsis}
+@media (max-width:900px){.pick-grid.bits{grid-template-columns:repeat(2,1fr)}.pick-grid.style{grid-template-columns:repeat(2,1fr)}.pk{grid-template-columns:1fr}.act-steps{grid-template-columns:1fr 1fr}}
+
+/* E02 · B3 v23 */
+.sm{display:grid;grid-template-columns:1fr 1.15fr;gap:20px;align-items:start}
+.sm-nodes{justify-content:flex-start;flex-wrap:wrap;margin-bottom:10px}
+.sm-r canvas#smCv{height:calc(var(--game-h,260px) * .62);width:auto;aspect-ratio:240/110;max-width:100%;image-rendering:pixelated;background:#000;border:var(--bw) solid var(--line);border-radius:var(--radius);display:block}
+.sm-strip{display:flex;gap:8px;margin-top:10px}
+.sm-strip canvas{width:72px;height:72px;image-rendering:pixelated;border-radius:var(--radius)}
+canvas.fxm{height:var(--vis-h,100px);width:auto;max-width:100%;display:block;margin:0 auto 8px;image-rendering:pixelated;background:#000;border:var(--bw) solid var(--line);border-radius:var(--radius)}
+.fx4 .card.fxc{display:flex;flex-direction:column}
+.fx4 .card p{font-size:.96em;line-height:1.4;margin:6px 0 0}.fx4 .card p.fx-why{font-weight:700;color:var(--text)}
+.fx-rec{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:auto;padding-top:8px;font-size:.84em}.fx-rec em{font-style:normal;white-space:nowrap}
+.fx-rec span{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:4px 8px;display:flex;flex-direction:column;gap:2px}
+.fx-rec b{color:var(--cur);font-size:.78em;text-transform:uppercase;letter-spacing:.06em}
+.fx-rec i{display:inline-block;width:10px;height:10px;margin-left:3px;border-radius:2px;vertical-align:middle}
+.fl{display:grid;grid-template-columns:1.1fr 1fr;gap:20px;align-items:start}
+.fl-code{margin:10px 0 0;font-size:.95em;line-height:1.45;white-space:pre}
+.fl-r canvas#flCv{width:100%;height:auto;aspect-ratio:320/150;max-height:var(--game-h,260px);image-rendering:pixelated;background:#000;border:var(--bw) solid var(--line);border-radius:var(--radius);cursor:crosshair;display:block;margin-left:auto;margin-right:auto}
+.fl-ctl{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0}.fl-ctl input{width:90px}
+.fb-top{display:flex;gap:12px;align-items:center;margin-bottom:6px}.fb-top h3{margin:0}.fb-top canvas.fxm{margin:0;flex:none;height:calc(var(--vis-h,100px) * .8)}
+.fbg .card p{margin:6px 0 0;line-height:1.4}
+.sts{display:grid;grid-template-columns:1.6fr 1fr;gap:22px;align-items:start}
+.sts-h,.sts-row{display:grid;grid-template-columns:1.2fr .6fr .6fr 2.2fr;gap:10px;align-items:center}
+.sts-h{font-size:.8em;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;padding:0 4px 6px}
+.sts-row{padding:6px 4px;border-bottom:1px solid var(--line)}.sts-row.off{opacity:.5}
+.sts-row input[type=number],.sts-row input[type=text]{width:100%;padding:8px 10px;background:var(--panel);border:var(--bw) solid var(--line);color:var(--text);border-radius:var(--radius);font:inherit}
+.sts-n{display:flex;gap:8px;align-items:center;font-family:var(--font-px);font-size:.75em;cursor:pointer}
+.sts-sheet{display:flex;flex-direction:column;gap:5px}
+.sts-sheet .r{display:flex;gap:4px;align-items:center}.sts-sheet .l{width:62px;font-size:.8em;color:var(--muted)}
+.sts-sheet i{width:26px;height:26px;border:1px dashed var(--line);border-radius:3px;display:block}.sts-sheet i.f{background:var(--cur);border:1px solid var(--cur);opacity:.85}
+html[data-mode] .pb-out .prompt-box pre{max-height:none;overflow:visible;font-size:.82em;line-height:1.4}
+.sp-chips{display:flex;flex-wrap:wrap;gap:6px}
+@media (max-width:900px){.sm,.fl,.sts{grid-template-columns:1fr}.sts-h{display:none}}
+
+/* E02 · B4 v24 */
+.sw{display:grid;grid-template-columns:1.5fr 1fr;gap:22px;align-items:center}
+.sw canvas#swCv{height:calc(var(--game-h,260px) * .62);width:auto;aspect-ratio:320/150;max-width:100%;image-rendering:pixelated;background:#000;border:var(--bw) solid var(--line);border-radius:var(--radius);display:block}
+.sw-r{display:flex;flex-direction:column;gap:12px}.sw-r ul{margin:6px 0 0 18px;line-height:1.55}.sw-r h3{margin:2px 0 4px}
+.sw-ok .cn{color:var(--acc4)}.sw-new .cn{color:var(--acc3)}
+.ft{display:grid;grid-template-columns:1.1fr 1fr;gap:22px;align-items:start}
+.ft-row{display:flex;gap:10px;align-items:center;padding:6px 10px;border:var(--bw) solid transparent;border-radius:var(--radius);cursor:pointer}
+.ft-row canvas{width:24px;height:24px;image-rendering:pixelated;flex:none}.ft-row.on{border-color:var(--cur);background:var(--panel)}.ft-row:hover{background:var(--panel)}
+.nm{display:flex;flex-direction:column;gap:10px}
+.nm-r{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;align-items:center;padding:8px 10px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius)}
+.nm-r small{grid-column:1/-1;color:var(--muted)}.nm-r code{font-size:.95em}.nm-ok i,.nm-bad i{font-style:normal;font-weight:900;margin-right:6px}.nm-ok i{color:var(--acc4)}.nm-bad i{color:var(--danger)}
+.nc{display:grid;grid-template-columns:1.3fr 1fr;gap:22px;align-items:start}
+.nc-box{display:flex;flex-direction:column;gap:4px;padding:10px 14px;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);margin-top:10px}.nc-box small{color:var(--muted)}
+.nc-box code{font-size:1.1em}.nc-box code.ok{color:var(--acc4)}.nc-box code.bad{color:var(--danger)}
+.nc-eq{text-align:center;margin:8px 0 0;font-size:1.05em}.nc-eq .ok{color:var(--acc4)}.nc-eq .bad{color:var(--danger)}.nc-eq b{font-size:1.4em;margin-right:6px}
+.nc-r canvas#ncCv{height:calc(var(--vis-h,100px) * 1.5);width:auto;aspect-ratio:160/96;image-rendering:pixelated;background:#000;border:var(--bw) solid var(--line);border-radius:var(--radius);display:block}
+.nc-msg{margin-top:10px;line-height:1.5}.nc-msg .ok{color:var(--acc4)}.nc-msg .bad{color:var(--danger)}
+.mf-h,.mf-row{display:grid;grid-template-columns:.8fr 1.6fr 1.1fr auto;gap:8px;align-items:center}
+.mf-h{font-size:.8em;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;padding:0 2px 6px}
+.mf-row{margin-bottom:6px}.mf-row input{width:100%;padding:8px 10px;background:var(--panel);border:var(--bw) solid var(--line);color:var(--text);border-radius:var(--radius);font:inherit}
+.mf-row .x{width:32px;height:32px}
+.dg .card p{margin:6px 0 0;line-height:1.4}.dg-ask{color:var(--text)}.dg-ask b{color:var(--cur)}
+@media (max-width:900px){.sw,.ft,.nc{grid-template-columns:1fr}}
+
+/* E02 · B5 v25 */
+.hd{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;align-items:start}
+.hd canvas#hudCv{height:calc(var(--game-h,260px) * .62);width:auto;aspect-ratio:320/180;max-width:100%;image-rendering:pixelated;background:#000;border:var(--bw) solid var(--line);border-radius:var(--radius);display:block}
+.sf-nodes{justify-content:flex-start;flex-wrap:wrap;margin-bottom:12px}
+.sf{display:grid;grid-template-columns:1.2fr 1fr;gap:22px;align-items:start}
+.sf canvas#scCv{height:calc(var(--game-h,260px) * .62);width:auto;aspect-ratio:320/180;max-width:100%;image-rendering:pixelated;background:#000;border:var(--bw) solid var(--line);border-radius:var(--radius);display:block}
+.cl{display:grid;grid-template-columns:1.5fr 1fr;gap:24px;align-items:start}
+.cl .check{margin:6px 0}.ck-b{margin-left:auto;font-size:.75em;flex:none}
+.cl .card h3{margin:4px 0 6px}.cl .card p{line-height:1.5}
+@media (max-width:900px){.hd,.sf,.cl{grid-template-columns:1fr}}
+/* B5 v26 · Prompt 8 legible */
+.pb8{grid-template-columns:1fr;gap:12px}
+.pb8 .field label{font-size:1em}.pb8 .field input{font-size:1.05em;padding:10px 12px}
+.pb8 .gdd-form.pb-fields{grid-template-columns:1fr 1.4fr .6fr;gap:12px}.pb8 .pb-fields .field:first-child{grid-column:auto}.pb8-note{margin:8px 0 6px!important}
+.pb8-note{font-size:1em;color:var(--muted);margin:12px 0}
+.pb8 .sp-chips .chip{font-size:.9em}
+html[data-mode] .pb8 .pb-out .prompt-box pre{font-size:1.05em;line-height:1.5}
+.prompt-box pre .yl,.yl{background:rgba(255,210,63,.2);color:#ffd23f;font-weight:700;padding:0 3px;border-bottom:2px solid #ffd23f}
+html[data-light="1"] .prompt-box pre .yl,html[data-light="1"] .yl{color:#7a5b00;background:rgba(255,210,63,.45);border-bottom-color:#c99a00}
+.prompt-box .ph .t{font-size:.9em}
+@media (max-width:900px){.pb,.lg,.px3,.sty-bot{grid-template-columns:1fr}.sty-grid{grid-template-columns:repeat(2,1fr)}}
+.inv{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.inv-row{display:grid;grid-template-columns:350px 1fr;gap:12px;align-items:stretch}
+.inv-row label{display:flex;flex-direction:column;justify-content:center;padding:4px 12px;border:var(--bw) solid var(--line);border-radius:var(--radius);background:var(--panel)}
+.inv-row label .cn{margin-bottom:2px}
+.inv-row label b{font-size:1em}.inv-row label small{color:var(--muted);font-size:.8em}
+.inv-row textarea{width:100%;min-height:50px;height:100%;background:var(--bg2);border:var(--bw) solid var(--line);border-radius:var(--radius);padding:8px 12px;resize:none;font-size:1.02em;line-height:1.35}
+.inv-row textarea:focus{outline:none;border-color:var(--cur)}
+.inv-btns{display:flex;gap:8px;margin-top:10px}
 .grid.c5.fixed{grid-template-columns:repeat(5,1fr)}
 .grid.c5.fixed .card{padding:18px 18px 20px}.grid.c5.fixed .card p{font-size:1.12em;line-height:1.5}.grid.c5.fixed .card .cn{font-size:.95em}
 @media (max-width:1100px){.grid.c5.fixed{grid-template-columns:repeat(3,1fr)}}
@@ -668,13 +830,13 @@ html[data-theme="minimal"] .tag-time{font-family:var(--font-ui);font-weight:600;
    ========================================================= */
 'use strict';
 
-const APP_VERSION = 'v18';
+const APP_VERSION = 'v26';
 /* ---- PUBLICACIÓN POR FECHAS ----
    Abierto como archivo local (file://) → todo habilitado siempre (modo docente).
    Publicado en la web (GitHub Pages / Netlify) → cada encuentro se habilita solo
-   a partir de su fecha, a las 00:01 hora Argentina (UTC-3). Un solo index.html para ambos. */
+   a partir de su fecha, a las 08:00 hora Argentina (UTC-3). Un solo index.html para ambos. */
 const PUBLIC_BUILD = location.protocol !== 'file:' && !/^(localhost|127\.)/.test(location.hostname);
-const RELEASE = { 1: '2026-10-20T00:01:00-03:00', 2: '2026-10-27T00:01:00-03:00', 3: '2026-11-03T00:01:00-03:00', 4: '2026-11-10T00:01:00-03:00' };
+const RELEASE = { 1: '2026-10-20T08:00:00-03:00', 2: '2026-10-27T08:00:00-03:00', 3: '2026-11-03T08:00:00-03:00', 4: '2026-11-10T08:00:00-03:00' };
 function isOpen(e) { if (!PUBLIC_BUILD) return true; const d = RELEASE[e.n]; return !d || Date.now() >= new Date(d).getTime(); }
 function releaseLabel(n) { const d = RELEASE[n]; if (!d) return ''; const t = new Date(d); const P = {}; new Intl.DateTimeFormat('es-AR', { weekday: 'long', day: 'numeric', month: 'numeric', timeZone: 'America/Argentina/Buenos_Aires' }).formatToParts(t).forEach(x => P[x.type] = x.value); return `${P.weekday} ${P.day}/${P.month}`; }
 function openKey() { return COURSE.encuentros.map(e => isOpen(e) ? 1 : 0).join(''); }
@@ -786,11 +948,12 @@ const GMK = {
     hills('#1d3a5c', -60, .08, H * .52); hills('#284b68', 0, .12, H * .62); hills('#386c77', 100, .24, H * .74); },
   flat(g, W, H, c1, c2) { const gr = g.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, c1 || '#13203f'); gr.addColorStop(1, c2 || '#1c2d52'); g.fillStyle = gr; g.fillRect(0, 0, W, H); },
   /* personaje GAME MAKER (nativo 30x36) */
-  char(g, x, y, s, o) { o = o || {}; const r = (dx, dy, w, h, c) => g.fillRect(x + dx * s, y + dy * s, w * s, h * s); const f = (c) => g.fillStyle = c; const walk = o.walk || 0, jump = o.jump ? 1 : 0, face = o.face || 1;
-    f('#18253b'); r(8 + (walk > 0 ? 3 : 0), 31 - 3 * jump, 8, 8); r(21 - (walk < 0 ? 3 : 0), 31 - 3 * jump, 8, 8);
-    f('#53b7c9'); r(5, 13, 29, 23); f('#355a9b'); r(2, 14 - 6 * jump, 6, 16); r(32, 14 - 6 * jump, 6, 16);
-    f('#f5d1af'); r(7, -2, 26, 21); f('#25334e'); r(4, -7, 30, 10); f('#263d66'); r(9, -12, 20, 8);
-    const ex = face > 0 ? 2 : -2; f('#26304a'); r(10 + ex, 6, 4, 5); r(24 + ex, 6, 4, 5); f('#d78b9e'); r(15, 14, 10, 3); f('#ffcb68'); r(15, 21, 8, 11); f('#f7eec5'); r(18, 23, 3, 5);
+  char(g, x, y, s, o) { o = o || {};
+    if (o.hurt && !o._i) { const W = Math.ceil(52 * s), H = Math.ceil(64 * s), c = GMK._oc || (GMK._oc = document.createElement('canvas')); c.setAttribute('data-native', '1'); if (c.width !== W || c.height !== H) { c.width = W; c.height = H; } const q = c.getContext('2d'); q.clearRect(0, 0, W, H); GMK.char(q, 6 * s, 16 * s, s, Object.assign({}, o, { hurt: false, _i: 1 })); q.globalCompositeOperation = 'source-atop'; q.fillStyle = 'rgba(255,70,70,.62)'; q.fillRect(0, 0, W, H); q.globalCompositeOperation = 'source-over'; g.drawImage(c, x - 6 * s, y - 16 * s, W, H); return; } const r = (dx, dy, w, h, c) => g.fillRect(x + dx * s, y + dy * s, w * s, h * s); const f = (c) => g.fillStyle = c; const walk = o.walk || 0, jump = o.jump ? 1 : 0, face = o.face || 1, st = o.st || 1, oy = o.dy || 0, ox = o.lean || 0, am = o.arm || 0; const rf = r; const r2 = (dx, dy, w, h) => g.fillRect(x + (dx + ox) * s, y + (dy + oy) * s, w * s, h * s);
+    f('#18253b'); rf(8 + (walk > 0 ? 3 * st : 0), 31 - 3 * jump, 8, 8); rf(21 - (walk < 0 ? 3 * st : 0), 31 - 3 * jump, 8, 8);
+    f('#53b7c9'); r2(5, 13, 29, 23); f('#355a9b'); r2(2, 14 - 6 * jump + 5 * am, 6, 16); r2(32, 14 - 6 * jump - 5 * am, 6, 16);
+    f('#f5d1af'); r2(7, -2, 26, 21); f('#25334e'); r2(4, -7, 30, 10); f('#263d66'); r2(9, -12, 20, 8);
+    const ex = face > 0 ? 2 : -2; f('#26304a'); r2(10 + ex, 6, 4, 5); r2(24 + ex, 6, 4, 5); f('#d78b9e'); r2(15, 14, 10, 3); f('#ffcb68'); r2(15, 21, 8, 11); f('#f7eec5'); r2(18, 23, 3, 5);
     if (o.hurt) { g.fillStyle = 'rgba(255,80,80,.55)'; g.fillRect(x, y - 12 * s, 40 * s, 52 * s); } },
   /* fantasma (nativo 34x40, origen = centro superior) */
   ghost(g, cx, ty, s) { const r = (dx, dy, w, h, c) => { g.fillStyle = c; g.fillRect(cx + dx * s, ty + dy * s, w * s, h * s); }; r(-17, 0, 34, 29, '#c8a9ff'); r(-17, 15, 7, 25, '#c8a9ff'); r(-6, 15, 8, 20, '#c8a9ff'); r(6, 15, 8, 25, '#c8a9ff'); r(-10, 13, 5, 6, '#242742'); r(5, 13, 5, 6, '#242742'); r(-3, 22, 6, 3, '#6c4fa8'); },
@@ -1782,7 +1945,7 @@ const dfn = (term, label) => `<dfn data-term="${esc(term)}">${esc(label || term)
 const ocem = (o, c, e) => `
   <div class="ocem">
     <div class="step" style="--c:var(--acc)"><div class="lab">👁 OBSERVAMOS</div><p>${o}</p><div class="who">Docente explica y muestra</div></div>
-    <div class="step" style="--c:var(--acc3)"><div class="lab">🔧 CONSTRUIMOS</div><p>${c}</p><div class="who">Docente implementa en vivo con Antigravity</div></div>
+    <div class="step" style="--c:var(--acc3)"><div class="lab">🔧 CONSTRUIMOS</div><p>${c}</p><div class="who">Docente implementa en vivo con IA</div></div>
     <div class="step" style="--c:var(--acc4)"><div class="lab">🎮 EXPERIMENTAMOS</div><p>${e}</p><div class="who">Estudiantes replican y personalizan</div></div>
   </div>`;
 const activity = (title, items, extra) => `
@@ -2221,7 +2384,7 @@ SPR.mountain = ['.......B.......', '......BBB......', '.....BBBBB.....', '....BB
 
 /* ---------- prompts del encuentro 02 ---------- */
 PROMPTS.push(
-  { id: 'p5', enc: 2, block: 2, title: 'Prompt 5 · Generación de un asset (para el generador de imágenes)', text:
+  { id: 'p5', enc: 2, block: 2, title: 'Prompt 5 · Imagen de un asset (lo arma el constructor del Bloque 02)', text:
 `Generá un sprite de videojuego en estilo [ESTILO: pixel art 16-bit / dibujo plano / etc.].
 
 Sujeto: [QUÉ ES: ej. robot explorador pequeño y simpático].
@@ -2274,11 +2437,11 @@ Probá el flujo completo: inicio → juego → pausa → fin → inicio.` }
 
 /* ---------- checklist E02 ---------- */
 const CHECKS_E2 = [
-  'Tengo definido el estilo visual de mi juego (referencias + paleta).',
+  'Elegí la resolución gráfica (bits) y el estilo visual de mi juego.',
   'Generé al menos un personaje, un obstáculo/enemigo y un fondo.',
+  'Mi personaje tiene al menos dos animaciones (idle y run).',
   'Mis assets están en la carpeta assets/ con nombres ordenados.',
   'Mi personaje reemplazó al rectángulo y se ve en el juego.',
-  'Mi personaje tiene al menos dos animaciones (idle y run).',
   'Mi juego muestra un HUD con puntaje o vidas.',
   'Mi juego tiene pantalla de inicio y de fin.'
 ];
@@ -2287,21 +2450,71 @@ const CHECKS_E2 = [
    COMPONENTES E02
    ========================================================= */
 
-/* B1 — visor de spritesheet */
-MOUNTS.sheetViewer = el => {
-  const frames = ['p_run1', 'p_idle', 'p_run2', 'p_run3'];
-  el.innerHTML = `<div class="two"><div><h4>Spritesheet (un solo archivo)</h4><canvas id="sheetCv" width="104" height="30" style="width:100%;max-width:520px;image-rendering:pixelated;background:#000;border:1px solid var(--line)"></canvas>
-    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:8px"><button class="btn sm" id="shPlay">▶ Reproducir</button><span class="chip">FPS <input id="shFps" type="range" min="2" max="16" value="8" style="width:100px"> <b id="shFpsV">8</b></span><span class="chip">frame <b id="shIdx">1</b>/4</span></div></div>
-    <div><h4>Frame que el juego dibuja ahora</h4><canvas id="frameCv" width="12" height="12" style="width:120px;height:120px;image-rendering:pixelated;background:#000;border:1px solid var(--line)"></canvas><p class="small muted">El juego no "ve" un personaje: ve una grilla de frames iguales y muestra uno por vez. Por eso todos deben medir <b>exactamente lo mismo</b>.</p></div></div>`;
-  const sheet = $('#sheetCv').getContext('2d'), fr = $('#frameCv').getContext('2d'); let i = 0, playing = false, iv = null;
-  const draw = () => { sheet.fillStyle = '#000'; sheet.fillRect(0, 0, 104, 30); frames.forEach((f, k) => { sheet.drawImage(sprite(f, 1), 4 + k * 26, 9); sheet.strokeStyle = k === i ? '#3ee6ff' : '#2b3a6b'; sheet.lineWidth = 1; sheet.strokeRect(2.5 + k * 26, 2.5, 24, 24); }); fr.clearRect(0, 0, 12, 12); fr.drawImage(sprite(frames[i], 1), 0, 0); $('#shIdx').textContent = i + 1; };
-  const tick = () => { i = (i + 1) % 4; draw(); };
-  const restart = () => { clearInterval(iv); if (playing) iv = setInterval(tick, 1000 / +$('#shFps').value); };
-  $('#shPlay').onclick = () => { playing = !playing; $('#shPlay').textContent = playing ? '⏸ Pausar' : '▶ Reproducir'; restart(); };
-  $('#shFps').oninput = e => { $('#shFpsV').textContent = e.target.value; restart(); };
-  $('#sheetCv').onclick = e => { const r = e.target.getBoundingClientRect(); i = Math.max(0, Math.min(3, Math.floor((e.clientX - r.left) / r.width * 104 / 26))); draw(); };
-  ACTIVE_GAMES.add({ destroy: () => clearInterval(iv) }); draw();
+/* B1 — iconos de las tarjetas (dibujados por código, mismo arte del juego) */
+MOUNTS.assetIcons = el => {
+  const draw = (cv, k) => {
+    const g = cv.getContext('2d'); g.imageSmoothingEnabled = false; const W = 48;
+    g.fillStyle = '#0e1630'; g.fillRect(0, 0, W, W);
+    const put = (n, sc, x, y) => g.drawImage(sprite(n, sc), x, y);
+    if (k === 'asset') { g.fillStyle = '#c99a00'; g.fillRect(4, 10, 18, 7); g.fillRect(4, 14, 40, 26); g.fillStyle = '#ffd23f'; g.fillRect(4, 18, 40, 22); put('gem', 2, 16, 21); }
+    else if (k === 'sprite') put('player', 3, 6, 6);
+    else if (k === 'sheet') { ['p_idle', 'p_run1', 'p_run2', 'p_run3'].forEach((n, i) => { g.fillStyle = '#1a2b45'; g.fillRect(i * 12, 17, 12, 14); g.strokeStyle = '#3ee6ff'; g.lineWidth = 1; g.strokeRect(i * 12 + .5, 17.5, 11, 13); put(n, 1, i * 12, 18); }); }
+    else if (k === 'tileset') { ['grass', 'floor', 'brick', 'water', 'brick', 'floor', 'floor', 'grass', 'water'].forEach((n, i) => put(n, 2, (i % 3) * 16, Math.floor(i / 3) * 16)); }
+    else if (k === 'tilemap') { const M = ['......', '......', '..cc..', '.###..', '......', 'gggggg']; M.forEach((row, y) => { for (let x = 0; x < 6; x++) { put('floor', 1, x * 8, y * 8); const c = row[x]; if (c === '#') put('brick', 1, x * 8, y * 8); else if (c === 'g') put('grass', 1, x * 8, y * 8); else if (c === 'c') put('coin', 1, x * 8, y * 8); } }); }
+    else if (k === 'fondo') { g.fillStyle = '#0b0f1e'; g.fillRect(0, 0, W, W); g.fillStyle = '#5f6d99'; [[6, 6], [20, 12], [38, 5], [30, 20], [10, 22]].forEach(([x, y]) => g.fillRect(x, y, 2, 2)); g.fillStyle = '#ffe58a'; g.fillRect(34, 8, 8, 8); put('mountain', 3, 0, 22); put('mountain', 3, 20, 26); put('grass', 1, 0, 40); put('grass', 1, 8, 40); put('grass', 1, 16, 40); put('grass', 1, 24, 40); put('grass', 1, 32, 40); put('grass', 1, 40, 40); }
+    else if (k === 'parallax') { const band = (y, h, c, len) => { g.fillStyle = c; g.fillRect(2, y, 44, h); g.fillStyle = '#fff'; g.fillRect(8, y + h / 2 - 1, len, 2); g.beginPath(); g.moveTo(8 + len, y + h / 2 - 4); g.lineTo(8 + len + 5, y + h / 2); g.lineTo(8 + len, y + h / 2 + 4); g.fill(); }; band(3, 12, '#1a2b45', 6); band(18, 13, '#284b68', 16); band(34, 12, '#3f9a85', 28); }
+    else if (k === 'q_pj') { put('player', 3, 4, 4); g.fillStyle = '#2b3a6b'; g.fillRect(4, 42, 40, 2); g.fillStyle = '#3ee6ff'; [0, 1, 2, 3].forEach(i => g.fillRect(6 + i * 10, 45, 6, 2)); }
+    else if (k === 'q_en') { put('enemy', 3, 2, 8); put('coin', 1, 32, 6); g.fillStyle = '#ff5a5a'; g.fillRect(30, 28, 14, 3); g.fillRect(34, 24, 6, 11); g.fillStyle = '#3ee6ff'; g.fillRect(32, 38, 12, 6); g.fillStyle = '#0e1630'; g.fillRect(36, 40, 4, 2); }
+    else if (k === 'q_esc') { g.fillStyle = '#0b0f1e'; g.fillRect(0, 0, W, W); g.fillStyle = '#5f6d99'; [[6, 6], [18, 10], [36, 5]].forEach(([x, y]) => g.fillRect(x, y, 2, 2)); g.fillStyle = '#ffe58a'; g.fillRect(34, 8, 8, 8); put('mountain', 3, 0, 18); put('mountain', 3, 22, 22); ['grass', 'grass', 'grass', 'grass', 'grass', 'grass'].forEach((n, i) => put(n, 1, i * 8, 36)); ['floor', 'brick', 'floor', 'brick', 'floor', 'brick'].forEach((n, i) => put(n, 1, i * 8, 40)); }
+    else if (k === 'q_mal') { for (let y = 0; y < 6; y++) for (let x = 0; x < 6; x++) { g.fillStyle = (x + y) % 2 ? '#e8e8f0' : '#b8bccc'; g.fillRect(x * 8, y * 8, 8, 8); } put('player', 2, 6, 8); g.fillStyle = '#d93a3a'; g.beginPath(); g.arc(35, 35, 11, 0, 7); g.fill(); g.strokeStyle = '#fff'; g.lineWidth = 3; g.beginPath(); g.moveTo(30, 30); g.lineTo(40, 40); g.moveTo(40, 30); g.lineTo(30, 40); g.stroke(); }
+    else if (k === 'pixel') { const rows = SPR.heart; const n = rows.length, sc = Math.floor(44 / n); const ox = Math.floor((W - n * sc) / 2); put('heart', sc, ox, ox); g.strokeStyle = 'rgba(11,15,30,.55)'; g.lineWidth = 1; for (let i = 0; i <= n; i++) { g.beginPath(); g.moveTo(ox + i * sc + .5, ox); g.lineTo(ox + i * sc + .5, ox + n * sc); g.moveTo(ox, ox + i * sc + .5); g.lineTo(ox + n * sc, ox + i * sc + .5); g.stroke(); } }
+  };
+  $$('canvas[data-ico]', el).forEach(cv => draw(cv, cv.dataset.ico));
 };
+
+/* B1 — cómo el juego lee un spritesheet: cada fila es una animación distinta */
+MOUNTS.sheetViewer = el => {
+  /* cada frame es una pose del personaje (mismo arte del juego), dibujada a mano para que cada animación se vea distinta */
+  const A = [
+    { l: 'IDLE', fr: [{}, { dy: 2 }], fps: 3, mv: 'none', d: 'Quieto: dos frames casi iguales que se alternan (el personaje “respira”). El personaje no se desplaza.' },
+    { l: 'WALK', fr: [{ walk: 1, st: .9, arm: 1 }, { dy: 1 }, { walk: -1, st: .9, arm: -1 }, { dy: 1 }], fps: 6, mv: 'walk', d: 'Camina: pie adelante, neutro, pie atrás, neutro. A la vez el juego lo desplaza despacio por la pantalla.' },
+    { l: 'RUN', fr: [{ walk: 1, st: 2, arm: 1, lean: 3 }, { dy: -2, lean: 3, jump: true }, { walk: -1, st: 2, arm: -1, lean: 3 }, { dy: -2, lean: 3, jump: true }], fps: 10, mv: 'run', d: 'Corre: el mismo ciclo, más rápido, inclinado y con pasos largos. El juego lo desplaza rápido.' },
+    { l: 'JUMP', fr: [{ dy: 6 }, { jump: true, dy: -3 }, { jump: true, dy: 1 }, { dy: 6 }], fps: 5, mv: 'jump', d: 'Salta: se agacha, sube, cae y amortigua. Cada frame también cambia la altura en pantalla.' },
+    { l: 'HURT', fr: [{ hurt: true, lean: -4, arm: 1 }, { dy: 0 }], fps: 6, mv: 'hit', d: 'Golpe: se pone rojo y tiembla. Dura medio segundo y no se repite al infinito.' }
+  ];
+  const CW = 32, CH = 32;
+  el.innerHTML = `<div class="sv">
+    <div class="sv-sheet"><h4>La hoja: un solo archivo, una animación por fila</h4>
+      ${A.map((a, i) => `<div class="sv-row ${i === 2 ? 'on' : ''}" data-r="${i}"><span class="sv-l">${a.l}<small>${a.fr.length} frames</small></span><canvas width="128" height="32" style="image-rendering:pixelated"></canvas></div>`).join('')}
+      <p class="small muted" style="margin:8px 0 0">Tocá una fila (o un frame) para elegirla. Es una imagen de <b>128×160 px</b> con frames de <b>32×32</b>.</p></div>
+    <div class="sv-game"><h4>Lo que el juego dibuja</h4>
+      <canvas id="svStage" width="240" height="110" style="width:100%;image-rendering:pixelated;border:1px solid var(--line);background:#0e1630"></canvas>
+      <div class="sv-info"><canvas id="svCrop" width="32" height="32" style="width:96px;height:96px;flex:none;image-rendering:pixelated;border:1px solid var(--line);background:#0b1226"></canvas>
+        <div><div class="small"><b id="svName"></b> · frame <b id="svIdx"></b> · el juego recorta <code id="svCut"></code></div><p class="small muted" id="svDesc" style="margin:4px 0 0"></p></div></div>
+      <div class="sv-ctl"><button class="btn sm" id="svPlay">⏸ Pausar</button><span class="chip">FPS <input id="svFps" type="range" min="2" max="16" value="10" style="width:100px"> <b id="svFpsV">10</b></span></div></div></div>`;
+  const rows = $$('.sv-row', el), cvs = rows.map(r => $('canvas', r)), stage = $('#svStage').getContext('2d'), crop = $('#svCrop').getContext('2d');
+  stage.imageSmoothingEnabled = false; crop.imageSmoothingEnabled = false;
+  let cur = 2, play = true, manual = -1, t = 0, ft = 0, last = performance.now(), raf, fps = A[2].fps, lastKey = '';
+  const JY = [0, -30, -16, 0];
+  const fi = () => manual >= 0 ? Math.min(manual, A[cur].fr.length - 1) : Math.floor(ft) % A[cur].fr.length;
+  const drawRows = () => cvs.forEach((cv, i) => { const g = cv.getContext('2d'); g.imageSmoothingEnabled = false; g.clearRect(0, 0, 128, 32); const a = A[i], f = i === cur ? fi() : -1;
+    for (let k = 0; k < 4; k++) { if (k < a.fr.length) { g.fillStyle = '#0b1226'; g.fillRect(k * CW, 0, CW, CH); GMK.char(g, k * CW + 16 - 20 * .56, 8.2, .56, a.fr[k]); g.strokeStyle = k === f ? '#3ee6ff' : '#2b3a6b'; g.lineWidth = k === f ? 2 : 1; g.strokeRect(k * CW + 1, 1, CW - 2, CH - 2); } else { g.strokeStyle = '#1d2850'; g.lineWidth = 1; g.setLineDash([2, 2]); g.strokeRect(k * CW + 1.5, 1.5, CW - 3, CH - 3); g.setLineDash([]); } } });
+  const drawStage = () => { const a = A[cur], f = fi(), pz = a.fr[f]; const g = stage; g.fillStyle = '#0e1630'; g.fillRect(0, 0, 240, 110); g.fillStyle = '#5f6d99'; [[20, 14], [90, 30], [150, 10], [210, 26], [60, 50]].forEach(([x, y]) => g.fillRect(x, y, 2, 2));
+    for (let x = 0; x < 240; x += 8) { g.drawImage(sprite('grass', 1), x, 94); g.drawImage(sprite('floor', 1), x, 102); }
+    let x = 95, y = 45;
+    if (a.mv === 'walk') x = ((t * 34) % 280) - 30; else if (a.mv === 'run') x = ((t * 100) % 280) - 30; else if (a.mv === 'jump') y += JY[f]; else if (a.mv === 'hit') x += (f % 2 ? -3 : 3);
+    GMK.char(g, Math.round(x), Math.round(y), 1.25, pz); };
+  const drawInfo = () => { const a = A[cur], f = fi(); crop.clearRect(0, 0, 32, 32); crop.fillStyle = '#0b1226'; crop.fillRect(0, 0, 32, 32); GMK.char(crop, 16 - 20 * .56, 8.2, .56, a.fr[f]);
+    $('#svName').textContent = a.l; $('#svIdx').textContent = (f + 1) + '/' + a.fr.length; $('#svCut').textContent = `x=${f * CW}, y=${cur * CH} · ${CW}×${CH}`; $('#svDesc').textContent = a.d; };
+  const pick = i => { cur = i; manual = -1; ft = 0; t = 0; fps = A[i].fps; $('#svFps').value = fps; $('#svFpsV').textContent = fps; rows.forEach((r, k) => r.classList.toggle('on', k === i)); lastKey = ''; };
+  rows.forEach((r, i) => r.onclick = e => { if (i !== cur) pick(i); const cv = $('canvas', r); const rc = cv.getBoundingClientRect(); const k = Math.floor((e.clientX - rc.left) / rc.width * 4); if (e.target === cv && k < A[i].fr.length) { manual = k; play = false; $('#svPlay').textContent = '▶ Reproducir'; lastKey = ''; } });
+  $('#svPlay').onclick = () => { play = !play; if (play) manual = -1; $('#svPlay').textContent = play ? '⏸ Pausar' : '▶ Reproducir'; };
+  $('#svFps').oninput = e => { fps = +e.target.value; $('#svFpsV').textContent = fps; };
+  const tick = now => { if (!document.body.contains(el)) return; const dt = Math.min(.05, (now - last) / 1000); last = now; if (play) { t += dt; ft += dt * fps; }
+    const key = cur + ':' + fi(); drawStage(); if (key !== lastKey) { lastKey = key; drawRows(); drawInfo(); } raf = requestAnimationFrame(tick); };
+  ACTIVE_GAMES.add({ destroy: () => cancelAnimationFrame(raf) }); drawRows(); drawInfo(); raf = requestAnimationFrame(tick);
+};
+
 
 /* B1 — editor de tilemap */
 MOUNTS.tileEditor = el => {
@@ -2338,21 +2551,37 @@ MOUNTS.parallax = el => {
   ACTIVE_GAMES.add({ destroy: () => cancelAnimationFrame(raf) }); frame();
 };
 
-/* B1 — inventario de assets del alumno */
+/* B1 — inventario de assets del alumno (un renglón grande por categoría) */
 MOUNTS.assetInventory = el => {
-  const rows = [['personaje', 'Personaje principal (idle + run + jump)'], ['enemigo', 'Enemigos / obstáculos'], ['objetos', 'Objetos: monedas, llaves, power-ups'], ['tiles', 'Tileset del escenario (piso, pared, plataforma)'], ['fondo', 'Fondo (1 a 3 capas)'], ['ui', 'Interfaz: corazones, íconos, botones, fuente'], ['meta', 'Pantallas: título, game over, victoria']];
-  el.innerHTML = `<div class="gdd-form" style="margin-top:10px">${rows.map(([k, l]) => `<div class="field"><label>${esc(l)}</label><input data-a="${k}" value="${esc(STATE.e2.assets[k] || '')}" placeholder="¿Qué necesita MI juego? Ej: gato naranja, 3 frames"></div>`).join('')}</div>
-   <div style="margin-top:10px"><button class="btn sm" id="assetCopy">⧉ Copiar inventario</button></div>`;
+  const rows = [['personaje', 'Personaje principal', 'idle + run + jump', 'Ej: gato naranja con capa azul · 4 frames de correr, 2 de quieto, 1 de salto'], ['enemigo', 'Enemigos y obstáculos', 'uno o más tipos', 'Ej: slime verde que patrulla (2 frames) · pinches fijos'], ['objetos', 'Objetos', 'monedas, llaves, power-ups', 'Ej: moneda giratoria (4 frames) · llave dorada'], ['tiles', 'Tileset del escenario', 'piso, pared, plataforma', 'Ej: piso de pasto, ladrillo, plataforma flotante · 16×16'], ['fondo', 'Fondo', '1 a 3 capas', 'Ej: cielo de noche + montañas lejanas + árboles cercanos'], ['ui', 'Interfaz', 'corazones, íconos, botones, fuente', 'Ej: corazón de vida · ícono de moneda · fuente pixel'], ['meta', 'Pantallas', 'título, game over, victoria', 'Ej: título con el nombre del juego · GAME OVER · ¡GANASTE!'], ['tam', 'Tamaños elegidos', 'personaje, tiles, fondo', 'Ej: personaje 32×32 · tiles 16×16 · fondo 640×360']];
+  el.innerHTML = `<div class="inv">${rows.map(([k, l, h, ph], i) => `<div class="inv-row"><label for="inv_${k}"><b><span class="cn" style="display:inline;margin:0 8px 0 0">${pad(i + 1)}</span>${esc(l)}</b><small>${esc(h)}</small></label><textarea id="inv_${k}" data-a="${k}" placeholder="${esc(ph)}">${esc(STATE.e2.assets[k] || '')}</textarea></div>`).join('')}</div>
+   <div class="inv-btns"><button class="btn sm" id="assetCopy">⧉ Copiar inventario</button><button class="btn sm ghost" id="assetClear">Limpiar</button></div>`;
   $$('[data-a]', el).forEach(i => i.oninput = () => { STATE.e2.assets[i.dataset.a] = i.value; saveState(); });
-  $('#assetCopy').onclick = () => copyText('INVENTARIO DE ASSETS\n' + rows.map(([k, l]) => `- ${l}: ${STATE.e2.assets[k] || '(pendiente)'}`).join('\n'), 'Inventario copiado');
+  $('#assetCopy').onclick = () => copyText('INVENTARIO DE ASSETS\n' + rows.map(([k, l]) => `- ${l}: ${(STATE.e2.assets[k] || '').trim() || '(pendiente)'}`).join('\n'), 'Inventario copiado');
+  $('#assetClear').onclick = () => modal('Limpiar inventario', '<p>Se borra todo lo que escribiste en el inventario. ¿Seguro?</p>', [{ label: 'Sí, limpiar', primary: true, onClick: () => { STATE.e2.assets = {}; saveState(); $$('[data-a]', el).forEach(i => i.value = ''); } }, { label: 'Cancelar' }]);
 };
 
-/* B2 — constructor de prompt de imagen */
+/* cronómetro regresivo reutilizable (ejercicios en vivo) */
+function liveTimer(host, DUR, doneMsg, small) {
+  let left = DUR, run = false, iv = null;
+  host.innerHTML = `<div class="lg-timer"><div class="lg-dig ${small ? 'sm' : ''}">${pad(Math.floor(DUR / 60))}:${pad(DUR % 60)}</div><div class="lg-btns"><button class="btn sm primary" data-t="play">▶ Empezar</button><button class="btn sm" data-t="reset" title="Reiniciar">↺</button></div></div>`;
+  const dig = $('.lg-dig', host), pl = $('[data-t="play"]', host);
+  const show = () => { dig.textContent = `${pad(Math.floor(left / 60))}:${pad(left % 60)}`; dig.classList.toggle('alarm', left === 0); };
+  const stop = () => { clearInterval(iv); run = false; pl.textContent = left === DUR ? '▶ Empezar' : '▶ Seguir'; };
+  pl.onclick = () => { if (run) { stop(); return; } if (left === 0) left = DUR; run = true; pl.textContent = '⏸ Pausar'; iv = setInterval(() => { left--; show(); if (left <= 0) { stop(); pl.textContent = '▶ Empezar'; toast(doneMsg || '⏱ ¡Se terminó el tiempo!'); } }, 1000); show(); };
+  $('[data-t="reset"]', host).onclick = () => { stop(); left = DUR; show(); pl.textContent = '▶ Empezar'; };
+  ACTIVE_GAMES.add({ destroy: () => clearInterval(iv) });
+}
+
+/* B2 — constructor de prompt de imagen (este ES el Prompt 5): lo completan ellos en 5 minutos */
 MOUNTS.imgPromptBuilder = el => {
-  const F = [['estilo', 'Estilo', 'pixel art 16-bit, colores planos, contornos oscuros'], ['sujeto', 'Sujeto', 'robot explorador pequeño y simpático, antena con luz'], ['vista', 'Vista', 'lateral, mirando a la derecha'], ['pose', 'Pose', 'quieto, pies juntos'], ['paleta', 'Paleta', 'celeste, amarillo, gris oscuro'], ['tam', 'Tamaño destino', '32x32']];
+  const F = [['estilo', 'Estilo', 'pixel art de 16 bits estilo Super Nintendo, dibujo plano'], ['sujeto', 'Sujeto (qué es)', 'robot explorador pequeño y simpático, antena con luz'], ['vista', 'Vista', 'lateral, mirando a la derecha'], ['pose', 'Pose', 'quieto, pies juntos'], ['paleta', 'Paleta (3 a 5 colores)', 'celeste, amarillo, gris oscuro'], ['tam', 'Tamaño destino', '32x32']];
   STATE.e2.ip = STATE.e2.ip || {};
-  el.innerHTML = `<div class="gdd-form">${F.map(([k, l, ph]) => `<div class="field"><label>${l}</label><input data-ip="${k}" value="${esc(STATE.e2.ip[k] || '')}" placeholder="${esc(ph)}"></div>`).join('')}</div>
-    <div class="prompt-box" style="margin-top:12px"><div class="ph"><span class="t">Prompt de imagen generado</span><button class="btn sm primary" id="ipCopy">⧉ Copiar</button></div><pre id="ipOut"></pre></div>`;
+  el.innerHTML = `<div class="pb-top"><div id="pbTimer"></div><div class="pb-flow"><span><b>1</b> Completá los campos</span><i>›</i><span><b>2</b> Copiá el prompt</span><i>›</i><span><b>3</b> Pegalo en tu generador</span></div></div>
+    <div class="pb"><div class="gdd-form pb-fields">${F.map(([k, l, ph]) => `<div class="field"><label>${l}${k === 'estilo' ? ' <span class="small muted">· viene de tus elecciones anteriores</span>' : ''}</label><input data-ip="${k}" value="${esc(STATE.e2.ip[k] || '')}" placeholder="${esc(ph)}"></div>`).join('')}</div>
+    <div class="pb-out"><div class="prompt-box"><div class="ph"><span class="t">Tu prompt de imagen (Prompt 5)</span><button class="btn sm primary" id="ipCopy">⧉ Copiar</button></div><pre id="ipOut"></pre></div>
+      <p class="small muted" style="margin:8px 0 0">Para fondos y tiles cambiá “sprite” por “fondo de videojuego, vista lateral, sin personajes” o “tileset de 16×16 en grilla”.</p></div></div>`;
+  liveTimer($('#pbTimer', el), 300, '⏱ ¡Tiempo! Copiá tu prompt y pasá al generador', true);
   const v = (k, ph) => (STATE.e2.ip[k] || '').trim() || ph;
   const build = () => `Generá un sprite de videojuego en estilo ${v('estilo', F[0][2])}.\nSujeto: ${v('sujeto', F[1][2])}.\nVista: ${v('vista', F[2][2])}.\nPose: ${v('pose', F[3][2])}.\nPaleta: ${v('paleta', F[4][2])}.\nFondo: liso de un solo color (verde #00FF00) para recortarlo fácilmente.\nSin sombras proyectadas, sin texto, sin marca de agua. El sujeto centrado con margen alrededor.\nTamaño de referencia: cuadrado, pensado para reducirse a ${v('tam', F[5][2])} píxeles.\nMantené exactamente el mismo personaje, colores y proporciones en todas las imágenes de esta serie.`;
   const out = () => $('#ipOut').textContent = build();
@@ -2360,146 +2589,198 @@ MOUNTS.imgPromptBuilder = el => {
   $('#ipCopy').onclick = () => copyText(build(), 'Prompt de imagen copiado'); out();
 };
 
-/* B2 — pixelador (imagen → pixel art) */
+/* B2 — ejercicio en vivo: 5 minutos para generar la imagen afuera y subir la muestra */
+const MY_SAMPLE = { img: null, name: '' };
+MOUNTS.liveGen = el => {
+  el.innerHTML = `<div class="lg"><div class="lg-l"><div id="lgTimer"></div>
+      <ol class="lg-steps"><li>Volvé al constructor y <b>copiá tu prompt</b>.</li><li>Pegalo en <b>tu generador</b> (Gemini, ChatGPT, etc.).</li><li><b>Descargá</b> la imagen que más te guste.</li><li><b>Subila acá</b> y mostrala a la clase.</li></ol></div>
+    <div class="lg-r"><div class="lg-drop" id="lgDrop"><div class="lg-ph" id="lgPh">Acá aparece tu muestra</div><img id="lgImg" alt="Mi muestra" hidden></div>
+      <div class="lg-btns"><input type="file" id="lgFile" accept="image/*" class="sr"><button class="btn primary" id="lgPick">📁 Subir mi muestra</button><button class="btn" id="lgShow" disabled>⛶ Mostrar a la clase</button><button class="btn" id="lgNext" disabled>Preparar mi sprite ▶</button></div>
+      <p class="small muted" style="margin:6px 0 0">La imagen queda sólo en tu navegador: no se envía a ningún lado.</p></div></div>`;
+  liveTimer($('#lgTimer', el), 300, '⏱ ¡Se terminó el tiempo! Subí tu muestra');
+  const setImg = (im, name) => { MY_SAMPLE.img = im; MY_SAMPLE.name = name; document.dispatchEvent(new CustomEvent('mysample')); const t = $('#lgImg'); if (!t) return; t.src = im.src; t.hidden = false; $('#lgPh').hidden = true; $('#lgShow').disabled = false; $('#lgNext').disabled = false; };
+  $('#lgPick').onclick = () => $('#lgFile').click();
+  $('#lgFile').onchange = e => { const f = e.target.files[0]; if (!f) return; const fr = new FileReader(); fr.onload = () => { const im = new Image(); im.onload = () => { setImg(im, f.name); toast('Muestra cargada'); }; im.src = fr.result; }; fr.readAsDataURL(f); };
+  $('#lgShow').onclick = () => { if (MY_SAMPLE.img) modal('Mi muestra', `<div style="text-align:center"><img src="${MY_SAMPLE.img.src}" alt="Mi muestra" style="max-width:100%;max-height:70vh;image-rendering:auto"></div>`, [{ label: 'Cerrar' }], true); };
+  $('#lgNext').onclick = () => { const s = el.closest('.section'); const n = s && s.nextElementSibling; if (n) window.scrollTo({ top: n.getBoundingClientRect().top + window.scrollY - (parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--chrome-top')) || 60), behavior: 'smooth' }); };
+  if (MY_SAMPLE.img) setImg(MY_SAMPLE.img, MY_SAMPLE.name);
+};
+
+/* B2 — de ilustración a sprite: reduce, quita el fondo y (opcional) convierte a pixel art */
 MOUNTS.pixelator = el => {
-  el.innerHTML = `<div class="two"><div>
-    <input type="file" id="pxFile" accept="image/*" class="sr"><button class="btn primary" id="pxPick">📁 Elegir imagen</button>
-    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px"><span class="chip">tamaño <select id="pxSize" style="background:var(--bg2);color:var(--text);border:1px solid var(--line);padding:2px 6px"><option>16</option><option selected>32</option><option>48</option><option>64</option></select> px</span><span class="chip">colores <select id="pxCol" style="background:var(--bg2);color:var(--text);border:1px solid var(--line);padding:2px 6px"><option value="0">todos</option><option value="4" selected>pocos (4 niveles)</option><option value="3">muy pocos (3 niveles)</option></select></span><button class="btn sm" id="pxBg">⌫ Quitar fondo (color de la esquina)</button></div>
-    <p class="small muted" style="margin-top:8px">Esto corre sólo en tu navegador: la imagen no se sube a ningún lado. Es el mismo proceso que harías en Aseprite o Piskel, simplificado.</p></div>
-    <div><div style="display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap"><div><h4>Original</h4><canvas id="pxSrc" width="96" height="96" style="width:96px;height:96px;background:#000;border:1px solid var(--line)"></canvas></div><div><h4>Pixel art</h4><canvas id="pxDst" width="32" height="32" style="width:192px;height:192px;image-rendering:pixelated;background:#000;border:1px solid var(--line)"></canvas></div></div>
-    <div style="margin-top:8px"><button class="btn sm" id="pxDl" disabled>⬇ Descargar PNG</button></div></div></div>`;
-  let img = null, nobg = false;
-  const src = $('#pxSrc'), dst = $('#pxDst');
-  const render = () => { if (!img) return; const N = +$('#pxSize').value, lv = +$('#pxCol').value; dst.width = N; dst.height = N; const g = dst.getContext('2d'); g.imageSmoothingEnabled = true; g.clearRect(0, 0, N, N);
-    const s = Math.min(img.width, img.height); g.drawImage(img, (img.width - s) / 2, (img.height - s) / 2, s, s, 0, 0, N, N);
-    const d = g.getImageData(0, 0, N, N), p = d.data; const bg = [p[0], p[1], p[2]];
-    for (let i = 0; i < p.length; i += 4) { if (lv) { for (let c = 0; c < 3; c++) p[i + c] = Math.round(p[i + c] / 255 * (lv - 1)) / (lv - 1) * 255; } if (nobg && Math.abs(p[i] - bg[0]) + Math.abs(p[i + 1] - bg[1]) + Math.abs(p[i + 2] - bg[2]) < 90) p[i + 3] = 0; }
-    g.putImageData(d, 0, 0); const sg = src.getContext('2d'); sg.clearRect(0, 0, 96, 96); sg.drawImage(img, (img.width - s) / 2, (img.height - s) / 2, s, s, 0, 0, 96, 96); $('#pxDl').disabled = false; };
-  $('#pxPick').onclick = () => $('#pxFile').click();
-  $('#pxFile').onchange = e => { const f = e.target.files[0]; if (!f) return; const url = URL.createObjectURL(f); const im = new Image(); im.onload = () => { img = im; render(); URL.revokeObjectURL(url); toast('Imagen cargada'); }; im.src = url; };
-  $('#pxSize').onchange = render; $('#pxCol').onchange = render; $('#pxBg').onclick = () => { nobg = !nobg; $('#pxBg').classList.toggle('primary', nobg); render(); };
-  $('#pxDl').onclick = () => { const a = document.createElement('a'); a.download = `sprite-${dst.width}px.png`; a.href = dst.toDataURL('image/png'); a.click(); toast('Descargando PNG'); };
-};
-
-/* B3 — máquina de estados animada */
-MOUNTS.stateMachine = el => {
-  const S = { idle: { l: 'IDLE', fr: ['p_idle'], d: 'Quieto. Respira: sube y baja 1 px. Es el estado por defecto.', when: 'Sin teclas apretadas y en el suelo.' }, run: { l: 'RUN', fr: ['p_run1', 'p_idle', 'p_run2', 'p_run3'], d: 'Corre. Ciclo de 4 frames que se repite (loop).', when: 'Flecha izquierda o derecha apretada y en el suelo.' }, jump: { l: 'JUMP', fr: ['p_jump'], d: 'En el aire. Un solo frame congelado hasta aterrizar.', when: 'Velocidad vertical distinta de cero.' }, hurt: { l: 'HURT', fr: ['p_hurt', 'p_idle', 'p_hurt', 'p_idle'], d: 'Recibió daño. Parpadea rojo y vuelve a idle (no loop).', when: 'Colisión con enemigo. Dura 0,5 s y bloquea el control.' } };
-  let cur = 'idle', fi = 0, iv;
-  el.innerHTML = `<div class="two"><div><div class="loop" style="justify-content:flex-start">${Object.keys(S).map(k => `<div class="node ${k === cur ? 'on' : ''}" data-s="${k}">${S[k].l}</div>`).join('')}</div><div class="card" id="smInfo"></div>
-    <div style="display:flex;gap:8px;align-items:center;margin-top:10px;flex-wrap:wrap"><span class="chip">FPS <input id="smFps" type="range" min="2" max="16" value="8" style="width:100px"> <b id="smFpsV">8</b></span><span class="small muted">A 2 FPS se ve "a saltos"; a 8–12 ya se siente fluido.</span></div></div>
-    <div><canvas id="smCv" width="80" height="60" style="width:100%;max-width:320px;image-rendering:pixelated;background:#000;border:1px solid var(--line)"></canvas><p class="small muted">Un personaje animado es una <b>máquina de estados</b>: en cada momento está en UN estado y cada estado tiene SU animación. Cambiar de estado = cambiar de animación.</p></div></div>`;
-  const g = $('#smCv').getContext('2d'); let t = 0;
-  const info = () => { const s = S[cur]; $('#smInfo').innerHTML = `<h3 style="color:var(--cur)">${s.l}</h3><p>${s.d}</p><p class="small muted"><b>Se activa cuando:</b> ${s.when}</p>`; };
-  const draw = () => { t++; const s = S[cur]; fi = (fi + 1) % s.fr.length; if (cur === 'hurt' && fi === 0 && t > 1) { cur = 'idle'; sel(); } g.fillStyle = '#0e1630'; g.fillRect(0, 0, 80, 60); for (let x = 0; x < 80; x += 8) g.drawImage(sprite('grass', 1), x, 52); const bob = cur === 'idle' ? (fi % 2 ? 0 : Math.sin(t / 2) > 0 ? 1 : 0) : 0; g.drawImage(sprite(S[cur].fr[fi], 3), 22, (cur === 'jump' ? 4 : 16) + bob); };
-  const restart = () => { clearInterval(iv); iv = setInterval(draw, 1000 / +$('#smFps').value); };
-  const sel = () => { $$('.node', el).forEach(n => n.classList.toggle('on', n.dataset.s === cur)); fi = -1; t = 0; info(); };
-  $$('.node', el).forEach(n => n.onclick = () => { cur = n.dataset.s; sel(); draw(); });
-  $('#smFps').oninput = e => { $('#smFpsV').textContent = e.target.value; restart(); };
-  ACTIVE_GAMES.add({ destroy: () => clearInterval(iv) }); info(); restart(); draw();
-};
-
-/* B3 — partículas / VFX */
-MOUNTS.particles = el => {
-  el.innerHTML = `<canvas id="vfxCv" width="320" height="140" style="width:100%;max-width:800px;image-rendering:pixelated;background:#000;border:1px solid var(--line);cursor:crosshair"></canvas>
-  <div class="pill-list" style="margin-top:8px"><span class="pill on" data-v="coin">✦ Moneda (chispas doradas)</span><span class="pill" data-v="hit">✖ Golpe (rojo + sacudida)</span><span class="pill" data-v="dust">· Polvo al aterrizar</span><span class="pill" data-v="win">★ Victoria (confeti)</span></div><p class="small muted">Hacé clic en el canvas. Un sistema de partículas son 20–100 puntitos con reglas simples: nacen, se mueven, se apagan. Es el <dfn data-term="Feedback">feedback</dfn> más barato y efectivo que existe.</p>`;
-  const cv = $('#vfxCv'), g = cv.getContext('2d'); let ps = [], kind = 'coin', shake = 0, raf;
-  const spawn = (x, y) => { const n = kind === 'win' ? 80 : 30; for (let i = 0; i < n; i++) { const a = Math.random() * Math.PI * 2, sp = kind === 'dust' ? 20 + Math.random() * 20 : 40 + Math.random() * 90; ps.push({ x, y, vx: Math.cos(a) * sp * (kind === 'dust' ? 1 : 1), vy: kind === 'dust' ? -Math.abs(Math.sin(a)) * sp * .5 : Math.sin(a) * sp - (kind === 'win' ? 80 : 0), life: .5 + Math.random() * (kind === 'win' ? 1.5 : .6), c: kind === 'coin' ? ['#ffd23f', '#fff2a8', '#ff9f43'][i % 3] : kind === 'hit' ? ['#ff5a5a', '#ffb3b3'][i % 2] : kind === 'dust' ? '#9aa3b8' : ['#3ee6ff', '#ff5fb4', '#ffd23f', '#7cff6b'][i % 4], s: 2 + Math.floor(Math.random() * 3) }); } if (kind === 'hit') shake = .25; };
-  cv.addEventListener('pointerdown', e => { const r = cv.getBoundingClientRect(); spawn((e.clientX - r.left) * 320 / r.width, (e.clientY - r.top) * 140 / r.height); });
-  $$('.pill', el).forEach(p => p.onclick = () => { kind = p.dataset.v; $$('.pill', el).forEach(x => x.classList.toggle('on', x === p)); });
-  let last = performance.now();
-  const frame = now => { if (!document.body.contains(cv)) return; const dt = Math.min(.05, (now - last) / 1000); last = now; g.save(); if (shake > 0) { shake -= dt; g.translate((Math.random() - .5) * 6, (Math.random() - .5) * 6); } g.fillStyle = '#0b0f1e'; g.fillRect(-10, -10, 340, 160); for (let x = 0; x < 320; x += 16) g.drawImage(sprite('floor', 2), x, 124); g.drawImage(sprite('player', 2), 148, 100);
-    ps = ps.filter(p => p.life > 0); ps.forEach(p => { p.life -= dt; p.x += p.vx * dt; p.y += p.vy * dt; p.vy += (kind === 'dust' ? 60 : 160) * dt; g.globalAlpha = Math.max(0, Math.min(1, p.life * 2)); g.fillStyle = p.c; g.fillRect(p.x, p.y, p.s, p.s); }); g.globalAlpha = 1; g.restore(); if (!ps.length) { g.fillStyle = '#5f6d99'; g.font = '7px "Press Start 2P"'; g.fillText('CLIC PARA PROBAR', 110, 20); } raf = requestAnimationFrame(frame); };
-  ACTIVE_GAMES.add({ destroy: () => cancelAnimationFrame(raf) }); raf = requestAnimationFrame(frame);
-};
-
-/* B3 — estados de MI personaje */
-MOUNTS.myStates = el => {
-  el.innerHTML = `<div class="field" style="margin-top:10px"><label>Estados y animaciones de mi personaje (uno por línea: estado · frames · cuándo)</label><textarea id="myStates" style="min-height:110px" placeholder="idle · 2 frames · quieto&#10;run · 4 frames · moviéndose&#10;jump · 1 frame · en el aire">${esc(STATE.e2.states)}</textarea></div>`;
-  $('#myStates').oninput = e => { STATE.e2.states = e.target.value; saveState(); };
-};
-
-/* B4 — manifiesto de assets */
-MOUNTS.manifest = el => {
+  let size = 64, mode = 'keep', nobg = true, img = null;
+  el.innerHTML = `<div class="px-why"><b>¿Para qué?</b> Un generador entrega ilustraciones de 1024 px o más; un sprite de juego mide 32–64 px y necesita <b>fondo transparente</b>. Acá la reducís y le quitás el fondo. Si tu estilo <b>no</b> es pixel art, usá “Conservar mi estilo”: sólo se achica y se recorta. “Pixel art” es opcional.</div>
+    <div class="px3">
+      <div class="card"><span class="cn">PASO 1</span><h4>Tu imagen</h4><canvas id="pxSrc" data-native="1" width="144" height="144" style="width:144px;height:144px;background:#000;border:1px solid var(--line)"></canvas>
+        <div style="margin-top:8px"><input type="file" id="pxFile" accept="image/*" class="sr"><button class="btn sm primary" id="pxPick">📁 Subir otra</button></div><small class="muted" id="pxNm">Usa tu muestra del ejercicio.</small></div>
+      <div class="card"><span class="cn">PASO 2</span><h4>Ajustes</h4>
+        <div class="px-opt"><label>Tamaño final</label><div class="seg" id="pxSize">${[16, 32, 48, 64].map(n => `<button data-v="${n}" class="${n === size ? 'on' : ''}">${n}</button>`).join('')}</div></div>
+        <div class="px-opt"><label>Estilo</label><div class="seg" id="pxMode"><button data-v="keep" class="on">Conservar mi estilo</button><button data-v="pixel">Pixel art</button></div></div>
+        <div class="px-opt"><label>Fondo</label><div class="seg" id="pxBg"><button data-v="1" class="on">Quitar (color de la esquina)</button><button data-v="0">Dejar</button></div></div></div>
+      <div class="card"><span class="cn">PASO 3</span><h4>Sprite listo</h4>
+        <div class="px-res"><div><canvas id="pxDst" data-native="1" width="64" height="64" style="width:128px;height:128px;image-rendering:pixelated;border:1px solid var(--line);background:repeating-conic-gradient(#1d2850 0 25%,#0e1630 0 50%) 0 0/16px 16px"></canvas><small class="muted">ampliado</small></div>
+          <div><canvas id="pxReal" data-native="1" width="112" height="76" style="width:224px;height:152px;image-rendering:pixelated;border:1px solid var(--line);background:#0e1630"></canvas><small class="muted">en el juego, junto al personaje</small></div></div>
+        <div style="margin-top:8px"><button class="btn sm primary" id="pxDl" disabled>⬇ Descargar PNG</button></div></div>
+    </div>`;
+  const src = $('#pxSrc'), dst = $('#pxDst'), real = $('#pxReal');
   const render = () => {
-    const M = STATE.e2.manifest;
-    el.innerHTML = `<div class="deflist">${M.map((m, i) => `<div class="def" style="grid-template-columns:1fr 1.2fr .6fr 1fr auto;align-items:center"><input data-m="${i}" data-f="n" value="${esc(m.n)}" placeholder="elemento (jugador)" style="background:var(--panel);border:1px solid var(--line);padding:6px"><input data-m="${i}" data-f="f" value="${esc(m.f)}" placeholder="assets/sprites/jugador.png" style="background:var(--panel);border:1px solid var(--line);padding:6px"><input data-m="${i}" data-f="s" value="${esc(m.s)}" placeholder="32x32" style="background:var(--panel);border:1px solid var(--line);padding:6px"><input data-m="${i}" data-f="u" value="${esc(m.u)}" placeholder="reemplaza al rectángulo celeste" style="background:var(--panel);border:1px solid var(--line);padding:6px"><button class="x" data-del="${i}" style="width:32px;height:32px">✕</button></div>`).join('') || '<p class="muted small">Sin filas todavía.</p>'}</div>
-      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"><button class="btn sm" id="mAdd">+ Agregar fila</button><button class="btn sm" id="mDemo">Cargar ejemplo</button><button class="btn sm primary" id="mCopy">⧉ Copiar manifiesto</button><button class="btn sm primary" id="mCopyP6">⧉ Copiar Prompt 6 con el manifiesto</button></div>
-      <pre class="code" id="mOut" style="margin-top:10px;white-space:pre-wrap"></pre>`;
-    const txt = () => M.filter(m => m.n || m.f).map(m => `- ${m.n || '?'}: ${m.f || '?'} (${m.s || '?'}) → ${m.u || ''}`).join('\n') || '(manifiesto vacío)';
-    $('#mOut').textContent = txt();
-    $$('[data-m]', el).forEach(i => i.oninput = () => { M[i.dataset.m][i.dataset.f] = i.value; saveState(); $('#mOut').textContent = txt(); });
-    $$('[data-del]', el).forEach(b => b.onclick = () => { M.splice(+b.dataset.del, 1); saveState(); render(); });
-    $('#mAdd').onclick = () => { M.push({ n: '', f: '', s: '', u: '' }); saveState(); render(); };
-    $('#mDemo').onclick = () => { STATE.e2.manifest = [{ n: 'jugador', f: 'assets/sprites/jugador.png', s: '32x32, 4 frames', u: 'reemplaza al rectángulo celeste' }, { n: 'enemigo', f: 'assets/sprites/enemigo.png', s: '32x32', u: 'reemplaza a los rectángulos rojos' }, { n: 'moneda', f: 'assets/sprites/moneda.png', s: '16x16', u: 'reemplaza a los cuadrados amarillos' }, { n: 'tiles', f: 'assets/tiles/tileset.png', s: '16x16 por tile', u: 'piso y paredes' }, { n: 'fondo', f: 'assets/fondo.png', s: '640x360', u: 'detrás de todo' }]; saveState(); render(); };
-    $('#mCopy').onclick = () => copyText(txt(), 'Manifiesto copiado');
-    $('#mCopyP6').onclick = () => copyText(PROMPTS.find(p => p.id === 'p6').text.replace('[PEGAR MANIFIESTO]', txt()), 'Prompt 6 copiado con tu manifiesto');
+    const sg = src.getContext('2d'); sg.clearRect(0, 0, 144, 144); if (!img) { sg.fillStyle = '#5f6d99'; sg.font = '11px sans-serif'; sg.textAlign = 'center'; sg.fillText('Sin imagen todavía', 72, 74); return; }
+    const s = Math.min(img.width, img.height), sx = (img.width - s) / 2, sy = (img.height - s) / 2; sg.imageSmoothingQuality = 'high'; sg.drawImage(img, sx, sy, s, s, 0, 0, 144, 144);
+    dst.width = size; dst.height = size; const g = dst.getContext('2d'); g.imageSmoothingEnabled = true; g.imageSmoothingQuality = 'high'; g.clearRect(0, 0, size, size); g.drawImage(img, sx, sy, s, s, 0, 0, size, size);
+    const d = g.getImageData(0, 0, size, size), p = d.data; const bg = [p[0], p[1], p[2]], lv = mode === 'pixel' ? 4 : 0;
+    for (let i = 0; i < p.length; i += 4) { if (lv) { for (let c = 0; c < 3; c++) p[i + c] = Math.round(p[i + c] / 255 * (lv - 1)) / (lv - 1) * 255; } if (nobg && Math.abs(p[i] - bg[0]) + Math.abs(p[i + 1] - bg[1]) + Math.abs(p[i + 2] - bg[2]) < 90) p[i + 3] = 0; }
+    g.putImageData(d, 0, 0); $('#pxDl').disabled = false;
+    const rg = real.getContext('2d'); rg.imageSmoothingEnabled = false; rg.clearRect(0, 0, 112, 76); rg.fillStyle = '#0e1630'; rg.fillRect(0, 0, 112, 76); for (let x = 0; x < 112; x += 8) { rg.drawImage(sprite('grass', 1), x, 68); }
+    rg.drawImage(dst, 6, 68 - size); rg.drawImage(sprite('player', 3), 70, 32);
   };
-  render();
+  const load = (im, name) => { img = im; $('#pxNm').textContent = name || ''; render(); };
+  const seg = (id, fn) => $$('#' + id + ' button', el).forEach(b => b.onclick = () => { $$('#' + id + ' button', el).forEach(x => x.classList.toggle('on', x === b)); fn(b.dataset.v); render(); });
+  seg('pxSize', v => size = +v); seg('pxMode', v => mode = v); seg('pxBg', v => nobg = v === '1');
+  $('#pxPick').onclick = () => $('#pxFile').click();
+  $('#pxFile').onchange = e => { const f = e.target.files[0]; if (!f) return; const fr = new FileReader(); fr.onload = () => { const im = new Image(); im.onload = () => { MY_SAMPLE.img = im; MY_SAMPLE.name = f.name; load(im, f.name); toast('Imagen cargada'); }; im.src = fr.result; }; fr.readAsDataURL(f); };
+  $('#pxDl').onclick = () => { const a = document.createElement('a'); a.download = `sprite-${size}px.png`; a.href = dst.toDataURL('image/png'); a.click(); toast('Descargando PNG'); };
+  const onS = () => { if (!document.body.contains(el)) { document.removeEventListener('mysample', onS); return; } if (MY_SAMPLE.img) load(MY_SAMPLE.img, MY_SAMPLE.name); };
+  document.addEventListener('mysample', onS);
+  if (MY_SAMPLE.img) load(MY_SAMPLE.img, MY_SAMPLE.name); else render();
 };
 
-/* B4 — diagnóstico de errores con assets */
-MOUNTS.assetDiag = el => {
-  const D = [['La imagen no aparece (se ve negro o un cuadrado verde)', 'Error 404: la ruta o el nombre del archivo no coinciden (mayúsculas, espacios, tildes, extensión .PNG vs .png).', 'Revisá la consola (F12): "Failed to load …". Corregí el nombre o la ruta. Pedile al agente: "verificá que cada archivo exista y se cargue sin 404".'], ['El personaje se ve cortado o con pedazos de otro frame', 'El tamaño de frame declarado no coincide con el real del spritesheet.', 'Medí un frame (ej. 32×32) y pasale al agente las medidas exactas. Todos los frames deben ser iguales.'], ['El personaje se ve gigante o diminuto', 'La imagen tiene otro tamaño que el placeholder.', 'Pedí que la escale en el código (setScale / displayWidth) sin tocar el hitbox.'], ['Choca "con el aire" o atraviesa cosas', 'El collider quedó del tamaño del placeholder, no del sprite nuevo.', 'Pedí ajustar el body (setSize/setOffset) al dibujo visible.'], ['Se ve borroso', 'El navegador suaviza la imagen al escalar.', 'Pedí pixelArt: true en la configuración de Phaser (o image-rendering: pixelated).'], ['Fondo blanco alrededor del sprite', 'La imagen no tiene transparencia (JPG o PNG sin alfa).', 'Guardar como PNG con fondo transparente; usar el pixelador o "quitar fondo".']];
-  el.innerHTML = `<div class="pill-list">${D.map((d, i) => `<span class="pill" data-d="${i}">${esc(d[0])}</span>`).join('')}</div><div class="card" id="diagOut" style="margin-top:10px"><p class="muted">Elegí el síntoma que ves.</p></div>`;
-  $$('.pill', el).forEach(p => p.onclick = () => { $$('.pill', el).forEach(x => x.classList.toggle('on', x === p)); const d = D[+p.dataset.d]; $('#diagOut').innerHTML = `<h4>Causa probable</h4><p>${esc(d[1])}</p><h4>Qué pedir</h4><p class="small">${esc(d[2])}</p>`; });
-};
-
-/* B5 — diseñador de HUD */
-MOUNTS.hudDesigner = el => {
-  const H = STATE.e2.hud;
-  el.innerHTML = `<div class="two"><div><canvas id="hudCv" width="320" height="180" style="width:100%;image-rendering:pixelated;background:#000;border:1px solid var(--line)"></canvas></div>
-    <div><h4>Elementos</h4><div class="pill-list">${[['score', 'Puntaje'], ['lives', 'Vidas (corazones)'], ['timer', 'Tiempo'], ['bar', 'Barra de energía'], ['keys', 'Llave / objeto']].map(([k, l]) => `<span class="pill ${H[k] ? 'on' : ''}" data-h="${k}">${l}</span>`).join('')}</div>
-    <h4 style="margin-top:12px">Posición principal</h4><div class="pill-list">${[['tl', '↖ arriba izq.'], ['tr', '↗ arriba der.'], ['bl', '↙ abajo izq.'], ['br', '↘ abajo der.']].map(([k, l]) => `<span class="pill ${H.pos === k ? 'on' : ''}" data-pos="${k}">${l}</span>`).join('')}</div>
-    <div class="prompt-box" style="margin-top:12px"><div class="ph"><span class="t">Descripción para el Prompt 8</span><button class="btn sm primary" id="hudCopy">⧉ Copiar</button></div><pre id="hudTxt"></pre></div></div></div>`;
-  const g = $('#hudCv').getContext('2d'); g.imageSmoothingEnabled = false;
-  const desc = () => { const parts = []; if (H.score) parts.push('puntaje numérico'); if (H.lives) parts.push('vidas como íconos de corazón'); if (H.timer) parts.push('tiempo restante en segundos'); if (H.bar) parts.push('barra de energía horizontal'); if (H.keys) parts.push('ícono de la llave/objeto cuando se tiene'); const P = { tl: 'esquina superior izquierda', tr: 'esquina superior derecha', bl: 'esquina inferior izquierda', br: 'esquina inferior derecha' }; return `HUD en la ${P[H.pos]}, con ${parts.join(', ') || '(ningún elemento)'}. Fuente pixel, tamaño legible, con un fondo semitransparente detrás para que se lea sobre cualquier escenario. El HUD debe actualizarse al instante cuando cambia el valor.`; };
-  const draw = () => { g.fillStyle = '#0e1630'; g.fillRect(0, 0, 320, 180); for (let x = 0; x < 320; x += 8) g.drawImage(sprite('grass', 1), x, 164); g.drawImage(sprite('brick', 1), 140, 130); g.drawImage(sprite('brick', 1), 148, 130); g.drawImage(sprite('coin', 1), 200, 120); g.drawImage(sprite('player', 1), 60, 150); g.drawImage(sprite('enemy', 1), 240, 156);
-    const right = H.pos.endsWith('r'), bottom = H.pos.startsWith('b'); let y = bottom ? 160 : 8; const dy = bottom ? -14 : 14; const items = [];
-    if (H.score) items.push(gg => { gg.fillStyle = '#ffd23f'; gg.font = '8px "Press Start 2P"'; gg.textAlign = right ? 'right' : 'left'; gg.fillText('SCORE 0120', right ? 312 : 8, y + 8); });
-    if (H.lives) items.push(gg => { for (let i = 0; i < 3; i++) gg.drawImage(sprite('heart', 1), right ? 304 - i * 10 : 8 + i * 10, y); });
-    if (H.timer) items.push(gg => { gg.fillStyle = '#fff'; gg.font = '8px "Press Start 2P"'; gg.textAlign = right ? 'right' : 'left'; gg.fillText('00:45', right ? 312 : 8, y + 8); });
-    if (H.bar) items.push(gg => { const x = right ? 252 : 8; gg.fillStyle = '#1d2850'; gg.fillRect(x, y, 60, 8); gg.fillStyle = '#7cff6b'; gg.fillRect(x + 1, y + 1, 40, 6); });
-    if (H.keys) items.push(gg => { gg.drawImage(sprite('key', 1), right ? 304 : 8, y); });
-    g.fillStyle = 'rgba(0,0,0,.45)'; const hh = items.length * 14 + 4; g.fillRect(right ? 246 : 4, bottom ? 160 - (items.length - 1) * 14 - 2 : 4, 70, hh);
-    items.forEach(f => { f(g); y += dy; }); g.textAlign = 'left'; $('#hudTxt').textContent = desc(); saveState(); };
-  $$('[data-h]', el).forEach(p => p.onclick = () => { H[p.dataset.h] = !H[p.dataset.h]; p.classList.toggle('on', H[p.dataset.h]); draw(); });
-  $$('[data-pos]', el).forEach(p => p.onclick = () => { H.pos = p.dataset.pos; $$('[data-pos]', el).forEach(x => x.classList.toggle('on', x === p)); draw(); });
-  $('#hudCopy').onclick = () => copyText(desc(), 'Descripción del HUD copiada'); draw();
-};
-
-/* B5 — flujo de pantallas */
-MOUNTS.screenFlow = el => {
-  const SC = { menu: ['MENÚ', 'Título, instrucción de control, "PRESS START". Es la primera impresión: el nombre y el estilo tienen que verse acá.'], play: ['JUEGO', 'La escena principal con el HUD. Todo lo demás son pausas o salidas de esta pantalla.'], pause: ['PAUSA', 'El juego se congela, se oscurece y se muestra PAUSA. Volver con la misma tecla.'], over: ['GAME OVER', 'Se perdió. Mostrar por qué (vidas 0 / tiempo) y ofrecer reintentar (R).'], win: ['VICTORIA', 'Se ganó. Puntaje final, un mensaje de recompensa y volver al menú.'] };
-  let cur = 'menu';
-  el.innerHTML = `<div class="loop" style="justify-content:flex-start"><div class="node on" data-s="menu">MENÚ</div><span class="arrow">→</span><div class="node" data-s="play">JUEGO</div><span class="arrow">⇄</span><div class="node" data-s="pause">PAUSA</div><span class="arrow">→</span><div class="node" data-s="over">GAME OVER</div><span class="arrow">/</span><div class="node" data-s="win">VICTORIA</div><div class="back">↺ Game Over y Victoria vuelven al menú</div></div>
-    <div class="two"><canvas id="scCv" width="320" height="180" style="width:100%;image-rendering:pixelated;background:#000;border:1px solid var(--line)"></canvas><div class="card" id="scInfo"></div></div>`;
-  const g = $('#scCv').getContext('2d'); g.imageSmoothingEnabled = false;
-  const scene = () => { g.fillStyle = '#0e1630'; g.fillRect(0, 0, 320, 180); for (let x = 0; x < 320; x += 8) g.drawImage(sprite('grass', 1), x, 164); g.drawImage(sprite('player', 1), 60, 150); g.drawImage(sprite('coin', 1), 200, 120); g.drawImage(sprite('enemy', 1), 240, 156); g.fillStyle = '#ffd23f'; g.font = '8px "Press Start 2P"'; g.fillText('SCORE 0120', 8, 16); for (let i = 0; i < 3; i++) g.drawImage(sprite('heart', 1), 8 + i * 10, 22); };
-  const big = (s, y, c) => { g.fillStyle = c || '#fff'; g.font = '14px "Press Start 2P"'; g.textAlign = 'center'; g.fillText(s, 160, y); g.textAlign = 'left'; };
-  const sm = (s, y, c) => { g.fillStyle = c || '#98a6cf'; g.font = '7px "Press Start 2P"'; g.textAlign = 'center'; g.fillText(s, 160, y); g.textAlign = 'left'; };
-  const dim = () => { g.fillStyle = 'rgba(5,8,20,.75)'; g.fillRect(0, 0, 320, 180); };
-  const draw = () => { scene(); if (cur === 'menu') { g.fillStyle = '#0b0f1e'; g.fillRect(0, 0, 320, 180); for (let i = 0; i < 30; i++) { g.fillStyle = '#2b3a6b'; g.fillRect((i * 71) % 320, (i * 37) % 160, 2, 2); } g.drawImage(sprite('player', 4), 136, 60); big('SALTO LUNAR', 40, '#3ee6ff'); sm('FLECHAS: MOVER   ESPACIO: SALTAR', 130); sm('PRESS START', 156, '#ffd23f'); }
-    if (cur === 'pause') { dim(); big('PAUSA', 90); sm('P PARA CONTINUAR', 112); } if (cur === 'over') { dim(); big('GAME OVER', 80, '#ff5a5a'); sm('TE QUEDASTE SIN VIDAS', 102); sm('R: REINTENTAR', 130, '#ffd23f'); } if (cur === 'win') { dim(); big('¡GANASTE!', 80, '#7cff6b'); sm('PUNTAJE FINAL: 0120', 102); sm('ENTER: VOLVER AL MENU', 130, '#ffd23f'); }
-    $('#scInfo').innerHTML = `<h3 style="color:var(--cur)">${SC[cur][0]}</h3><p>${SC[cur][1]}</p>`; };
-  $$('.node', el).forEach(n => n.onclick = () => { cur = n.dataset.s; $$('.node', el).forEach(x => x.classList.toggle('on', x === n)); draw(); }); draw();
-};
-
-/* B5 — checklist E02 */
-MOUNTS.checklistE2 = el => {
-  const render = () => { const done = CHECKS_E2.filter((_, i) => STATE.e2.check[i]).length;
-    el.innerHTML = CHECKS_E2.map((t, i) => `<div class="check ${STATE.e2.check[i] ? 'done' : ''}" data-i="${i}"><div class="box">${STATE.e2.check[i] ? '✔' : ''}</div><span class="t">${esc(t)}</span></div>`).join('') + `<div style="margin-top:14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap"><div class="bar striped" style="flex:1;min-width:200px"><i style="width:${done / CHECKS_E2.length * 100}%"></i></div><b class="px">${done}/${CHECKS_E2.length}</b></div>${done === CHECKS_E2.length ? '<div class="callout fade" style="border-color:var(--acc4)"><b style="color:var(--acc4)">★ ENCUENTRO 02 COMPLETADO.</b> Tu juego ya tiene cara. En el Encuentro 03 le damos cuerpo: niveles, enemigos y reglas.</div>' : ''}`;
-    const c = $('#checkCountE2'); if (c) c.textContent = `${done}/${CHECKS_E2.length} completadas`;
-    $$('.check', el).forEach(x => x.onclick = () => { STATE.e2.check[x.dataset.i] = !STATE.e2.check[x.dataset.i]; saveState(); render(); }); };
-  render();
-};
-
-/* B2 — estilo visual elegido */
-MOUNTS.stylePicker = el => {
-  const S = ['Pixel art 8-bit (NES)', 'Pixel art 16-bit (SNES)', 'Dibujo plano / vectorial', 'Cartoon con contorno', 'Minimalista geométrico', 'Dibujado a mano / sketch'];
-  el.innerHTML = `<div class="pill-list">${S.map(s => `<span class="pill ${STATE.e2.style === s ? 'on' : ''}" data-st="${esc(s)}">${esc(s)}</span>`).join('')}</div><div class="field" style="margin-top:10px"><label>Referencias y paleta (3–5 colores)</label><input id="styleRef" value="${esc(STATE.e2.styleRef || '')}" placeholder="Ej: como Celeste + Stardew; celeste, violeta, amarillo, gris oscuro"></div>`;
-  $$('.pill', el).forEach(p => p.onclick = () => { STATE.e2.style = p.dataset.st; saveState(); $$('.pill', el).forEach(x => x.classList.toggle('on', x === p)); if (!STATE.e2.ip) STATE.e2.ip = {}; STATE.e2.ip.estilo = STATE.e2.style.toLowerCase(); });
-  $('#styleRef').oninput = e => { STATE.e2.styleRef = e.target.value; saveState(); };
-};
+/* B2 — identidad visual en dos decisiones: RESOLUCIÓN (bits) + ESTILO (cómo se dibuja). Tarjetas que abren un pop-up con referencias. */
+const BITS = [
+  { k: '1', n: '1 bit', sub: 'Blanco y negro', d: 'Sólo dos colores. La luz y la sombra se logran con puntitos (dithering). Muy simple y muy expresivo.', era: 'Arcade y computadoras de los años 70 y 80', cons: 'Atari, primeras Macintosh', games: ['Pong', 'Return of the Obra Dinn (versión actual)'], para: '2 colores · sprites de 8×8 a 16×16 px', ph: 'gráficos de 1 bit: sólo dos colores (blanco y negro), sombreado con puntitos (dithering)' },
+  { k: '2', n: '2 bits', sub: '4 tonos de un color', d: 'Cuatro tonos de un mismo color (el verde de la pantalla de Game Boy). Pocos recursos, mucho carácter.', era: 'Portátiles de fines de los años 80', cons: 'Game Boy', games: ['Tetris', 'Pokémon Rojo/Azul', 'Link’s Awakening'], para: '4 tonos · sprites de 8×8 a 16×16 px', ph: 'gráficos de 2 bits: cuatro tonos de un solo color, estilo Game Boy' },
+  { k: '4', n: '4 bits', sub: '16 colores', d: 'Paleta de 16 colores fijos, colores muy saturados y sin degradados. El look de las computadoras de los 80.', era: 'Computadoras hogareñas de los años 80', cons: 'Commodore 64, ZX Spectrum, MSX, PC con EGA', games: ['Manic Miner', 'Impossible Mission'], para: '16 colores · sprites de 16×16 px', ph: 'gráficos de 4 bits: paleta de 16 colores saturados, estilo computadoras de los 80' },
+  { k: '8', n: '8 bits', sub: 'NES / Family Game', d: 'Pocos colores, píxeles grandes y siluetas simples. Es la era que definió el género de plataformas.', era: 'Consolas de mediados de los años 80', cons: 'NES / Famicom (Family Game), Sega Master System', games: ['Super Mario Bros.', 'Mega Man', 'The Legend of Zelda', 'Castlevania'], para: 'Unos 50 colores · sprites de 16×16 px · recomendado para empezar', rec: true, ph: 'pixel art de 8 bits estilo NES: pocos colores, píxeles grandes y siluetas simples' },
+  { k: '16', n: '16 bits', sub: 'Super NES / Mega Drive', d: 'Más colores, sombreado y escenarios con profundidad. El pixel art clásico que hoy se sigue usando.', era: 'Consolas de principios de los años 90', cons: 'Super Nintendo (SNES), Sega Mega Drive / Genesis', games: ['Super Metroid', 'Chrono Trigger', 'Sonic the Hedgehog', 'Street Fighter II'], para: 'Cientos de colores · sprites de 32×32 px · recomendado para empezar', rec: true, ph: 'pixel art de 16 bits estilo Super Nintendo / Mega Drive: sombreado y paleta rica' },
+  { k: '32', n: '32 bits', sub: 'PlayStation 1 / Saturn', d: 'Llega el 3D: pocos polígonos, caras planas y texturas pixeladas. Un estilo “retro 3D” muy de moda.', era: 'Consolas de mediados de los años 90', cons: 'PlayStation 1, Sega Saturn', games: ['Final Fantasy VII', 'Crash Bandicoot', 'Resident Evil', 'Tomb Raider'], para: 'Modelos 3D simples · más difícil de generar con IA', ph: 'gráficos 3D de 32 bits estilo PlayStation 1: pocos polígonos, caras planas y texturas pixeladas' },
+  { k: '64', n: '64 bits', sub: 'Nintendo 64', d: 'Polígonos simples con texturas suavizadas y niebla en el horizonte. Colores brillantes y formas redondeadas.', era: 'Consolas de fines de los años 90', cons: 'Nintendo 64', games: ['Super Mario 64', 'The Legend of Zelda: Ocarina of Time', 'GoldenEye 007'], para: 'Modelos 3D simples con texturas suaves · más difícil', ph: 'gráficos 3D de 64 bits estilo Nintendo 64: polígonos simples, texturas suaves y niebla' },
+  { k: '128', n: '128 bits', sub: 'PlayStation 2 / Dreamcast', d: 'Modelos 3D más detallados, iluminación y texturas nítidas. Ya se parece al 3D actual.', era: 'Consolas de principios de los años 2000', cons: 'PlayStation 2, Dreamcast', games: ['Shadow of the Colossus', 'Jak and Daxter', 'Sonic Adventure', 'Grand Theft Auto: San Andreas'], para: 'Modelos 3D detallados · el más difícil', ph: 'gráficos 3D de 128 bits estilo PlayStation 2 / Dreamcast: modelos detallados e iluminación' }
+];
+const STY = [
+  { k: 'flat', n: 'Dibujo plano / vectorial', sub: 'Formas lisas, sin contornos', d: 'Formas lisas y colores planos, sin contornos ni texturas. Limpio, moderno y fácil de pedirle a la IA.', ref: 'Alto’s Adventure, Monument Valley, Florence', ph: 'dibujo plano vectorial, colores lisos y formas simples, sin contornos' },
+  { k: 'cartoon', n: 'Cartoon con contorno', sub: 'Contorno grueso, colores vivos', d: 'Contorno negro grueso, colores vivos y formas redondeadas. Se lee muy bien aunque el sprite sea chico.', ref: 'Cuphead, Castle Crashers, Hades', ph: 'cartoon con contorno negro grueso, colores vivos y formas redondeadas' },
+  { k: 'minimal', n: 'Minimalista geométrico', sub: 'Pocas formas, 3 o 4 colores', d: 'Pocas formas geométricas y 3 o 4 colores. Lo importante es la silueta y el contraste.', ref: 'Thomas Was Alone, Mini Metro, Superhot', ph: 'minimalista geométrico, pocas formas simples y 3 o 4 colores' },
+  { k: 'sketch', n: 'Dibujado a mano / sketch', sub: 'Lápiz y crayón sobre papel', d: 'Trazo de lápiz irregular, color tipo crayón y textura de papel. Se ve artesanal y cercano.', ref: 'Don’t Starve, Scribblenauts', ph: 'dibujado a mano, trazo de lápiz irregular, color tipo crayón sobre papel' },
+  { k: 'water', n: 'Acuarela / pintura', sub: 'Manchas suaves y translúcidas', d: 'Pinceladas suaves, manchas de color translúcidas y bordes que se difuminan. Muy poético.', ref: 'Gris, Child of Light, Ori and the Blind Forest', ph: 'acuarela, pinceladas suaves y manchas de color translúcidas' },
+  { k: 'neon', n: 'Neón / synthwave', sub: 'Fondo oscuro, líneas luminosas', d: 'Fondo oscuro con líneas luminosas magenta y cian, grillas y soles retro. Mucho contraste.', ref: 'Hotline Miami, Neon White, Geometry Wars', ph: 'neón synthwave, fondo oscuro y líneas luminosas magenta y cian' }
+];
+/* escena 3D de pocos polígonos, parametrizable: sirve para 32, 64 y 128 bits */
+function scene3d(q, W, H, o) {
+  const u = W / 100, hz = H * .5; let gr;
+  if (o.grad) { gr = q.createLinearGradient(0, 0, 0, hz); gr.addColorStop(0, o.sky[0]); gr.addColorStop(1, o.sky[1]); q.fillStyle = gr; } else q.fillStyle = o.sky[0];
+  q.fillRect(0, 0, W, hz + 1); q.fillStyle = o.sun; q.beginPath(); q.arc(80 * u, 14 * u, 6 * u, 0, 7); q.fill();
+  [[0, 34, 16], [24, 62, 22], [52, 100, 13]].forEach(([x0, x1, h]) => { const xm = (x0 + x1) / 2 * u; q.fillStyle = o.m[0]; q.beginPath(); q.moveTo(x0 * u, hz); q.lineTo(xm, hz - h * u * .9); q.lineTo(xm, hz); q.fill(); q.fillStyle = o.m[1]; q.beginPath(); q.moveTo(xm, hz - h * u * .9); q.lineTo(x1 * u, hz); q.lineTo(xm, hz); q.fill(); });
+  if (o.grad) { gr = q.createLinearGradient(0, hz, 0, H); gr.addColorStop(0, o.ground[0]); gr.addColorStop(1, o.ground[1]); q.fillStyle = gr; q.fillRect(0, hz, W, H - hz); }
+  else for (let i = 0; i < 9; i++) { const y0 = hz + (H - hz) * Math.pow(i / 9, 1.5), y1 = hz + (H - hz) * Math.pow((i + 1) / 9, 1.5); q.fillStyle = o.ground[i % 2]; q.fillRect(0, y0, W, y1 - y0 + 1); }
+  q.fillStyle = o.path; q.beginPath(); q.moveTo(W * .47, hz); q.lineTo(W * .53, hz); q.lineTo(W * .88, H); q.lineTo(W * .12, H); q.fill();
+  const tx = 78 * u, ty = H * .62; q.fillStyle = o.trunk; q.fillRect(tx - 1.2 * u, ty, 2.4 * u, 7 * u);
+  [[0, 0], [-2, 5]].forEach(([dy, k], i) => { q.fillStyle = o.tree[i]; q.beginPath(); q.moveTo(tx, ty - 12 * u + dy * u * .6); q.lineTo(tx + 7 * u, ty + 1 * u + k * 0); q.lineTo(tx - 7 * u, ty + 1 * u); q.fill(); });
+  const hx = 30 * u, hy = H * .86; if (o.grad) { q.fillStyle = 'rgba(0,0,0,.25)'; q.beginPath(); q.ellipse(hx + 6 * u, hy + 1, 9 * u, 2.2 * u, 0, 0, 7); q.fill(); }
+  q.fillStyle = o.hero[0]; q.fillRect(hx, hy - 12 * u, 12 * u, 12 * u); q.fillStyle = o.hero[1]; q.beginPath(); q.moveTo(hx, hy - 12 * u); q.lineTo(hx + 4 * u, hy - 16 * u); q.lineTo(hx + 16 * u, hy - 16 * u); q.lineTo(hx + 12 * u, hy - 12 * u); q.fill(); q.fillStyle = o.hero[2]; q.beginPath(); q.moveTo(hx + 12 * u, hy - 12 * u); q.lineTo(hx + 16 * u, hy - 16 * u); q.lineTo(hx + 16 * u, hy - 4 * u); q.lineTo(hx + 12 * u, hy); q.fill();
+  q.fillStyle = o.hero[3]; q.fillRect(hx + 2.5 * u, hy - 9 * u, 2.2 * u, 2.2 * u); q.fillRect(hx + 7.3 * u, hy - 9 * u, 2.2 * u, 2.2 * u);
+  if (o.fog) { gr = q.createLinearGradient(0, hz - H * .16, 0, hz + H * .12); gr.addColorStop(0, 'rgba(225,235,255,0)'); gr.addColorStop(.55, 'rgba(225,235,255,.6)'); gr.addColorStop(1, 'rgba(225,235,255,0)'); q.fillStyle = gr; q.fillRect(0, hz - H * .16, W, H * .28); }
+}
+function offscreen(w, h) { const o = document.createElement('canvas'); o.setAttribute('data-native', '1'); o.width = w; o.height = h; return o; }
+function bitScene(cv, k) {
+  const g = cv.getContext('2d'); const W = 200, H = 110;
+  if (['1', '2', '4', '8', '16'].includes(k)) {
+    const P = k === '16' ? 2 : 4; g.imageSmoothingEnabled = false; const px = (x, y, w, h, c) => { g.fillStyle = c; g.fillRect(x * P, y * P, w * P, h * P); }; const GW = W / P, GH = Math.ceil(H / P);
+    if (k === '1') {
+      px(0, 0, GW, GH, '#fff'); for (let y = -6; y <= 6; y++) for (let x = -6; x <= 6; x++) { const d = Math.hypot(x, y); if (d > 4.4 && d < 5.6) px(38 + x, 7 + y, 1, 1, '#000'); }
+      for (let y = 9; y < 22; y++) for (let x = 0; x < 34; x++) { const w = (y - 9) * 1.3; if (Math.abs(x - 16) < w && (x + y) % 2 === 0) px(x, y, 1, 1, '#000'); }
+      px(0, 22, GW, GH - 22, '#000'); for (let x = 0; x < GW; x += 2) px(x, 22, 1, 1, '#fff'); px(34, 14, 4, 8, '#000'); px(35, 15, 1, 1, '#fff'); for (let y = -3; y <= 3; y++) for (let x = -3; x <= 3; x++) { const d = Math.hypot(x, y); if (d > 2 && d < 3.2) px(22 + x, 13 + y, 1, 1, '#000'); }
+    } else if (k === '2') {
+      const c = ['#0f380f', '#306230', '#8bac0f', '#9bbc0f']; px(0, 0, GW, GH, c[3]); px(6, 4, 8, 2, c[2]); px(30, 7, 9, 2, c[2]); for (let y = 12; y < 22; y++) px(24 - (y - 12), y, 2 * (y - 12) + 1, 1, c[2]); for (let y = 9; y < 22; y++) px(38 - (y - 9) * .8, y, (y - 9) * 1.6, 1, c[1]);
+      px(0, 22, GW, GH - 22, c[0]); for (let x = 0; x < GW; x += 4) px(x, 24, 2, 1, c[1]); px(12, 14, 4, 2, c[0]); px(12, 16, 4, 2, c[3]); px(12, 18, 4, 3, c[1]); px(12, 21, 1, 1, c[0]); px(15, 21, 1, 1, c[0]); px(30, 12, 2, 2, c[0]); px(36, 18, 4, 4, c[1]); px(37, 19, 1, 1, c[3]); px(39, 19, 1, 1, c[3]);
+    } else if (k === '4') {
+      px(0, 0, GW, GH, '#55ffff'); px(6, 4, 8, 2, '#fff'); px(30, 7, 9, 2, '#fff'); px(0, 22, GW, 2, '#00aa00'); px(0, 24, GW, GH - 24, '#aa5500'); for (let x = 0; x < GW; x += 4) px(x, 26, 2, 1, '#552200');
+      px(12, 14, 4, 1, '#aa0000'); px(12, 15, 4, 2, '#ffff55'); px(12, 17, 4, 3, '#ff55ff'); px(12, 20, 1, 2, '#0000aa'); px(15, 20, 1, 2, '#0000aa'); px(30, 12, 2, 2, '#ffff55'); px(36, 18, 4, 4, '#aa00aa'); px(37, 19, 1, 1, '#fff'); px(39, 19, 1, 1, '#fff');
+    } else if (k === '8') {
+      px(0, 0, GW, GH, '#5fa8ff'); px(6, 4, 8, 2, '#fff'); px(8, 3, 4, 1, '#fff'); px(30, 7, 9, 2, '#fff'); px(32, 6, 5, 1, '#fff');
+      for (let y = 22; y < GH; y++) for (let x = 0; x < GW; x++) px(x, y, 1, 1, y === 22 ? '#3fbf3f' : ((x + (y % 2) * 2) % 4 === 0 || y % 2 === 0 ? '#b5651d' : '#7a3e0c'));
+      px(12, 14, 4, 1, '#2f9e44'); px(12, 15, 4, 2, '#ffc89a'); px(12, 17, 4, 3, '#e0a100'); px(12, 20, 1, 2, '#6b3a1a'); px(15, 20, 1, 2, '#6b3a1a'); px(30, 12, 2, 2, '#ffd23f'); px(36, 18, 4, 4, '#8a4bd6'); px(37, 19, 1, 1, '#fff'); px(39, 19, 1, 1, '#fff');
+    } else {
+      ['#2a1b5c', '#4b2a7a', '#8a3a8a', '#d2557a', '#ff8a5c', '#ffb86b'].forEach((c, i) => px(0, i * 8, GW, 9, c)); px(70, 18, 8, 8, '#ffe28a');
+      for (let x = 0; x < GW; x++) { const h1 = 12 + Math.round(8 * Math.abs(Math.sin(x / 9))); px(x, 38 - h1, 1, h1, '#3b2a6b'); const h2 = 8 + Math.round(6 * Math.abs(Math.sin(x / 6 + 2))); px(x, 44 - h2, 1, h2 + 4, '#2a1f55'); }
+      for (let y = 44; y < GH; y++) for (let x = 0; x < GW; x++) px(x, y, 1, 1, y === 44 ? '#6fd08a' : y === 45 ? '#3e8e7e' : ((x + y) % 5 === 0 ? '#5a3a2a' : '#7a4f36'));
+      px(18, 32, 7, 2, '#2f9e44'); px(18, 34, 7, 3, '#f1c9a5'); px(17, 37, 9, 5, '#e0a100'); px(18, 42, 3, 3, '#3a2a1a'); px(23, 42, 3, 3, '#3a2a1a'); px(19, 35, 1, 1, '#222'); px(23, 35, 1, 1, '#222'); px(70, 28, 3, 3, '#f5d76e'); px(80, 38, 4, 4, '#2e7d4f'); px(79, 36, 6, 3, '#3fa86a'); px(81, 34, 2, 3, '#6fd08a'); px(81, 42, 2, 3, '#5a3a2a');
+    }
+    return;
+  }
+  if (k === '32') { const o = offscreen(100, 55), q = o.getContext('2d'); scene3d(q, 100, 55, { sky: ['#7fb0ff'], sun: '#ffe066', m: ['#8a8fa8', '#5a5f78'], ground: ['#3f8f3f', '#357a35'], path: '#c9a063', trunk: '#6b4a2a', tree: ['#1f7f4f', '#2f9e66'], hero: ['#f0a830', '#ffd070', '#c07818', '#222'] }); g.imageSmoothingEnabled = false; g.drawImage(o, 0, 0, W, H); }
+  else if (k === '64') { const o = offscreen(80, 44), q = o.getContext('2d'); scene3d(q, 80, 44, { sky: ['#4f8fff', '#bfe0ff'], grad: true, sun: '#fff2a8', m: ['#8fa8d8', '#6a82b8'], ground: ['#58b858', '#3f9a3f'], path: '#d8b070', trunk: '#7a5230', tree: ['#2a9a5a', '#44bb77'], hero: ['#ff9a30', '#ffc870', '#d07010', '#222'], fog: true }); g.imageSmoothingEnabled = true; g.drawImage(o, 0, 0, W, H); g.imageSmoothingEnabled = false; }
+  else if (k === '128') { g.imageSmoothingEnabled = true; scene3d(g, W, H, { sky: ['#2f6fe0', '#cfe8ff'], grad: true, sun: '#fff7c2', m: ['#9fb4e0', '#6f88c0'], ground: ['#69c46a', '#2f8a3f'], path: '#e2bc7c', trunk: '#7a5230', tree: ['#2c9a5c', '#49c27f'], hero: ['#ff9d2e', '#ffd28a', '#d57a12', '#1b1b1b'], fog: true }); g.fillStyle = 'rgba(255,255,255,.18)'; g.fillRect(4, 2, 0, 0); }
+}
+function styleScene(cv, k) {
+  const g = cv.getContext('2d'); const W = 200, H = 110; let seed = 7; const rnd = () => (seed = (seed * 9301 + 49297) % 233280) / 233280; g.imageSmoothingEnabled = true;
+  if (k === 'flat') {
+    g.fillStyle = '#8fd3ff'; g.fillRect(0, 0, W, H); g.fillStyle = '#ffe066'; g.beginPath(); g.arc(165, 26, 14, 0, 7); g.fill();
+    g.fillStyle = '#6bcf8f'; g.beginPath(); g.arc(50, 120, 70, 0, 7); g.fill(); g.fillStyle = '#3fae6e'; g.beginPath(); g.arc(150, 125, 70, 0, 7); g.fill();
+    g.fillStyle = '#6b4a3a'; g.fillRect(150, 64, 6, 16); g.fillStyle = '#2f9e6b'; g.beginPath(); g.arc(153, 58, 15, 0, 7); g.fill();
+    g.fillStyle = '#ff6b6b'; g.fillRect(40, 58, 22, 26); g.fillStyle = '#ffd9b3'; g.beginPath(); g.arc(51, 48, 11, 0, 7); g.fill(); g.fillStyle = '#ff6b6b'; g.fillRect(40, 36, 22, 6); g.fillStyle = '#ffe066'; g.beginPath(); g.arc(100, 60, 7, 0, 7); g.fill();
+  } else if (k === 'cartoon') {
+    g.lineJoin = 'round'; g.lineWidth = 3.5; g.strokeStyle = '#1b1b1b'; g.fillStyle = '#9fdcff'; g.fillRect(0, 0, W, H);
+    g.fillStyle = '#7ed957'; g.beginPath(); g.moveTo(0, 82); g.quadraticCurveTo(60, 56, 120, 82); g.quadraticCurveTo(160, 94, 200, 78); g.lineTo(200, 110); g.lineTo(0, 110); g.closePath(); g.fill(); g.stroke();
+    g.fillStyle = '#fff'; g.beginPath(); g.arc(140, 24, 9, 0, 7); g.arc(152, 22, 11, 0, 7); g.arc(164, 26, 8, 0, 7); g.fill();
+    g.fillStyle = '#e63946'; g.beginPath(); g.ellipse(52, 70, 16, 18, 0, 0, 7); g.fill(); g.stroke(); g.fillStyle = '#ffe3c4'; g.beginPath(); g.arc(52, 44, 16, 0, 7); g.fill(); g.stroke(); g.fillStyle = '#1b1b1b'; g.beginPath(); g.arc(46, 43, 3, 0, 7); g.arc(58, 43, 3, 0, 7); g.fill();
+    g.fillStyle = '#ffcf33'; g.beginPath(); g.arc(112, 62, 9, 0, 7); g.fill(); g.stroke(); g.fillStyle = '#3fa9f5'; g.beginPath(); g.ellipse(160, 76, 13, 10, 0, 0, 7); g.fill(); g.stroke();
+  } else if (k === 'minimal') {
+    g.fillStyle = '#f2efe6'; g.fillRect(0, 0, W, H); g.fillStyle = '#e4572e'; g.beginPath(); g.arc(150, 38, 22, 0, 7); g.fill(); g.fillStyle = '#2b2d42'; g.beginPath(); g.moveTo(10, 84); g.lineTo(70, 30); g.lineTo(130, 84); g.closePath(); g.fill();
+    g.fillStyle = '#2b2d42'; g.fillRect(0, 84, W, 3); g.fillStyle = '#17bebb'; g.fillRect(40, 62, 20, 22); g.fillStyle = '#ffc914'; g.beginPath(); g.arc(110, 70, 6, 0, 7); g.fill();
+  } else if (k === 'sketch') {
+    g.fillStyle = '#f4ecd8'; g.fillRect(0, 0, W, H); g.strokeStyle = 'rgba(120,100,70,.12)'; g.lineWidth = 1; for (let i = 10; i < W; i += 14) { g.beginPath(); g.moveTo(i, 0); g.lineTo(i, H); g.stroke(); } for (let i = 10; i < H; i += 14) { g.beginPath(); g.moveTo(0, i); g.lineTo(W, i); g.stroke(); }
+    const wob = (pts, close) => { g.beginPath(); pts.forEach(([x, y], i) => { const jx = (rnd() - .5) * 2.2, jy = (rnd() - .5) * 2.2; i ? g.lineTo(x + jx, y + jy) : g.moveTo(x + jx, y + jy); }); if (close) g.closePath(); };
+    const fillOff = (pts, c) => { g.fillStyle = c; g.globalAlpha = .65; g.beginPath(); pts.forEach(([x, y], i) => i ? g.lineTo(x + 2, y + 2) : g.moveTo(x + 2, y + 2)); g.closePath(); g.fill(); g.globalAlpha = 1; };
+    g.strokeStyle = '#3b3b3b'; g.lineWidth = 1.8; g.lineCap = 'round'; wob([[0, 84], [50, 80], [100, 85], [150, 80], [200, 84]], false); g.stroke();
+    const body = [[38, 52], [62, 52], [62, 82], [38, 82]]; fillOff(body, '#c2603a'); wob(body, true); g.stroke();
+    g.fillStyle = '#f0c9a0'; g.globalAlpha = .8; g.beginPath(); g.arc(52, 42, 11, 0, 7); g.fill(); g.globalAlpha = 1; for (let i = 0; i < 2; i++) { g.beginPath(); g.arc(50 + (rnd() - .5) * 2, 42 + (rnd() - .5) * 2, 11, 0, 7); g.stroke(); }
+    g.fillStyle = '#3b3b3b'; g.fillRect(47, 40, 2, 3); g.fillRect(55, 40, 2, 3); wob([[150, 84], [150, 60]], false); g.stroke(); fillOff([[132, 62], [168, 62], [150, 30]], '#5a7d9a'); wob([[132, 62], [168, 62], [150, 30]], true); g.stroke();
+    g.fillStyle = '#d9b44a'; g.globalAlpha = .8; g.beginPath(); g.arc(104, 68, 6, 0, 7); g.fill(); g.globalAlpha = 1; g.beginPath(); g.arc(104, 68, 6, 0, 7); g.stroke();
+  } else if (k === 'water') {
+    g.fillStyle = '#f7f1e3'; g.fillRect(0, 0, W, H); const blob = (x, y, r, c, a) => { const gr = g.createRadialGradient(x, y, r * .15, x, y, r); gr.addColorStop(0, c.replace('A', a)); gr.addColorStop(.75, c.replace('A', a * .55)); gr.addColorStop(1, c.replace('A', 0)); g.fillStyle = gr; g.beginPath(); g.arc(x, y, r, 0, 7); g.fill(); };
+    blob(100, 28, 80, 'rgba(120,170,230,A)', .55); blob(40, 20, 40, 'rgba(180,140,230,A)', .35); blob(170, 22, 28, 'rgba(255,214,140,A)', .6);
+    blob(50, 100, 70, 'rgba(110,190,150,A)', .7); blob(150, 104, 66, 'rgba(70,150,120,A)', .65); blob(150, 70, 18, 'rgba(60,130,100,A)', .7); blob(150, 80, 6, 'rgba(110,80,60,A)', .8);
+    blob(50, 66, 17, 'rgba(230,100,110,A)', .75); blob(50, 46, 11, 'rgba(255,205,170,A)', .85); blob(100, 66, 7, 'rgba(255,200,80,A)', .85);
+    for (let i = 0; i < 26; i++) blob(rnd() * W, rnd() * H, 1.5 + rnd() * 2.5, 'rgba(90,120,170,A)', .5);
+  } else if (k === 'neon') {
+    const gr = g.createLinearGradient(0, 0, 0, H); gr.addColorStop(0, '#0a0620'); gr.addColorStop(1, '#2a0a4a'); g.fillStyle = gr; g.fillRect(0, 0, W, H);
+    const sg = g.createLinearGradient(0, 22, 0, 62); sg.addColorStop(0, '#ffe45e'); sg.addColorStop(1, '#ff2bd6'); g.fillStyle = sg; g.beginPath(); g.arc(100, 62, 38, Math.PI, 0); g.fill(); g.fillStyle = '#1a0838'; for (let i = 0; i < 4; i++) g.fillRect(60, 40 + i * 7, 80, 2 + i);
+    g.fillStyle = '#1a0838'; g.fillRect(0, 62, W, H); g.shadowColor = '#ff2bd6'; g.shadowBlur = 6; g.strokeStyle = '#ff2bd6'; g.lineWidth = 1.2; g.beginPath(); g.moveTo(0, 62); g.lineTo(W, 62); g.stroke();
+    for (let i = -8; i <= 8; i++) { g.beginPath(); g.moveTo(100 + i * 6, 62); g.lineTo(100 + i * 34, H); g.stroke(); } for (let i = 1; i < 6; i++) { const y = 62 + Math.pow(i / 6, 1.7) * 48; g.beginPath(); g.moveTo(0, y); g.lineTo(W, y); g.stroke(); }
+    g.shadowColor = '#3ee6ff'; g.strokeStyle = '#3ee6ff'; g.lineWidth = 1.6; g.beginPath(); g.moveTo(0, 62); g.lineTo(28, 40); g.lineTo(52, 62); g.moveTo(150, 62); g.lineTo(176, 36); g.lineTo(200, 62); g.stroke(); g.strokeRect(78, 38, 14, 18); g.strokeStyle = '#ffe45e'; g.shadowColor = '#ffe45e'; g.beginPath(); g.arc(118, 48, 5, 0, 7); g.stroke(); g.shadowBlur = 0;
+  }
+}
+/* pop-up de una tarjeta (resolución o estilo): escena grande + referencias + elegir */
+function openPick(kind, i) {
+  const L = kind === 'bits' ? BITS : STY, d = L[i], isB = kind === 'bits';
+  const chosen = isB ? STATE.e2.bitsKey === d.k : STATE.e2.styleKey === d.k;
+  const refs = isB ? d.games : d.ref.split(', ');
+  modal(d.n, `<div class="pk"><div class="pk-l"><canvas id="pkCv" width="200" height="110"${isB && ['1', '2', '4', '8', '16'].includes(d.k) ? ' style="image-rendering:pixelated"' : ''}></canvas></div>
+    <div class="pk-r"><p class="pk-d">${esc(d.d)}</p>
+      ${isB ? `<div class="pk-row"><b>Época</b><span>${esc(d.era)}</span></div><div class="pk-row"><b>Consolas</b><span>${esc(d.cons)}</span></div>` : ''}
+      <div class="pk-row"><b>Juegos de referencia</b><span class="pk-chips">${refs.map(x => `<i>${esc(x)}</i>`).join('')}</span></div>
+      ${isB ? `<div class="pk-row"><b>Para tu juego</b><span>${esc(d.para)}</span></div>` : ''}
+      ${d.rec ? '<div class="pk-rec">★ Recomendado para empezar</div>' : ''}</div>
+    <div class="pk-nav">${i > 0 ? `<button class="btn sm" data-pk="${i - 1}">◀ ${esc(L[i - 1].n)}</button>` : '<span></span>'}<span class="pk-btns"><button class="btn primary" id="pkSel">${chosen ? '✔ Elegido' : '✔ Elegir este'}</button><button class="btn" data-close="ovlModal">Cerrar</button></span>${i < L.length - 1 ? `<button class="btn sm" data-pk="${i + 1}">${esc(L[i + 1].n)} ▶</button>` : '<span></span>'}</div></div>`, [], true);
+  $('#mFoot').innerHTML = ''; $('#mFoot').style.display = 'none';
+  (isB ? bitScene : styleScene)($('#pkCv'), d.k);
+  $$('.pk-nav [data-pk]').forEach(b => b.onclick = () => openPick(kind, +b.dataset.pk));
+  $('#pkSel').onclick = () => { pickApply(kind, d); closeOvl('ovlModal'); toast(`${d.n} elegido`); };
+}
+function pickApply(kind, d) {
+  STATE.e2.ip = STATE.e2.ip || {};
+  if (kind === 'bits') { STATE.e2.bitsKey = d.k; STATE.e2.bitsName = d.n; STATE.e2.bitsPh = d.ph; } else { STATE.e2.styleKey = d.k; STATE.e2.style = d.n; STATE.e2.stylePh = d.ph; }
+  STATE.e2.ip.estilo = [STATE.e2.bitsPh, STATE.e2.stylePh].filter(Boolean).join(', '); saveState();
+  $$('.pickc').forEach(c => { if (c.dataset.kind === kind) c.classList.toggle('on', c.dataset.k === d.k); });
+  const ei = document.querySelector('[data-ip="estilo"]'); if (ei) { ei.value = STATE.e2.ip.estilo; ei.dispatchEvent(new Event('input')); }
+}
+function pickGrid(el, kind) {
+  const L = kind === 'bits' ? BITS : STY; const sel = kind === 'bits' ? STATE.e2.bitsKey : STATE.e2.styleKey;
+  el.innerHTML = `<div class="pick-grid ${kind}">${L.map((d, i) => `<div class="pickc ${sel === d.k ? 'on' : ''}" data-kind="${kind}" data-k="${d.k}" data-i="${i}"><canvas data-pk="${d.k}" width="200" height="110"${kind === 'bits' && ['1', '2', '4', '8', '16'].includes(d.k) ? ' style="image-rendering:pixelated"' : ''}></canvas><div class="pk-t"><b>${esc(d.n)}</b><small>${esc(d.sub)}</small></div>${d.rec ? '<span class="pk-star">★</span>' : ''}<span class="pk-ok">✔</span></div>`).join('')}</div>`;
+  $$('canvas[data-pk]', el).forEach(cv => (kind === 'bits' ? bitScene : styleScene)(cv, cv.dataset.pk));
+  $$('.pickc', el).forEach(c => c.onclick = () => openPick(kind, +c.dataset.i));
+}
+MOUNTS.bitPicker = el => pickGrid(el, 'bits');
+MOUNTS.stylePicker = el => pickGrid(el, 'style');
 
 /* =========================================================
    BLOQUES DEL ENCUENTRO 02
@@ -2508,87 +2789,591 @@ const E2 = COURSE.encuentros[1];
 E2.ready = true; E2.part2Start = 2;
 E2.blocks = [
   /* ---------- BLOQUE 01 ---------- */
-  { id: 'e2b1', num: '01', title: 'Assets, sprites, spritesheets, tilesets y fondos', start: 0, end: 45, html: () => `
-    <p class="lead">Hoy el juego deja de ser rectángulos. Pero antes de generar una sola imagen hay que entender <b>qué tipo de imágenes</b> necesita un juego y <b>cómo las lee</b>. Un juego no usa "dibujos": usa assets con reglas estrictas.</p>
-    <div class="grid c3">
-      <div class="card"><h3>${dfn('Asset')}</h3><p class="small">Cualquier recurso: imagen, sonido, fuente. Vive en la carpeta <code>assets/</code>. Si no está ahí, no existe para el juego.</p></div>
-      <div class="card"><h3>${dfn('Sprite')}</h3><p class="small">Una imagen 2D de un personaje u objeto, con fondo <b>transparente</b> (PNG). Se dibuja en una posición y se mueve.</p></div>
-      <div class="card"><h3>${dfn('Spritesheet')}</h3><p class="small">Muchos frames en UNA imagen, en grilla. El juego recorta uno por vez. Todos los frames miden <b>exactamente igual</b>.</p></div>
-      <div class="card"><h3>${dfn('Tileset')} + ${dfn('Tilemap')}</h3><p class="small">Baldosas pequeñas (16×16 o 32×32) que se repiten según un mapa de letras o números. Con 6 baldosas hacés 50 niveles.</p></div>
-      <div class="card"><h3>${dfn('Background', 'Fondo')} y ${dfn('Parallax')}</h3><p class="small">Capas detrás de la acción. Si se mueven a distintas velocidades, aparece profundidad gratis.</p></div>
-      <div class="card"><h3>${dfn('Pixel Art')} y resolución</h3><p class="small">Trabajar chico (16, 32, 64 px) y escalar sin suavizado. Lo "grande y borroso" es el error más común de los principiantes.</p></div>
-    </div>
-
-    <div class="panel"><div class="panel-title"><h3>🎞 Cómo el juego lee un spritesheet</h3></div><div data-mount="sheetViewer"></div></div>
-    <div class="panel"><div class="panel-title"><h3>🧱 Tileset + tilemap: armá un escenario</h3></div><div data-mount="tileEditor"></div></div>
-    <div class="panel"><div class="panel-title"><h3>🏔 Parallax: profundidad con capas</h3></div><div data-mount="parallax"></div></div>
-
-    ${defs([['Formatos', '<b>PNG</b> para todo lo que tenga transparencia (sprites, tiles, UI). <b>JPG</b> sólo para fondos sin transparencia. Nunca WEBP/GIF para sprites.'], ['Tamaños típicos', 'Personaje 32×32 o 48×48 · tiles 16×16 o 32×32 · fondo del tamaño de la pantalla (ej. 640×360) · íconos de UI 16×16.'], ['Nombres de archivo', 'minúsculas, sin espacios ni tildes, descriptivos: <code>jugador_run.png</code>, <code>tileset_bosque.png</code>, <code>fondo_cielo.png</code>.'], ['Consistencia', 'Mismo estilo, misma paleta, misma escala de píxel en todo. Un personaje de 32 px junto a una moneda de 200 px rompe el juego visualmente.']])}
-
-    ${ocem('Tipos de assets, cómo se leen los spritesheets y tilemaps, por qué importa la consistencia.', 'El docente abre la carpeta assets/ de SU proyecto (vacía) y muestra qué archivos va a necesitar según su GDD.', 'Cada estudiante hace el inventario de assets de SU juego.')}
-    ${activity('Inventario de assets de mi juego', ['Mirá tu GDD: cada elemento del juego necesita al menos un asset.', 'Completá el inventario. Si algo no hace falta, dejalo vacío.', 'Decidí tamaños: personaje, tiles, fondo.'], `<div data-mount="assetInventory"></div>`)}`
-  },
+  { id: 'e2b1', num: '01', title: 'Assets, sprites, spritesheets, tilesets y fondos', start: 0, end: 25, intro: 'Hoy el juego deja de ser rectángulos. Antes de generar una sola imagen: qué tipos de imagen necesita un juego y cómo las lee.', sections: [
+    { title: 'Ocho tipos de imagen', html: () => `
+      <p class="lead">Un juego no usa “dibujos”: usa <b>assets con reglas estrictas</b>. Estos son los ocho que vas a pedirle a la IA.</p>
+      <div data-mount="assetIcons"><div class="grid c4 fixed">
+        ${[['asset', dfn('Asset'), 'Cualquier recurso del juego: imagen, sonido o fuente. Vive en la carpeta <code>assets/</code>. Si no está ahí, no existe.'],
+           ['sprite', dfn('Sprite'), 'Imagen 2D de un personaje u objeto, en PNG con fondo <b>transparente</b>. Se dibuja en una posición y se mueve.'],
+           ['sheet', dfn('Spritesheet'), 'Muchos frames en UNA imagen, en grilla. El juego recorta uno por vez: todos miden <b>exactamente igual</b>.'],
+           ['tileset', dfn('Tileset'), 'Baldosas chicas (16×16 o 32×32): piso, pared, agua. Se dibujan una sola vez y se repiten.'],
+           ['tilemap', dfn('Tilemap'), 'El mapa que dice qué baldosa va en cada lugar: una grilla de letras o números. Con 6 baldosas hacés 50 niveles.'],
+           ['fondo', dfn('Background', 'Fondo'), 'Imagen o capas detrás de la acción. Da el clima del escenario y no interviene en el juego.'],
+           ['parallax', dfn('Parallax'), 'Capas que se mueven a distinta velocidad: la lejana despacio, la cercana rápido. Profundidad gratis.'],
+           ['pixel', dfn('Pixel Art') + ' y resolución', 'Trabajar chico (16, 32, 64 px) y escalar sin suavizado. Lo “grande y borroso” es el error típico.']]
+          .map(([k, t, d], i) => `<div class="card"><div class="ico-row"><canvas class="ico" data-ico="${k}" width="48" height="48"></canvas><div><span class="cn">${pad(i + 1)}</span><h3>${t}</h3></div></div><p>${d}</p></div>`).join('')}
+      </div></div>` },
+    { title: 'Cómo el juego lee un spritesheet', html: () => `<div data-mount="sheetViewer"></div>` },
+    { title: 'Tileset + tilemap: armá un escenario', html: () => `<div data-mount="tileEditor"></div>` },
+    { title: 'Parallax: profundidad con capas', html: () => `<div data-mount="parallax"></div>` },
+    { title: 'Reglas de los archivos', html: () => `
+      <p class="lead">Cuatro reglas que evitan casi todos los errores al incorporar imágenes.</p>
+      <div class="grid c2 fixed">
+        ${[['Formatos', '<b>PNG</b> para todo lo que tenga transparencia (sprites, tiles, UI). <b>JPG</b> sólo para fondos sin transparencia. Nunca WEBP/GIF para sprites.'], ['Tamaños típicos', 'Personaje 32×32 o 48×48 · tiles 16×16 o 32×32 · fondo del tamaño de la pantalla (ej. 640×360) · íconos de UI 16×16.'], ['Nombres de archivo', 'Minúsculas, sin espacios ni tildes, descriptivos: <code>jugador_run.png</code>, <code>tileset_bosque.png</code>, <code>fondo_cielo.png</code>.'], ['Consistencia', 'Mismo estilo, misma paleta, misma escala de píxel en todo. Un personaje de 32 px junto a una moneda de 200 px rompe el juego.']]
+          .map(([t, d], i) => `<div class="card"><span class="cn">${pad(i + 1)}</span><h3>${t}</h3><p>${d}</p></div>`).join('')}
+      </div>` },
+    { title: 'Actividad · Inventario de assets de mi juego', dyn: true, html: () => `
+      <div class="activity" style="margin-top:0"><div class="lab">▶ ACTIVIDAD · INVENTARIO DE ASSETS DE MI JUEGO</div>
+        <p style="margin:4px 0 0">Mirá tu GDD: cada elemento necesita al menos un asset. Escribí qué necesita <b>tu</b> juego en cada renglón (si algo no hace falta, dejalo vacío) y decidí los tamaños.</p></div>
+      <div data-mount="assetInventory"></div>` }
+  ] },
   /* ---------- BLOQUE 02 ---------- */
-  { id: 'e2b2', num: '02', title: 'Generación de personajes, escenarios y objetos mediante IA', start: 45, end: 110, html: () => `
-    <p class="lead">Los generadores de imágenes (Gemini / Nano Banana, ChatGPT, Midjourney, Leonardo, etc.) producen <b>ilustraciones</b>, no assets. Convertir una en un sprite usable tiene un método de 3 pasos: <b>pedir bien → recortar y reducir → verificar en el juego</b>.</p>
-    <div class="grid c3">
-      <div class="card"><h3>1. Pedir bien</h3><p class="small">Estilo, sujeto, vista, pose, paleta, fondo liso de un solo color, sin sombras ni texto. Y la frase mágica para series: <i>"mantené exactamente el mismo personaje"</i>.</p></div>
-      <div class="card"><h3>2. Recortar y reducir</h3><p class="small">Quitar fondo, recortar al sujeto, reducir a 32×32 o 64×64 <b>sin suavizado</b>. Herramientas: el pixelador de abajo, Piskel (gratis, web), Aseprite, Photopea.</p></div>
-      <div class="card"><h3>3. Verificar en el juego</h3><p class="small">¿Se entiende a tamaño real? ¿Contrasta con el fondo? ¿Mira hacia donde camina? Si no, volver al paso 1 con una corrección concreta.</p></div>
-    </div>
-    <div class="callout"><b>Primero el estilo, después los assets.</b> Elegí UN estilo y UNA paleta y generá todo con ellos. Mezclar estilos es la forma más rápida de que un juego parezca "hecho con IA".</div>
-    <div class="panel"><div class="panel-title"><h3>🎨 Mi identidad visual</h3></div><div data-mount="stylePicker"></div></div>
-    <div class="panel"><div class="panel-title"><h3>✍ Constructor de prompt de imagen</h3></div><p class="small muted">Completá los campos y copiá. Funciona en cualquier generador. Para fondos y tiles cambiá "sprite" por "fondo de videojuego, vista lateral, sin personajes" o "tileset de 16×16 en grilla".</p><div data-mount="imgPromptBuilder"></div></div>
-    ${promptBox('p5')}
-    <div class="panel"><div class="panel-title"><h3>🔲 Pixelador: de ilustración a sprite</h3></div><div data-mount="pixelator"></div></div>
-    ${defs([['Personajes', 'Una imagen "quieto" primero. Cuando esté aprobado: "mismo personaje, caminando (pierna adelante)", "saltando". Hoja de personaje: pedir 4 poses en una sola imagen en grilla 2×2.'], ['Enemigos y objetos', 'Mismo prompt base, cambiando el sujeto. Enemigos con silueta distinta al jugador y color opuesto en la paleta.'], ['Escenarios', 'Fondo: "sin personajes, sin texto, horizontal, estilo X, paleta X". Tiles: pedir "tileset de pasto, tierra, piedra en grilla de 16×16, bordes que encajen". Los tilesets de IA suelen requerir retoque manual.'], ['Lo que la IA hace mal', 'Transparencia real (hay que quitar fondo), grillas exactas, frames consistentes, texto. Para eso existen el pixelador y Piskel.']])}
-    ${ocem('El método de 3 pasos y el constructor de prompts. Demostración en vivo: ilustración → pixelador → sprite.', 'El docente genera SU personaje, SU enemigo y SU fondo, los procesa y los guarda en assets/.', 'Cada estudiante genera sus tres assets base y los deja listos en su carpeta.')}
-    ${activity('Generá tus tres assets base', ['Elegí estilo y paleta (arriba). Es definitivo para todo el curso.', 'Generá: personaje (quieto), un enemigo u obstáculo, un fondo.', 'Procesá cada uno: quitar fondo, reducir, guardar como PNG en <code>assets/sprites/</code> o <code>assets/</code>.', 'Verificá a tamaño real: ¿se entiende qué es?'])}`
-  },
+  { id: 'e2b2', num: '02', title: 'Generación de personajes, escenarios y objetos mediante IA', start: 25, end: 65, intro: 'Los generadores de imágenes crean ilustraciones, no assets. Hoy aprendemos el método para convertirlas en sprites usables. <b>Esta parte la hacemos en conjunto con el docente.</b>', sections: [
+    { title: 'Método en 3 pasos', html: () => `
+      <p class="lead">Gemini, ChatGPT, Midjourney, Leonardo… producen <b>ilustraciones</b>. Para que el juego las use hay un método de tres pasos.</p>
+      <div class="grid c3 fixed">
+        ${[['Pedir bien', 'Estilo, sujeto, vista, pose, paleta, fondo liso de un solo color, sin sombras ni texto. Y la frase mágica para series: <i>“mantené exactamente el mismo personaje”</i>.'], ['Preparar el sprite', 'Quitar el fondo, recortar al sujeto y reducir a 32×32 o 64×64. Herramientas: el preparador de esta clase, Piskel (gratis, web), Aseprite, Photopea.'], ['Verificar en el juego', '¿Se entiende a tamaño real? ¿Contrasta con el fondo? ¿Mira hacia donde camina? Si no, volver al paso 1 con una corrección concreta.']]
+          .map(([t, d], i) => `<div class="card"><span class="cn">PASO ${i + 1}</span><h3>${t}</h3><p>${d}</p></div>`).join('')}
+      </div>
+      <div class="callout"><b>Primero el estilo, después los assets.</b> Elegí UN estilo y UNA paleta y generá todo con ellos: mezclar estilos es la forma más rápida de que un juego parezca “hecho con IA”. <b>🤝 Esta parte la hacemos juntos:</b> el docente genera los suyos en vivo y cada uno los propios.</div>` },
+    { title: 'Mi resolución gráfica (bits)', html: () => `<p class="lead" style="margin-bottom:10px">Elegí la <b>resolución gráfica</b> de tu juego: la “época” de los videojuegos que vas a imitar. <b>Tocá una tarjeta</b> para ver consolas y juegos de referencia. <span class="muted">(Para empezar, recomendamos 8 o 16 bits.)</span></p><div data-mount="bitPicker"></div>` },
+    { title: 'Mi estilo visual', html: () => `<p class="lead" style="margin-bottom:10px">Ahora el <b>estilo</b>: cómo se dibuja (contornos, colores, textura). Se combina con la resolución que elegiste. <b>Tocá una tarjeta</b> para ver juegos de referencia.</p><div data-mount="stylePicker"></div>` },
+    { title: 'Constructor de prompt de imagen', html: () => `<p class="lead" style="margin-bottom:10px">Tu resolución y tu estilo ya están cargados. Completá el resto <b>vos solo</b>: el prompt de abajo es el <b>Prompt 5</b>, listo para pegar en tu generador.</p><div data-mount="imgPromptBuilder"></div>` },
+    { title: 'Ejercicio en vivo · 5 minutos', html: () => `<p class="lead" style="margin-bottom:10px">Cada uno genera <b>su personaje</b> con su prompt y lo muestra a la clase.</p><div data-mount="liveGen"></div>` },
+    { title: 'De ilustración a sprite', html: () => `<div data-mount="pixelator"></div>` },
+    { title: 'Qué pedir según el asset', html: () => `
+      <p class="lead">Un mismo prompt base, cambiando el sujeto. Esto es lo que conviene pedir en cada caso.</p>
+      <div data-mount="assetIcons"><div class="grid c2 fixed">
+        ${[['q_pj', 'Personajes', 'Una imagen “quieto” primero. Cuando esté aprobada: “mismo personaje, caminando (pierna adelante)”, “saltando”. Hoja de personaje: pedir 4 poses en una sola imagen, en grilla 2×2.'], ['q_en', 'Enemigos y objetos', 'Mismo prompt base, cambiando el sujeto. Enemigos con silueta distinta a la del jugador y color opuesto en la paleta.'], ['q_esc', 'Escenarios', 'Fondo: “sin personajes, sin texto, horizontal, estilo X, paleta X”. Tiles: “tileset de pasto, tierra, piedra en grilla de 16×16, bordes que encajen”. Los tilesets de IA suelen requerir retoque manual.'], ['q_mal', 'Lo que la IA hace mal', 'Transparencia real (hay que quitar el fondo), grillas exactas, frames consistentes y texto. Para eso existe el preparador de sprites, y Piskel.']]
+          .map(([k, t, d], i) => `<div class="card"><div class="ico-row"><canvas class="ico" data-ico="${k}" width="48" height="48"></canvas><div><span class="cn">${pad(i + 1)}</span><h3>${t}</h3></div></div><p>${d}</p></div>`).join('')}
+      </div></div>` },
+    { title: 'Actividad · Mis tres assets base', dyn: true, html: () => `
+      <div class="activity act-wide"><div class="lab">▶ ACTIVIDAD · GENERÁ TUS TRES ASSETS BASE</div>
+        <ol class="act-steps">${['Elegí tu resolución y tu estilo (ya lo hiciste): es definitivo para todo el curso.', 'Generá tu personaje (quieto), un enemigo u obstáculo y un fondo.', 'Preparalos: quitar el fondo, reducir y guardar como PNG en <code>assets/sprites/</code> o <code>assets/</code>.', 'Verificá a tamaño real: ¿se entiende qué es?'].map((t, i) => `<li><span class="n">${i + 1}</span><span>${t}</span></li>`).join('')}</ol></div>
+      <div class="card recorda"><span class="cn">RECORDÁ</span><h3>Tres assets, no veinte</h3><p>Con un personaje, un enemigo y un fondo ya podés reemplazar los rectángulos de tu juego. Más adelante sumás el resto.</p></div>` }
+  ] },
   /* ---------- BLOQUE 03 ---------- */
-  { id: 'e2b3', num: '03', title: 'Animaciones, estados del personaje y efectos visuales', start: 110, end: 155, html: () => `
-    <p class="lead">Un personaje quieto es un sticker. Lo que lo vuelve "vivo" son tres cosas: <b>estados</b> (qué está haciendo), <b>animaciones</b> (cómo se ve cada estado) y <b>feedback</b> (qué pasa cuando algo ocurre).</p>
-    <div class="panel"><div class="panel-title"><h3>🔁 Máquina de estados del personaje</h3></div><div data-mount="stateMachine"></div></div>
-    ${defs([[dfn('Frame'), 'Un dibujo. Una animación de caminar típica tiene 4 a 8 frames. Más frames = más suave y más trabajo.'], [dfn('Animation', 'Animación'), 'Secuencia de frames a X cuadros por segundo. Puede ser loop (run) o de una sola vez (hurt, ataque).'], [dfn('Game State', 'Estado'), 'Idle, run, jump, fall, hurt, attack, dead. Cada uno con su animación. Las reglas deciden cuándo se cambia.'], ['Mínimo viable', '<b>idle</b> (1–2 frames) + <b>run</b> (4 frames) + <b>jump</b> (1 frame). Con eso alcanza para que se sienta vivo. Lo demás es pulido.'], ['Truco de IA', 'Pedir una "hoja de animación: 4 frames caminando en fila, misma altura, mismo personaje". Luego alinear en Piskel. O generar 1 pose y dibujar las piernas a mano: 2 minutos.']])}
-    <div class="panel"><div class="panel-title"><h3>✨ Efectos visuales: partículas y feedback</h3></div><div data-mount="particles"></div></div>
-    ${promptBox('p7')}
-    ${ocem('Estados, frames, FPS y feedback visual con las dos demos.', 'El docente arma el spritesheet de SU personaje (idle + run + jump), lo integra con el Prompt 7 y agrega partículas al juntar objetos.', 'Cada estudiante define los estados de su personaje y prepara su spritesheet.')}
-    ${activity('Definí los estados de tu personaje', ['Listá los estados mínimos (idle, run, jump) y si tu juego necesita otros (hurt, attack…).', 'Para cada uno: cuántos frames y cuándo se activa.', 'Armá el spritesheet (Piskel: File → Export → Spritesheet) y anotá el tamaño de frame.'], `<div data-mount="myStates"></div>`)}`
-  },
+  { id: 'e2b3', num: '03', title: 'Animaciones, estados del personaje y efectos visuales', start: 65, end: 95, intro: 'Un personaje quieto es un sticker. Lo que lo vuelve “vivo” son tres cosas: <b>estados</b> (qué está haciendo), <b>animaciones</b> (cómo se ve cada estado) y <b>feedback</b> (cómo responde el juego a lo que pasa).', sections: [
+    { title: 'Estados, animaciones y frames', html: () => `
+      <p class="lead">Cinco ideas que explican cómo se mueve cualquier personaje de videojuego.</p>
+      <div data-mount="assetIcons"><div class="grid c5 fixed">
+        ${[['a_frame', dfn('Frame'), 'Un dibujo. Una animación de caminar típica tiene de 4 a 8 frames. Más frames = más suave y más trabajo.'],
+           ['a_anim', dfn('Animation', 'Animación'), 'Secuencia de frames a X cuadros por segundo. Puede repetirse (run) o pasar una sola vez (hurt, ataque).'],
+           ['a_state', dfn('Game State', 'Estado'), 'Idle, run, jump, hurt, attack. Cada uno con su animación. Las reglas del juego deciden cuándo se cambia.'],
+           ['a_min', 'Mínimo viable', '<b>idle</b> (1–2 frames) + <b>run</b> (4 frames) + <b>jump</b> (1 frame). Con eso ya se siente vivo. Lo demás es pulido.'],
+           ['a_ia', 'Truco de IA', 'Pedir una “hoja de animación: 4 frames caminando en fila, misma altura, mismo personaje” y alinearla en Piskel. O generar 1 pose y dibujar las piernas a mano.']]
+          .map(([k, t, d], i) => `<div class="card"><div class="ico-row"><canvas class="ico" data-ico="${k}" width="48" height="48"></canvas><div><span class="cn">${pad(i + 1)}</span><h3>${t}</h3></div></div><p>${d}</p></div>`).join('')}
+      </div></div>` },
+    { title: 'Máquina de estados del personaje', html: () => `
+      <p class="lead">Un personaje animado está siempre en <b>un</b> estado, y cada estado tiene <b>su</b> animación. Cambiar de estado es cambiar de animación. Elegí uno:</p>
+      <div data-mount="stateMachine"></div>` },
+    { title: 'Efectos visuales: cuatro recetas de partículas', html: () => `
+      <p class="lead">Una partícula es un puntito que nace, se mueve y se apaga. Con una receta distinta sale un efecto distinto:</p>
+      <div data-mount="fxRecipes"></div>` },
+    { title: 'Cómo está hecha una partícula', html: () => `
+      <p class="lead">No hay magia: son cuadraditos con cuatro reglas simples. Probá cambiar los valores y mirá qué pasa.</p>
+      <div data-mount="fxLab"></div>` },
+    { title: 'Feedback: que el juego responda', html: () => `
+      <p class="lead">El <dfn data-term="Feedback">feedback</dfn> es todo lo que le avisa al jugador que su acción tuvo efecto. Son recursos baratos que cambian por completo cómo se siente el juego.</p>
+      <div data-mount="fxFeedback"></div>` },
+    { title: 'Mis estados y mi spritesheet', html: () => `
+      <p class="lead">Definí los estados de <b>tu</b> personaje: cuántos frames tiene cada uno y cuándo se activa. Con esto se arma la hoja y el prompt.</p>
+      <div data-mount="myStates"></div>` },
+    { title: 'Prompt 7 · hoja de animación', html: () => `
+      <p class="lead">Los datos de tus estados ya están cargados. Completá el nombre del archivo y el tamaño del frame, y copiá el prompt.</p>
+      <div data-mount="spritePrompt"></div>` },
+    { title: 'Actividad · Mi personaje en movimiento', dyn: true, html: () => `
+      ${ocem('Estados, frames, FPS y feedback visual con las demos.', 'El docente arma el spritesheet de SU personaje (idle + run + jump), lo integra con el Prompt 7 y agrega partículas al juntar objetos.', 'Cada estudiante define los estados de su personaje y prepara su spritesheet.')}
+      <div class="activity act-wide"><div class="lab">▶ ACTIVIDAD · DEFINÍ LOS ESTADOS DE TU PERSONAJE</div>
+        <ol class="act-steps">${['Completá <b>Mis estados</b>: los mínimos (idle, run, jump) y los que tu juego necesite.', 'Para cada uno anotá cuántos frames tiene y cuándo se activa.', 'Armá el spritesheet en Piskel: <code>File → Export → Spritesheet</code> y anotá el tamaño del frame.', 'Completá el Prompt 7, copialo y probalo en tu juego.'].map((t, i) => `<li><span class="n">${i + 1}</span><span>${t}</span></li>`).join('')}</ol></div>
+      <div class="card recorda"><span class="cn">RECORDÁ</span><h3>Mínimo viable: idle + run + jump</h3><p>Con tres estados el personaje ya se siente vivo. Sumá partículas y feedback sólo después de que se mueva bien.</p></div>` }
+  ] },
   /* ---------- BLOQUE 04 ---------- */
-  { id: 'e2b4', num: '04', title: 'Incorporación de assets al proyecto mediante Antigravity', start: 155, end: 210, html: () => `
-    <p class="lead">Momento de reemplazar los rectángulos. La regla: <b>el juego ya funciona; sólo cambia lo que se ve</b>. Si después de incorporar assets algo deja de funcionar, el pedido estuvo mal limitado.</p>
-    <div class="grid c2">
-      <div class="card"><h3>Dónde van los archivos</h3><div class="tree"><span class="d">assets/</span>
-├── <span class="d">sprites/</span>   <span class="cm">← jugador.png, enemigo.png, moneda.png</span>
-├── <span class="d">tiles/</span>     <span class="cm">← tileset.png</span>
-├── <span class="d">ui/</span>        <span class="cm">← corazon.png, iconos</span>
-└── <span class="f">fondo.png</span></div><p class="small muted" style="margin-top:8px">Copiá los archivos con el explorador de Windows/Finder dentro de la carpeta del proyecto. Antigravity los ve al instante.</p></div>
-      <div class="card"><h3>Cómo los carga Phaser</h3><p class="small">En <code>preload()</code> se declaran: <i>"la imagen 'jugador' está en assets/sprites/jugador.png"</i>. En <code>create()</code> se usan por nombre. Si el nombre o la ruta no coinciden → <b>404</b> y se ve un cuadrado verde. No tenés que escribirlo: tenés que saber que existe para describir el problema.</p></div>
-    </div>
-    <div class="panel"><div class="panel-title"><h3>📋 Manifiesto de assets</h3></div><p class="small muted">Una tabla que le dice al agente qué archivo reemplaza a qué. Evita el 80% de los errores de esta etapa. Se pega dentro del Prompt 6.</p><div data-mount="manifest"></div></div>
-    ${promptBox('p6')}
-    <div class="panel"><div class="panel-title"><h3>🩺 Diagnóstico: algo se ve mal</h3></div><div data-mount="assetDiag"></div></div>
-    ${ocem('Carpeta assets/, preload, manifiesto y diagnóstico de errores típicos.', 'El docente copia SUS archivos, completa el manifiesto, lanza el Prompt 6 y resuelve en vivo el primer error que aparezca (siempre aparece uno).', 'Cada estudiante incorpora al menos personaje y fondo, uno por vez, verificando entre cada uno.')}
-    ${activity('Reemplazá los placeholders', ['Copiá tus archivos a <code>assets/</code> con nombres limpios.', 'Completá el manifiesto y copiá el Prompt 6.', 'Incorporá de a UN asset por pedido si algo falla: personaje → fondo → enemigo → objetos.', 'Después de cada uno: ¿sigue funcionando el movimiento, los choques y la victoria?'])}`
-  },
+  { id: 'e2b4', num: '04', title: 'Poner mis assets en mi juego', start: 95, end: 115, intro: 'Momento de reemplazar los rectángulos por tu arte. La regla: <b>el juego ya funciona; sólo cambia lo que se ve</b>. Se lo pedís a tu asistente de IA, de a un asset por vez.', sections: [
+    { title: 'La regla de oro: sólo cambia lo que se ve', html: () => `
+      <p class="lead">Si después de poner tus assets algo deja de funcionar, el pedido estuvo mal limitado. Mirá la diferencia:</p>
+      <div data-mount="swapDemo"></div>` },
+    { title: 'Dónde van los archivos', html: () => `
+      <p class="lead">Una carpeta ordenada y nombres limpios evitan casi todos los errores. Tocá una carpeta para ver qué va adentro.</p>
+      <div data-mount="folderTree"></div>` },
+    { title: 'Cómo los encuentra el juego', html: () => `
+      <p class="lead">El juego busca cada imagen por su <b>carpeta y su nombre</b>. Probá qué pasa cuando no coinciden:</p>
+      <div data-mount="nameContract"></div>` },
+    { title: 'Mi manifiesto y el Prompt 6', html: () => `
+      <p class="lead">El manifiesto es la lista que le dice a la IA qué archivo reemplaza a qué. Evita la mayoría de los errores de esta etapa.</p>
+      <div data-mount="manifest"></div>` },
+    { title: 'Algo se ve mal: qué pedirle a la IA', html: () => `
+      <p class="lead">Siempre aparece algún error. Reconocé el síntoma y pedí la solución con estas palabras:</p>
+      <div data-mount="assetDiag"></div>` },
+    { title: 'Actividad · Reemplazá los placeholders', dyn: true, html: () => `
+      ${ocem('Carpeta assets/, nombres de archivo, manifiesto y errores típicos.', 'El docente copia SUS archivos, completa el manifiesto, lanza el Prompt 6 y resuelve en vivo el primer error que aparezca (siempre aparece uno).', 'Cada estudiante incorpora al menos personaje y fondo, uno por vez, verificando entre cada uno.')}
+      <div class="activity act-wide"><div class="lab">▶ ACTIVIDAD · REEMPLAZÁ LOS PLACEHOLDERS</div>
+        <ol class="act-steps">${['Copiá tus archivos a <code>assets/</code> con nombres limpios.', 'Revisá el manifiesto y copiá el Prompt 6 a tu asistente de IA.', 'Incorporá de a UN asset por pedido: personaje → fondo → enemigo → objetos.', 'Después de cada uno: ¿sigue funcionando el movimiento, los choques y la victoria?'].map((t, i) => `<li><span class="n">${i + 1}</span><span>${t}</span></li>`).join('')}</ol></div>
+      <div class="card recorda"><span class="cn">RECORDÁ</span><h3>De a un asset por vez</h3><p>Si algo falla, ya sabés cuál fue el último cambio. Y siempre empezá por revisar que el nombre y la carpeta coincidan.</p></div>` }
+  ] },
   /* ---------- BLOQUE 05 ---------- */
-  { id: 'e2b5', num: '05', title: 'Interfaz: HUD, menú, indicadores y pantallas', start: 210, end: 240, html: () => `
-    <p class="lead">La interfaz es lo que le dice al jugador <b>cómo va</b> y <b>qué puede hacer</b>. Sin ${dfn('HUD')}, el jugador no sabe si está ganando. Sin pantalla de inicio, no sabe que empezó. Es poco trabajo y cambia todo.</p>
-    <div class="grid c4">
-      <div class="card"><h3>${dfn('HUD')}</h3><p class="small">Puntaje, vidas, tiempo, energía. Siempre visible, nunca tapa la acción.</p></div>
-      <div class="card"><h3>${dfn('Main Menu', 'Menú')}</h3><p class="small">Nombre del juego + cómo se controla + cómo empezar. Tres cosas, nada más.</p></div>
-      <div class="card"><h3>Indicadores</h3><p class="small">Barras, íconos, contadores. Un número que cambia necesita feedback (parpadeo, salto).</p></div>
-      <div class="card"><h3>Pantallas</h3><p class="small">Inicio · juego · pausa · ${dfn('Game Over')} · victoria. Cada una es un estado del juego.</p></div>
-    </div>
-    <div class="panel"><div class="panel-title"><h3>🎛 Diseñá tu HUD</h3></div><div data-mount="hudDesigner"></div></div>
-    <div class="panel"><div class="panel-title"><h3>🗺 Flujo de pantallas</h3></div><div data-mount="screenFlow"></div></div>
-    ${promptBox('p8')}
-    ${ocem('HUD, menú y pantallas como estados; el diseñador de HUD y el flujo.', 'El docente agrega HUD y pantallas a SU juego con el Prompt 8 y muestra el flujo completo.', 'Cada estudiante agrega HUD + pantalla de inicio + fin, y completa el checklist.')}
-    <div class="panel"><div class="panel-title"><h3>✅ Checklist del Encuentro 02</h3><span class="chip" id="checkCountE2"></span></div><div data-mount="checklistE2"></div></div>
-    <div class="card" style="border-color:var(--e3)"><h3 style="color:var(--e3)">Próximo encuentro: Mecánicas, niveles e inteligencia</h3><p class="small">Traé tu juego con identidad visual. Vamos a darle reglas, enemigos con comportamiento, niveles con dificultad progresiva, sonido y condiciones de victoria/derrota completas.</p></div>`
-  }
+  { id: 'e2b5', num: '05', title: 'Interfaz: HUD, menú, indicadores y pantallas', start: 115, end: 145, intro: 'La interfaz le dice al jugador <b>cómo va</b> y <b>qué puede hacer</b>. Es poco trabajo y cambia todo. Dos piezas: el <b>HUD</b> durante la partida y el <b>flujo de pantallas</b>.', sections: [
+    { title: 'Cuatro piezas de la interfaz', html: () => `
+      <p class="lead">Sin ${dfn('HUD')}, el jugador no sabe si está ganando. Sin pantalla de inicio, no sabe que empezó.</p>
+      <div data-mount="assetIcons"><div class="grid c4 fixed">
+        ${[['u_hud', dfn('HUD'), 'Puntaje, vidas, tiempo, energía. Siempre visible, nunca tapa la acción.'],
+           ['u_menu', dfn('Main Menu', 'Menú'), 'Nombre del juego, cómo se controla y cómo empezar. Tres cosas, nada más.'],
+           ['u_ind', 'Indicadores', 'Barras, íconos, contadores. Un número que cambia necesita feedback: parpadeo o salto.'],
+           ['u_scr', 'Pantallas', 'Inicio · juego · pausa · ' + dfn('Game Over') + ' · victoria. Cada una es un estado del juego.']]
+          .map(([k, t, d], i) => `<div class="card"><div class="ico-row"><canvas class="ico" data-ico="${k}" width="48" height="48"></canvas><div><span class="cn">${pad(i + 1)}</span><h3>${t}</h3></div></div><p>${d}</p></div>`).join('')}
+      </div></div>` },
+    { title: 'Diseñá tu HUD', html: () => `
+      <p class="lead">Elegí qué indicadores necesita tu juego y dónde van. Lo que armes acá se usa en el Prompt 8.</p>
+      <div data-mount="hudDesigner"></div>` },
+    { title: 'Flujo de pantallas', html: () => `
+      <p class="lead">Cada pantalla es un estado del juego, y se pasa de una a otra con una tecla o una condición.</p>
+      <div data-mount="screenFlow"></div>` },
+    { title: 'Prompt 8 · interfaz del juego', html: () => `
+      <p class="lead">Tu HUD, tu nombre y tus colores ya están cargados. Revisá los campos y copiá el prompt.</p>
+      <div data-mount="interfacePrompt"></div>` },
+    { title: 'Actividad · Agregá la interfaz a tu juego', dyn: true, html: () => `
+      ${ocem('HUD, menú y pantallas como estados; el diseñador de HUD y el flujo.', 'El docente agrega HUD y pantallas a SU juego con el Prompt 8 y muestra el flujo completo.', 'Cada estudiante agrega HUD + pantalla de inicio + fin, y completa el checklist.')}
+      <div class="activity act-wide"><div class="lab">▶ ACTIVIDAD · AGREGÁ LA INTERFAZ A TU JUEGO</div>
+        <ol class="act-steps">${['Diseñá tu HUD y elegí qué indicadores y dónde.', 'Revisá el Prompt 8, copialo y pegalo en tu asistente de IA.', 'Probá el flujo completo: inicio → juego → pausa → fin → inicio.', 'Completá el checklist del Encuentro 02.'].map((t, i) => `<li><span class="n">${i + 1}</span><span>${t}</span></li>`).join('')}</ol></div>
+      <div class="card recorda"><span class="cn">RECORDÁ</span><h3>El HUD informa, no decora</h3><p>Poco, legible y sin tapar la acción. Cada número que cambia necesita un pequeño feedback.</p></div>` },
+    { title: 'Checklist del Encuentro 02', html: () => `
+      <div class="cl"><div><p class="lead" style="margin-top:0">Marcá lo que ya tenés en tu juego. Se guarda solo.</p><div data-mount="checklistE2"></div></div>
+        <div class="card" style="border-color:var(--e3);align-self:start"><span class="cn" style="color:var(--e3)">PRÓXIMO ENCUENTRO</span><h3 style="color:var(--e3)">Mecánicas, niveles e inteligencia</h3><p>Traé tu juego con identidad visual. Vamos a darle reglas, enemigos con comportamiento, niveles con dificultad progresiva, sonido y condiciones de victoria y derrota completas.</p></div></div>` }
+  ] }
 ];
+/* =========================================================
+   E02 · BLOQUE 3 — Animaciones, estados y efectos (v23)
+   ========================================================= */
+
+/* ---------- partículas (motor mínimo compartido) ---------- */
+const FX = {
+  coin: { t: 'Moneda', n: 24, col: ['#ffd23f', '#fff2a8', '#ff9f43'], sp: [40, 110], life: [.4, .9], g: 160, sz: [2, 4], colN: 'dorado', see: 'Chispas doradas que saltan al juntar una moneda.', why: 'Confirma al instante que sumaste puntos.' },
+  hit: { t: 'Golpe', n: 22, col: ['#ff5a5a', '#ffb3b3'], sp: [50, 120], life: [.3, .6], g: 120, sz: [2, 4], colN: 'rojo', see: 'Una explosión corta de chispas rojas donde pega el golpe.', why: 'Hace que el daño se sienta, aunque sea un solo píxel de vida.' },
+  dust: { t: 'Polvo', n: 12, col: ['#9aa3b8', '#c9cfdd'], sp: [15, 40], life: [.3, .7], g: -10, sz: [2, 3], dir: 'side', colN: 'gris', see: 'Nubecitas grises a los costados de los pies al aterrizar.', why: 'Da peso al personaje: se nota que cayó sobre algo.' },
+  win: { t: 'Victoria', n: 70, col: ['#3ee6ff', '#ff5fb4', '#ffd23f', '#7cff6b'], sp: [40, 130], life: [.8, 1.8], g: 120, up: 90, sz: [2, 4], colN: 'multicolor', see: 'Confeti de colores que sube y cae al terminar el nivel.', why: 'Celebra el logro: el jugador sabe que ganó.' }
+};
+const fxSpawn = (ps, p, x, y, o) => {
+  o = o || {}; const n = o.n || p.n, k = o.sp || 1, gm = o.g === undefined ? 1 : o.g, life = o.life || 1;
+  for (let i = 0; i < n; i++) {
+    const side = p.dir === 'side', a = side ? (Math.random() < .5 ? Math.PI : 0) + (Math.random() - .5) * .6 : Math.random() * Math.PI * 2, v = (p.sp[0] + Math.random() * (p.sp[1] - p.sp[0])) * k, L = (p.life[0] + Math.random() * (p.life[1] - p.life[0])) * life;
+    ps.push({ x, y, vx: Math.cos(a) * v, vy: side ? -Math.random() * v * .5 : Math.sin(a) * v - (p.up || 0), g: p.g * gm, life: L, l0: L, c: (o.col || p.col)[i % (o.col || p.col).length], s: p.sz[0] + Math.floor(Math.random() * (p.sz[1] - p.sz[0] + 1)) });
+  }
+};
+const fxStep = (ps, dt) => { for (const p of ps) { p.life -= dt; p.x += p.vx * dt; p.vy += p.g * dt; p.y += p.vy * dt; } return ps.filter(p => p.life > 0); };
+const fxDraw = (g, ps) => { for (const p of ps) { g.globalAlpha = Math.max(0, Math.min(1, p.life / p.l0 * 1.6)); g.fillStyle = p.c; g.fillRect(Math.round(p.x), Math.round(p.y), p.s, p.s); } g.globalAlpha = 1; };
+const charAt = (g, gy, s, x, o) => GMK.char(g, Math.round(x), Math.round(gy - 39 * s), s, o);
+
+/* ---------- iconos de las tarjetas de definiciones ---------- */
+(function () {
+  const prev = MOUNTS.assetIcons;
+  MOUNTS.assetIcons = el => {
+    prev(el);
+    $$('canvas[data-ico^="a_"]', el).forEach(cv => {
+      const g = cv.getContext('2d'); g.imageSmoothingEnabled = false; const k = cv.dataset.ico; g.fillStyle = '#0e1630'; g.fillRect(0, 0, 48, 48);
+      if (k === 'a_frame') { g.strokeStyle = '#3ee6ff'; g.lineWidth = 2; g.strokeRect(4, 4, 40, 40); g.fillStyle = '#3ee6ff'; [[2, 2], [40, 2], [2, 40], [40, 40]].forEach(([x, y]) => g.fillRect(x, y, 6, 6)); GMK.char(g, 11, 17, .62, {}); }
+      else if (k === 'a_anim') { [[2, 3, {}], [25, 3, { walk: 1, st: 1.5 }], [2, 25, { walk: -1, st: 1.5 }], [25, 25, { jump: true }]].forEach(([x, y, o], i) => { g.fillStyle = '#1a2b45'; g.fillRect(x, y, 21, 20); g.strokeStyle = i === 1 ? '#ffd23f' : '#2b3a6b'; g.lineWidth = 1; g.strokeRect(x + .5, y + .5, 20, 19); GMK.char(g, x + 10 - 20 * .34, y + 5.5, .34, o); }); g.strokeStyle = '#ff5fb4'; g.lineWidth = 2; g.beginPath(); g.arc(24, 24, 7, 0, 5); g.stroke(); g.fillStyle = '#ff5fb4'; g.fillRect(29, 14, 6, 4); }
+      else if (k === 'a_state') { [['I', 4, 6, '#3ee6ff'], ['R', 26, 6, '#7cff6b'], ['J', 15, 28, '#ffd23f']].forEach(([l, x, y, c]) => { g.fillStyle = c; g.fillRect(x, y, 18, 14); g.fillStyle = '#0e1630'; g.font = 'bold 10px monospace'; g.fillText(l, x + 6, y + 11); }); g.strokeStyle = '#8fa0d0'; g.lineWidth = 2; g.beginPath(); g.moveTo(22, 13); g.lineTo(26, 13); g.moveTo(32, 21); g.lineTo(26, 28); g.moveTo(15, 28); g.lineTo(10, 21); g.stroke(); }
+      else if (k === 'a_min') { [['#3ee6ff', 4], ['#7cff6b', 18], ['#ffd23f', 32]].forEach(([c, y]) => { g.fillStyle = c; g.fillRect(4, y, 11, 11); g.fillStyle = '#0e1630'; g.fillRect(7, y + 5, 3, 3); g.fillRect(9, y + 3, 3, 3); g.fillStyle = '#8fa0d0'; g.fillRect(20, y + 3, 22, 5); }); }
+      else if (k === 'a_ia') { g.fillStyle = '#8fa0d0'; g.fillRect(10, 14, 28, 24); g.fillRect(22, 8, 4, 6); g.fillStyle = '#ffd23f'; g.fillRect(20, 4, 8, 5); g.fillStyle = '#3ee6ff'; g.fillRect(15, 22, 7, 7); g.fillRect(27, 22, 7, 7); g.fillStyle = '#0e1630'; g.fillRect(17, 33, 14, 2); g.fillStyle = '#ff5fb4'; g.fillRect(40, 6, 4, 10); g.fillRect(37, 9, 10, 4); }
+    });
+  };
+})();
+
+/* ---------- 2 · máquina de estados animada ---------- */
+MOUNTS.stateMachine = el => {
+  const S = {
+    idle: { l: 'IDLE', fps: 3, fr: [{}, { dy: 2 }], d: 'Quieto. Dos frames casi iguales que se alternan: el personaje “respira”.', when: 'Sin teclas apretadas y en el suelo.', rep: 'Loop: se repite sin parar.' },
+    run: { l: 'RUN', fps: 10, fr: [{ walk: 1, st: 2, arm: 1, lean: 3 }, { dy: -2, lean: 3, jump: true }, { walk: -1, st: 2, arm: -1, lean: 3 }, { dy: -2, lean: 3, jump: true }], d: 'Corre. Ciclo de 4 frames: pie adelante, impulso, pie atrás, impulso. El suelo pasa hacia atrás.', when: 'Flecha izquierda o derecha apretada y en el suelo.', rep: 'Loop: se repite mientras corre.' },
+    jump: { l: 'JUMP', fps: 6, fr: [{ dy: 6 }, { jump: true, dy: -3 }, { jump: true, dy: 1 }, { dy: 6 }], d: 'En el aire. Cuatro frames: se agacha, sube, cae y amortigua. Además el juego mueve la altura.', when: 'Velocidad vertical distinta de cero.', rep: 'Una vez por salto (acá se repite para que lo veas).' },
+    hurt: { l: 'HURT', fps: 12, fr: [{ hurt: true, lean: -4, arm: 1 }, { hurt: true, lean: 4, arm: -1 }], d: 'Recibió daño: se pone rojo y tiembla. En esta demo se queda en HURT hasta que elijas otro estado.', when: 'Colisión con enemigo. En el juego dura 0,5 s, bloquea el control y vuelve a idle.', rep: 'Corto: en el juego se reproduce una sola vez.' }
+  };
+  const K = Object.keys(S), CW = 32;
+  el.innerHTML = `<div class="sm"><div class="sm-l"><div class="loop sm-nodes">${K.map(k => `<div class="node ${k === 'run' ? 'on' : ''}" data-s="${k}">${S[k].l}</div>`).join('')}</div>
+    <div class="card" id="smInfo"></div>
+    <div class="sv-ctl"><span class="chip">FPS <input id="smFps" type="range" min="2" max="16" value="10" style="width:110px"> <b id="smFpsV">10</b></span><span class="small muted">A 2 FPS se ve “a saltos”; a 8–12 se siente fluido.</span></div></div>
+    <div class="sm-r"><canvas id="smCv" width="240" height="110"></canvas><div class="sm-strip" id="smStrip"></div></div></div>`;
+  const cv = $('#smCv'), g = cv.getContext('2d'); g.imageSmoothingEnabled = false;
+  let cur = 'run', t = 0, ft = 0, fps = S.run.fps, raf, last = performance.now(), lastKey = '';
+  const strip = $('#smStrip');
+  const frameIdx = () => { const s = S[cur]; if (cur === 'jump') { const p = ((t * fps / 8) % 1); return p < .15 ? 0 : p < .5 ? 1 : p < .85 ? 2 : 3; } return Math.floor(ft) % s.fr.length; };
+  const info = () => { const s = S[cur]; $('#smInfo').innerHTML = `<h3 style="color:var(--cur)">${s.l} <small class="muted">· ${s.fr.length} frames</small></h3><p>${s.d}</p><p class="small"><b>Se activa cuando:</b> ${s.when}</p><p class="small muted"><b>Repetición:</b> ${s.rep}</p>`; };
+  const drawStrip = f => { strip.innerHTML = S[cur].fr.map((_, i) => `<canvas width="32" height="32" data-f="${i}"></canvas>`).join(''); $$('canvas', strip).forEach((c, i) => { const q = c.getContext('2d'); q.imageSmoothingEnabled = false; q.fillStyle = '#0b1226'; q.fillRect(0, 0, 32, 32); GMK.char(q, 16 - 20 * .56, 8.2, .56, S[cur].fr[i]); q.strokeStyle = i === f ? '#3ee6ff' : '#2b3a6b'; q.lineWidth = i === f ? 2 : 1; q.strokeRect(1, 1, 30, 30); }); };
+  const draw = () => {
+    const f = frameIdx(), s = S[cur], GY = 94, sc = 1.3; g.fillStyle = '#0e1630'; g.fillRect(0, 0, 240, 110); g.fillStyle = '#5f6d99'; [[20, 14], [90, 30], [150, 10], [210, 26], [60, 50]].forEach(([x, y]) => g.fillRect(x, y, 2, 2));
+    const off = cur === 'run' ? (t * 20 * fps / 2) % 8 : 0; for (let x = -8; x < 248; x += 8) { g.drawImage(sprite('grass', 1), Math.round(x - off), GY); g.drawImage(sprite('floor', 1), Math.round(x - off), GY + 8); }
+    let up = 0, o = s.fr[f]; if (cur === 'jump') { const p = ((t * fps / 8) % 1); up = p > .15 && p < .85 ? Math.sin(Math.PI * (p - .15) / .7) * 34 : 0; g.fillStyle = 'rgba(0,0,0,.35)'; const w = 36 - up * .5; g.fillRect(120 - w / 2, GY - 1, w, 2); }
+    let sh = 0; if (cur === 'hurt') sh = f ? 2 : -2;
+    GMK.char(g, Math.round(100 + sh), Math.round(GY - 39 * sc - up), sc, o);
+    if (cur === 'hurt' && f === 0) { g.fillStyle = '#ff5a5a'; g.fillRect(150, 40, 3, 3); g.fillRect(156, 34, 3, 3); g.fillRect(146, 32, 3, 3); }
+    const key = cur + ':' + f; if (key !== lastKey) { lastKey = key; drawStrip(f); }
+  };
+  const pick = k => { cur = k; t = 0; ft = 0; fps = S[k].fps; $('#smFps').value = fps; $('#smFpsV').textContent = fps; $$('.node', el).forEach(n => n.classList.toggle('on', n.dataset.s === k)); lastKey = ''; info(); };
+  $$('.node', el).forEach(n => n.onclick = () => pick(n.dataset.s));
+  $('#smFps').oninput = e => { fps = +e.target.value; $('#smFpsV').textContent = fps; };
+  const tick = now => { if (!document.body.contains(cv)) return; const dt = Math.min(.05, (now - last) / 1000); last = now; t += dt; ft += dt * fps; draw(); raf = requestAnimationFrame(tick); };
+  ACTIVE_GAMES.add({ destroy: () => cancelAnimationFrame(raf) }); info(); raf = requestAnimationFrame(tick);
+};
+
+/* ---------- 3 · cuatro recetas de partículas ---------- */
+MOUNTS.fxRecipes = el => {
+  const K = ['coin', 'hit', 'dust', 'win'], P = 1.6;
+  const rec = p => `<div class="fx-rec"><span><b>Cantidad</b><em>${p.n} partículas</em></span><span><b>Color</b><em>${p.colN} ${p.col.slice(0, 4).map(c => `<i style="background:${c}"></i>`).join('')}</em></span><span><b>Dura</b><em>${p.life[0].toString().replace('.', ',')} a ${p.life[1].toString().replace('.', ',')} s</em></span><span><b>Gravedad</b><em>${p.g > 0 ? 'sí' : 'casi no'}</em></span></div>`;
+  el.innerHTML = `<div class="grid c4 fixed fx4">${K.map((k, i) => `<div class="card fxc"><canvas class="fxm" data-fx="${k}" width="160" height="96"></canvas><span class="cn">${pad(i + 1)}</span><h3>${FX[k].t}</h3><p>${FX[k].see}</p><p class="fx-why">${FX[k].why}</p>${rec(FX[k])}</div>`).join('')}</div>`;
+  const cvs = $$('canvas[data-fx]', el), st = {}; cvs.forEach(c => { c.getContext('2d').imageSmoothingEnabled = false; st[c.dataset.fx] = { ps: [], fired: false }; });
+  let t = 0, last = performance.now(), raf;
+  const frame = now => { if (!document.body.contains(el)) return; const dt = Math.min(.05, (now - last) / 1000); last = now; t += dt; const tt = t % P;
+    cvs.forEach(c => { const k = c.dataset.fx, g = c.getContext('2d'), s = st[k]; g.fillStyle = '#0b0f1e'; g.fillRect(0, 0, 160, 96); for (let x = 0; x < 160; x += 16) g.drawImage(sprite('floor', 2), x, 80);
+      if (tt < .05) s.fired = false; if (tt > .35 && !s.fired) { s.fired = true; fxSpawn(s.ps, FX[k], k === 'dust' ? 80 : k === 'win' ? 80 : 80, k === 'dust' ? 78 : k === 'win' ? 40 : 52); }
+      if (k === 'coin') { if (tt < .35) GMK.coin(g, 68, 40, 24); g.drawImage(sprite('player', 2), 20, 46); }
+      else if (k === 'hit') { const sh = tt > .35 && tt < .6 ? (Math.random() - .5) * 5 : 0; charAt(g, 80, .9, 62 + sh, tt > .35 && tt < .6 ? { hurt: true } : {}); GMK.ghost(g, 130, 52, .7); }
+      else if (k === 'dust') { const fall = tt < .35 ? (.35 - tt) * 90 : 0; charAt(g, 80 - fall, .9, 62, tt < .35 ? { jump: true } : { dy: 3 }); }
+      else { g.drawImage(sprite('flag', 3), 66, 28); }
+      s.ps = fxStep(s.ps, dt); fxDraw(g, s.ps); });
+    raf = requestAnimationFrame(frame); };
+  ACTIVE_GAMES.add({ destroy: () => cancelAnimationFrame(raf) }); raf = requestAnimationFrame(frame);
+};
+
+/* ---------- 4 · la partícula por dentro (laboratorio) ---------- */
+MOUNTS.fxLab = el => {
+  const steps = [['Nace', 'Aparece en un punto con una velocidad al azar (x, y) y un tiempo de vida.', 'n'], ['Se mueve', 'Cada cuadro suma su velocidad a su posición. La gravedad la va empujando hacia abajo.', 'm'], ['Se apaga', 'Su vida baja con el tiempo. Mientras menos le queda, más transparente se ve. A cero, desaparece.', 'a'], ['Se dibuja', 'Es sólo un cuadradito de color. 30 cuadraditos juntos parecen una explosión.', 'd']];
+  el.innerHTML = `<div class="fl"><div class="fl-l"><div class="grid c2 fixed">${steps.map(([t, d, k], i) => `<div class="card"><div class="ico-row"><canvas class="ico" data-fli="${k}" width="48" height="48"></canvas><div><span class="cn">${pad(i + 1)}</span><h3>${t}</h3></div></div><p>${d}</p></div>`).join('')}</div>
+    <pre class="code fl-code">// en cada cuadro, para cada partícula:
+p.x  += p.vx * dt
+p.vy += gravedad * dt
+p.y  += p.vy * dt
+p.vida -= dt          // si vida ≤ 0 → se borra
+transparencia = p.vida / p.vidaInicial
+dibujar cuadradito en (p.x, p.y)</pre></div>
+    <div class="fl-r"><canvas id="flCv" width="320" height="150"></canvas><div class="small" id="flRead"></div>
+      <div class="fl-ctl">${[['n', 'Cantidad', 5, 100, 30], ['v', 'Velocidad', 20, 200, 90], ['g', 'Gravedad', -50, 300, 160], ['l', 'Vida (s)', 3, 25, 8]].map(([k, l, a, b, v]) => `<label class="chip">${l} <input type="range" data-fl="${k}" min="${a}" max="${b}" value="${v}"> <b id="flv_${k}">${k === 'l' ? (v / 10).toFixed(1) : v}</b></label>`).join('')}</div>
+      <div class="pill-list" id="flCol"><span class="pill on" data-c="0">✦ Dorado</span><span class="pill" data-c="1">✖ Rojo</span><span class="pill" data-c="2">★ Arcoíris</span></div>
+      <p class="small muted" style="margin:6px 0 0">Tocá el canvas para lanzar una explosión. La partícula marcada con un recuadro muestra sus números en vivo.</p></div></div>`;
+  $$('canvas[data-fli]', el).forEach(c => { const g = c.getContext('2d'); g.imageSmoothingEnabled = false; g.fillStyle = '#0e1630'; g.fillRect(0, 0, 48, 48); const k = c.dataset.fli;
+    if (k === 'n') { g.fillStyle = '#ffd23f'; g.fillRect(21, 21, 6, 6); g.fillStyle = '#ff9f43'; [[22, 6], [22, 36], [6, 22], [36, 22], [10, 10], [34, 10], [10, 34], [34, 34]].forEach(([x, y]) => g.fillRect(x, y, 4, 4)); }
+    else if (k === 'm') { g.strokeStyle = '#3ee6ff'; g.lineWidth = 2; g.beginPath(); g.moveTo(6, 40); g.quadraticCurveTo(24, -6, 42, 38); g.stroke(); g.fillStyle = '#ffd23f'; g.fillRect(4, 38, 5, 5); g.fillRect(38, 36, 5, 5); g.fillStyle = '#3ee6ff'; g.fillRect(20, 12, 6, 6); }
+    else if (k === 'a') { [1, .75, .5, .3, .15].forEach((a, i) => { g.globalAlpha = a; g.fillStyle = '#ffd23f'; g.fillRect(4 + i * 9, 20, 7, 7); }); g.globalAlpha = 1; }
+    else { ['#ffd23f', '#ff9f43', '#fff2a8', '#ff5a5a', '#3ee6ff', '#ff5fb4', '#7cff6b'].forEach((c2, i) => { g.fillStyle = c2; g.fillRect(6 + (i * 13) % 34, 8 + (i * 17) % 30, 5 + i % 3, 5 + i % 3); }); } });
+  const cv = $('#flCv'), g = cv.getContext('2d'); g.imageSmoothingEnabled = false;
+  const V = { n: 30, v: 90, g: 160, l: .8 }, COLS = [['#ffd23f', '#fff2a8', '#ff9f43'], ['#ff5a5a', '#ffb3b3'], ['#3ee6ff', '#ff5fb4', '#ffd23f', '#7cff6b']]; let ci = 0, ps = [], trk = null, last = performance.now(), idle = 0, raf;
+  const shoot = (x, y) => { const base = { n: V.n, col: COLS[ci], sp: [40, 110], life: [.6, 1], g: 1, sz: [2, 4] }; const before = ps.length; fxSpawn(ps, base, x, y, { sp: V.v / 90, g: V.g / 1, life: V.l }); ps.slice(before).forEach(p => p.g = V.g); trk = ps[before] || null; };
+  cv.addEventListener('pointerdown', e => { const r = cv.getBoundingClientRect(); shoot((e.clientX - r.left) * 320 / r.width, (e.clientY - r.top) * 150 / r.height); idle = 0; });
+  $$('[data-fl]', el).forEach(i => i.oninput = () => { V[i.dataset.fl] = i.dataset.fl === 'l' ? i.value / 10 : +i.value; $('#flv_' + i.dataset.fl).textContent = i.dataset.fl === 'l' ? (i.value / 10).toFixed(1) : i.value; });
+  $$('#flCol .pill', el).forEach(p => p.onclick = () => { ci = +p.dataset.c; $$('#flCol .pill', el).forEach(x => x.classList.toggle('on', x === p)); });
+  const frame = now => { if (!document.body.contains(cv)) return; const dt = Math.min(.05, (now - last) / 1000); last = now; idle += dt; if (!ps.length && idle > .6) { shoot(160, 70); idle = 0; }
+    g.fillStyle = '#0b0f1e'; g.fillRect(0, 0, 320, 150); for (let x = 0; x < 320; x += 16) g.drawImage(sprite('floor', 2), x, 134);
+    ps = fxStep(ps, dt); fxDraw(g, ps);
+    if (trk && trk.life > 0) { g.strokeStyle = '#fff'; g.lineWidth = 1; g.strokeRect(Math.round(trk.x) - 3, Math.round(trk.y) - 3, trk.s + 6, trk.s + 6); $('#flRead').innerHTML = `<b>Partícula marcada:</b> x=${trk.x.toFixed(0)} · y=${trk.y.toFixed(0)} · vx=${trk.vx.toFixed(0)} · vy=${trk.vy.toFixed(0)} · vida=${trk.life.toFixed(2)} s`; } else if (!ps.length) $('#flRead').innerHTML = '<b>Partícula marcada:</b> (todas se apagaron)';
+    raf = requestAnimationFrame(frame); };
+  ACTIVE_GAMES.add({ destroy: () => cancelAnimationFrame(raf) }); raf = requestAnimationFrame(frame);
+};
+
+/* ---------- 5 · feedback: seis recursos ---------- */
+MOUNTS.fxFeedback = el => {
+  const F = [
+    ['shake', 'Sacudida de pantalla', 'Toda la imagen tiembla un instante cuando algo pega fuerte.', 'Mover la cámara 2–4 px al azar durante 0,25 s y volver al centro.'],
+    ['flash', 'Flash de daño', 'El personaje se ilumina de blanco un instante cuando lo golpean.', 'Dibujar encima un rectángulo blanco que baja de opaco a transparente en 0,2 s.'],
+    ['blink', 'Parpadeo', 'El personaje titila: indica que es invulnerable por un momento.', 'Mostrarlo y ocultarlo cada 80 ms durante 1 s, mientras ignora los golpes.'],
+    ['float', 'Número flotante', 'Un “+10” sube desde donde pasó algo y se desvanece.', 'Crear un texto en esa posición, subirlo 20 px y bajar su transparencia hasta 0.'],
+    ['stop', 'Pausa de impacto', 'En el instante del golpe el juego se congela una fracción de segundo.', 'Detener el movimiento unos 0,1 s (6 cuadros) y recién ahí seguir. Hace que el golpe “pese”.'],
+    ['sound', 'Sonido', 'Un “pip” al juntar, un “pum” al golpear: el oído también cuenta.', 'Reproducir un sonido corto en el mismo cuadro del evento. Tocá el parlante para oírlo.']
+  ];
+  el.innerHTML = `<div class="grid c3 fixed fbg">${F.map(([k, t, see, how], i) => `<div class="card fbc"><div class="fb-top"><canvas class="fxm" data-fb="${k}" width="128" height="80"></canvas><div><span class="cn">${pad(i + 1)}</span><h3>${t}</h3></div></div><p>${see}</p><p class="small muted"><b>Cómo:</b> ${how}</p></div>`).join('')}</div>`;
+  const cvs = $$('canvas[data-fb]', el); cvs.forEach(c => c.getContext('2d').imageSmoothingEnabled = false);
+  const beep = () => { try { const A = new (window.AudioContext || window.webkitAudioContext)(), o = A.createOscillator(), v = A.createGain(); o.type = 'square'; o.frequency.setValueAtTime(660, A.currentTime); o.frequency.setValueAtTime(990, A.currentTime + .08); v.gain.setValueAtTime(.12, A.currentTime); v.gain.exponentialRampToValueAtTime(.001, A.currentTime + .25); o.connect(v); v.connect(A.destination); o.start(); o.stop(A.currentTime + .26); setTimeout(() => A.close(), 400); } catch (e) { } };
+  cvs.forEach(c => { if (c.dataset.fb === 'sound') { c.style.cursor = 'pointer'; c.onclick = beep; } });
+  const GY = 68, bg = g => { g.fillStyle = '#0b0f1e'; g.fillRect(0, 0, 128, 80); g.fillStyle = '#5f6d99'; [[10, 8], [60, 14], [100, 6]].forEach(([x, y]) => g.fillRect(x, y, 2, 2)); for (let x = 0; x < 128; x += 16) g.drawImage(sprite('floor', 2), x, GY); };
+  let t = 0, last = performance.now(), raf; const P = 2.2;
+  const D = {
+    shake(g, tt) { g.save(); if (tt < .4) g.translate((Math.random() - .5) * 7 * (1 - tt / .4), (Math.random() - .5) * 7 * (1 - tt / .4)); bg(g); charAt(g, GY, .9, 44, tt < .4 ? { hurt: true } : {}); GMK.ghost(g, 100, GY - 28, .7); g.restore(); },
+    flash(g, tt) { bg(g); charAt(g, GY, .9, 44, {}); if (tt < .3) { g.fillStyle = `rgba(255,255,255,${(1 - tt / .3) * .9})`; g.fillRect(44, GY - 46, 36, 48); } },
+    blink(g, tt) { bg(g); if (tt > 1.3 || Math.floor(tt * 12) % 2 === 0) charAt(g, GY, .9, 44, {}); else { g.globalAlpha = .2; charAt(g, GY, .9, 44, {}); g.globalAlpha = 1; } },
+    float(g, tt) { bg(g); charAt(g, GY, .9, 44, {}); if (tt < 1.4) { g.globalAlpha = Math.max(0, 1 - tt / 1.4); g.fillStyle = '#ffd23f'; g.font = '10px "Press Start 2P"'; g.fillText('+10', 46, 34 - tt * 16); g.globalAlpha = 1; } GMK.coin(g, 96, GY - 14, 12); },
+    stop(g, tt) { bg(g); let x = 6 + Math.min(tt, 1) * 40; if (tt > 1 && tt < 1.3) x = 46; else if (tt >= 1.3) x = 46 + (tt - 1.3) * 40; const gx = tt >= 1.3 ? 92 + (tt - 1.3) * 120 : 92; if (gx < 140) GMK.ghost(g, gx + 10, GY - 28, .7); charAt(g, GY, .9, x, tt > 1 && tt < 1.3 ? { hurt: false, lean: 2 } : { walk: Math.floor(tt * 8) % 2 ? 1 : -1 }); if (tt > 1 && tt < 1.3) { g.fillStyle = '#fff'; [[78, 40], [84, 34], [88, 44], [80, 50]].forEach(([a, b]) => g.fillRect(a, b, 3, 3)); g.fillStyle = '#ffd23f'; g.font = '6px "Press Start 2P"'; g.fillText('PAUSA', 8, 14); } },
+    sound(g, tt) { bg(g); g.fillStyle = '#8fa0d0'; g.fillRect(40, 32, 10, 16); g.beginPath(); g.moveTo(50, 32); g.lineTo(64, 22); g.lineTo(64, 58); g.lineTo(50, 48); g.fill(); g.strokeStyle = '#3ee6ff'; g.lineWidth = 2; for (let i = 0; i < 3; i++) { const p = ((tt * 1.6 + i / 3) % 1); g.globalAlpha = 1 - p; g.beginPath(); g.arc(64, 40, 8 + p * 26, -.9, .9); g.stroke(); } g.globalAlpha = 1; g.fillStyle = '#ffd23f'; g.font = '7px "Press Start 2P"'; g.fillText('PIP!', 96, 20 + Math.sin(tt * 8) * 2); }
+  };
+  const frame = now => { if (!document.body.contains(el)) return; const dt = Math.min(.05, (now - last) / 1000); last = now; t += dt; const tt = t % P; cvs.forEach(c => D[c.dataset.fb](c.getContext('2d'), tt)); raf = requestAnimationFrame(frame); };
+  ACTIVE_GAMES.add({ destroy: () => cancelAnimationFrame(raf) }); raf = requestAnimationFrame(frame);
+};
+
+/* ---------- 6 · mis estados (tabla) ---------- */
+const STS_DEF = () => [{ k: 'idle', on: 1, n: 2, fps: 4, w: 'Quieto, sin teclas apretadas' }, { k: 'run', on: 1, n: 4, fps: 10, w: 'Moviéndose en el suelo' }, { k: 'jump', on: 1, n: 1, fps: 8, w: 'En el aire' }, { k: 'hurt', on: 0, n: 2, fps: 12, w: 'Recibe un golpe de un enemigo' }, { k: 'attack', on: 0, n: 4, fps: 12, w: 'Ataca o dispara' }];
+MOUNTS.myStates = el => {
+  if (!Array.isArray(STATE.e2.sts)) STATE.e2.sts = STS_DEF();
+  const S = STATE.e2.sts;
+  const sync = () => { STATE.e2.states = S.filter(s => s.on).map(s => `${s.k} · ${s.n} frames · ${s.w}`).join('\n'); saveState(); document.dispatchEvent(new CustomEvent('e2states')); };
+  const prev = () => { const on = S.filter(s => s.on), mx = Math.max(1, ...on.map(s => s.n)); $('#stsPrev').innerHTML = on.length ? on.map(s => `<div class="r"><span class="l">${s.k}</span>${Array.from({ length: mx }, (_, i) => `<i class="${i < s.n ? 'f' : ''}"></i>`).join('')}</div>`).join('') : '<p class="muted">Activá al menos un estado.</p>'; $('#stsDim').textContent = `${on.length} filas × ${mx} columnas`; };
+  el.innerHTML = `<div class="sts"><div class="sts-t"><div class="sts-h"><span>Estado</span><span>Frames</span><span>FPS</span><span>Se activa cuando…</span></div>
+    ${S.map((s, i) => `<div class="sts-row ${s.on ? '' : 'off'}" data-i="${i}"><label class="sts-n"><input type="checkbox" data-f="on" ${s.on ? 'checked' : ''}><b>${s.k}</b></label><input type="number" min="1" max="12" data-f="n" value="${s.n}"><input type="number" min="1" max="30" data-f="fps" value="${s.fps}"><input type="text" data-f="w" value="${esc(s.w)}"></div>`).join('')}
+    <p class="small muted" style="margin:8px 0 0">Mínimo viable: <b>idle + run + jump</b>. Activá los demás sólo si tu juego los necesita.</p></div>
+    <div class="sts-p"><h4>Tu hoja de sprites</h4><div id="stsPrev" class="sts-sheet"></div><p class="small muted" style="margin:6px 0 0">Una fila por estado, un cuadrito por frame: <b id="stsDim"></b>.</p></div></div>`;
+  $$('[data-i]', el).forEach(row => { const s = S[+row.dataset.i]; $$('[data-f]', row).forEach(inp => inp.oninput = inp.onchange = () => { const f = inp.dataset.f; s[f] = f === 'on' ? (inp.checked ? 1 : 0) : (f === 'w' ? inp.value : Math.max(1, +inp.value || 1)); row.classList.toggle('off', !s.on); prev(); sync(); }); });
+  prev(); sync();
+};
+
+/* ---------- 7 · Prompt 7 con campos ---------- */
+MOUNTS.spritePrompt = el => {
+  const sp = STATE.e2.sp = STATE.e2.sp || { file: '', w: '', h: '' };
+  const tam = () => { const m = ((STATE.e2.ip && STATE.e2.ip.tam) || '').match(/(\d+)\s*[x×X]\s*(\d+)/); return m ? [m[1], m[2]] : ['32', '32']; };
+  const fname = () => sp.file || (MY_SAMPLE.name ? MY_SAMPLE.name.replace(/\.[^.]+$/, '') : 'personaje');
+  const rows = () => (STATE.e2.sts || STS_DEF()).filter(s => s.on);
+  const build = () => { const r = rows(), w = sp.w || tam()[0], h = sp.h || tam()[1], loops = r.filter(s => s.k === 'idle' || s.k === 'run').map(s => `"${s.k}"`), once = r.filter(s => s.k !== 'idle' && s.k !== 'run').map(s => `"${s.k}"`);
+    return `Mi personaje ahora tiene un spritesheet: assets/sprites/${fname()}.png
+Cada frame mide ${w}x${h} píxeles. Las filas son:
+${r.map((s, i) => `- fila ${i}: ${s.k} (${s.n} frame${s.n > 1 ? 's' : ''})`).join('\n') || '- (activá estados en la sección anterior)'}
+
+Cargalo como spritesheet en Phaser con esas medidas.
+Creá estas animaciones, con su velocidad en cuadros por segundo:
+${r.map(s => `- "${s.k}": ${s.fps} fps`).join('\n')}
+${loops.length ? `Repetí en loop ${loops.join(' y ')}.` : ''}${once.length ? ` Reproducí ${once.join(' y ')} una sola vez.` : ''}
+Cuándo reproducir cada una:
+${r.map(s => `- "${s.k}": ${s.w.toLowerCase()}`).join('\n')}
+Invertí el sprite (flipX) cuando se mueve a la izquierda.
+No cambies la velocidad ni la física existentes.
+Probá que no quede ningún frame en blanco ni cortado.`; };
+  el.innerHTML = `<div class="pb"><div><div class="gdd-form pb-fields"><div class="field" style="grid-column:1/-1"><label>Archivo del spritesheet <span class="small muted">· assets/sprites/…png</span></label><input data-sp="file" value="${esc(sp.file)}" placeholder="${esc(fname())}"></div>
+      <div class="field"><label>Ancho del frame (px)</label><input data-sp="w" inputmode="numeric" value="${esc(sp.w)}" placeholder="${tam()[0]}"></div><div class="field"><label>Alto del frame (px)</label><input data-sp="h" inputmode="numeric" value="${esc(sp.h)}" placeholder="${tam()[1]}"></div></div>
+      <p class="small muted" style="margin:6px 0 8px">Si dejás ancho y alto vacíos usa el <b>tamaño destino</b> que pusiste en el constructor de prompt. Los frames y FPS vienen de <b>Mis estados</b>.</p>
+      <div class="sp-chips" id="spChips"></div></div>
+    <div class="pb-out"><div class="prompt-box"><div class="ph"><span class="t">Prompt 7 · Spritesheet y animaciones</span><button class="btn sm primary" id="spCopy">⧉ Copiar</button></div><pre id="spOut"></pre></div></div></div>`;
+  const out = () => { $('#spOut').textContent = build(); const r = rows(), w = +(sp.w || tam()[0]), h = +(sp.h || tam()[1]), mx = Math.max(1, ...r.map(s => s.n)); $('#spChips').innerHTML = `<span class="chip acc">${r.length} filas × ${mx} columnas</span><span class="chip">hoja total: <b>${mx * w}×${r.length * h} px</b></span>` + r.map(s => `<span class="chip">${s.k} · ${s.n}f · ${s.fps}fps</span>`).join(''); $$('[data-sp="w"]', el)[0].placeholder = tam()[0]; $$('[data-sp="h"]', el)[0].placeholder = tam()[1]; $$('[data-sp="file"]', el)[0].placeholder = fname(); };
+  $$('[data-sp]', el).forEach(i => i.oninput = () => { sp[i.dataset.sp] = i.value.trim(); saveState(); out(); });
+  $('#spCopy').onclick = () => copyText(build(), 'Prompt 7 copiado');
+  document.addEventListener('e2states', () => { if (document.body.contains(el)) out(); });
+  document.addEventListener('input', () => { if (document.body.contains(el)) out(); });
+  document.addEventListener('mysample', out);
+  out();
+};
+/* =========================================================
+   E02 · BLOQUE 4 — Poner mis assets en mi juego (v24)
+   ========================================================= */
+
+/* ---------- iconos de síntomas (diagnóstico) ---------- */
+(function () {
+  const prev = MOUNTS.assetIcons;
+  MOUNTS.assetIcons = el => {
+    prev(el);
+    $$('canvas[data-ico^="d_"]', el).forEach(cv => {
+      const g = cv.getContext('2d'); g.imageSmoothingEnabled = false; const k = cv.dataset.ico; g.fillStyle = '#0e1630'; g.fillRect(0, 0, 48, 48);
+      if (k === 'd_404') { g.fillStyle = '#35b36b'; g.fillRect(8, 8, 32, 32); g.fillStyle = '#fff'; g.font = 'bold 22px monospace'; g.fillText('?', 18, 33); }
+      else if (k === 'd_cut') { GMK.char(g, 4, 12, .58, {}); g.fillStyle = '#0e1630'; g.fillRect(26, 0, 22, 48); g.fillStyle = '#ff5a5a'; g.fillRect(25, 4, 2, 40); GMK.char(g, 18, 12, .58, { walk: 1 }); g.fillStyle = '#0e1630'; g.fillRect(0, 0, 4, 48); }
+      else if (k === 'd_size') { GMK.char(g, 3, 24, .28, {}); GMK.char(g, 18, 8, .78, {}); g.strokeStyle = '#ffd23f'; g.lineWidth = 1; g.strokeRect(2.5, 23.5, 12, 14); }
+      else if (k === 'd_hit') { GMK.char(g, 6, 12, .5, {}); g.strokeStyle = '#ff5a5a'; g.lineWidth = 2; g.setLineDash([3, 2]); g.strokeRect(3, 7, 36, 38); g.setLineDash([]); g.fillStyle = '#ffd23f'; g.fillRect(40, 20, 4, 4); g.fillRect(43, 15, 3, 3); g.fillRect(43, 27, 3, 3); }
+      else if (k === 'd_blur') { GMK.char(g, 4, 12, .85, {}); g.globalAlpha = .45; g.fillStyle = '#0e1630'; for (let i = 0; i < 6; i++) g.fillRect(0, 8 + i * 7, 48, 3); g.globalAlpha = .5; GMK.char(g, 6, 12, .85, {}); g.globalAlpha = 1; }
+      else if (k === 'd_bg') { for (let y = 0; y < 6; y++) for (let x = 0; x < 6; x++) { g.fillStyle = '#f2f2f2'; g.fillRect(x * 8, y * 8, 8, 8); } g.fillStyle = '#fff'; g.fillRect(4, 4, 40, 40); GMK.char(g, 8, 14, .5, {}); g.strokeStyle = '#ff5a5a'; g.lineWidth = 2; g.strokeRect(4, 4, 40, 40); }
+    });
+  };
+})();
+
+/* ---------- 1 · antes / después ---------- */
+MOUNTS.swapDemo = el => {
+  el.innerHTML = `<div class="sw"><div><canvas id="swCv" width="320" height="150"></canvas>
+    <div class="seg" id="swSeg" style="margin-top:10px"><button data-m="a">Antes · rectángulos</button><button data-m="d">Después · mis assets</button><button class="on" data-m="c">Comparar</button></div></div>
+    <div class="sw-r"><div class="card sw-ok"><span class="cn">NO CAMBIA</span><h3>Lo que el juego hace</h3><ul><li>Cómo se mueve el personaje</li><li>Los choques con enemigos y objetos</li><li>Cuándo se gana o se pierde</li></ul></div>
+      <div class="card sw-new"><span class="cn">SÍ CAMBIA</span><h3>Lo que se ve</h3><ul><li>Rectángulos → personaje, enemigo y objetos</li><li>Fondo liso → escenario</li><li>Suelo plano → tiles</li></ul></div></div></div>`;
+  const cv = $('#swCv'), g = cv.getContext('2d'); g.imageSmoothingEnabled = false; let mode = 'c', t = 0, last = performance.now(), raf;
+  const GY = 118;
+  const scene = (after, tt) => {
+    const px = 70 + 70 * Math.sin(tt * 1.1), face = Math.cos(tt * 1.1) >= 0;
+    if (after) { GMK.sky(g, 320, 150, tt * 20); for (let x = 0; x < 320; x += 16) { g.drawImage(sprite('grass', 2), x, GY); g.drawImage(sprite('floor', 2), x, GY + 16); } }
+    else { g.fillStyle = '#0e1630'; g.fillRect(0, 0, 320, 150); g.fillStyle = '#2a4068'; g.fillRect(0, GY, 320, 32); }
+    [[120, 70], [170, 58], [220, 70]].forEach(([x, y]) => { if (after) GMK.coin(g, x, y, 12); else { g.fillStyle = '#ffd23f'; g.fillRect(x, y, 12, 12); } });
+    if (after) { GMK.ghost(g, 255, GY - 30, .75); GMK.char(g, Math.round(px), GY - 39 * .72, .72, { walk: Math.floor(tt * 8) % 2 ? 1 : -1, st: 1.5, face: face ? 1 : -1 }); }
+    else { g.fillStyle = '#ff5a5a'; g.fillRect(240, GY - 28, 30, 28); g.fillStyle = '#3ee6ff'; g.fillRect(Math.round(px) + 2, GY - 36, 26, 36); }
+  };
+  const frame = now => { if (!document.body.contains(cv)) return; t += Math.min(.05, (now - last) / 1000); last = now;
+    if (mode === 'a') scene(false, t); else if (mode === 'd') scene(true, t);
+    else { scene(false, t); const wx = Math.round(160 + 140 * Math.sin(t * .6)); g.save(); g.beginPath(); g.rect(wx, 0, 320 - wx, 150); g.clip(); scene(true, t); g.restore(); g.fillStyle = '#fff'; g.fillRect(wx - 1, 0, 2, 150); }
+    g.font = '7px "Press Start 2P"'; g.fillStyle = 'rgba(0,0,0,.6)'; g.fillRect(4, 4, mode === 'd' ? 118 : 100, 12); g.fillStyle = '#fff'; g.fillText(mode === 'd' ? 'DESPUÉS: ASSETS' : mode === 'a' ? 'ANTES: FORMAS' : 'ANTES | DESPUÉS', 8, 13);
+    raf = requestAnimationFrame(frame); };
+  $$('#swSeg button', el).forEach(b => b.onclick = () => { mode = b.dataset.m; $$('#swSeg button', el).forEach(x => x.classList.toggle('on', x === b)); });
+  ACTIVE_GAMES.add({ destroy: () => cancelAnimationFrame(raf) }); raf = requestAnimationFrame(frame);
+};
+
+/* ---------- 2 · dónde van los archivos ---------- */
+MOUNTS.folderTree = el => {
+  const N = [
+    { k: 'root', t: 'assets/', i: 0, d: 'La carpeta que el juego mira. Todo lo que quieras ver en pantalla tiene que estar acá adentro: si no está, para el juego no existe.', ex: [], sz: '' },
+    { k: 'spr', t: 'sprites/', i: 1, c: 'jugador.png, enemigo.png, moneda.png', d: 'Personajes, enemigos y objetos. Siempre en PNG con fondo transparente.', ex: ['jugador.png', 'enemigo.png', 'moneda.png'], sz: '16×16 a 64×64 px' },
+    { k: 'til', t: 'tiles/', i: 1, c: 'tileset.png', d: 'Las baldosas del escenario (piso, pared, agua) juntas en una sola imagen.', ex: ['tileset.png'], sz: 'baldosas de 16×16 o 32×32' },
+    { k: 'ui', t: 'ui/', i: 1, c: 'corazon.png, iconos', d: 'Cosas de la interfaz: vidas, íconos, botones.', ex: ['corazon.png', 'icono_moneda.png'], sz: '16×16 a 32×32 px' },
+    { k: 'bg', t: 'fondo.png', i: 1, file: true, d: 'La imagen de fondo del escenario. Puede ser PNG o JPG.', ex: ['fondo.png'], sz: 'del tamaño de la pantalla' }
+  ];
+  const RULES = [['jugador.png', 'Jugador Final.PNG', 'Todo en minúsculas y con la extensión .png'], ['moneda_oro.png', 'moneda oro.png', 'Sin espacios: usá guion bajo'], ['cancion.png', 'canción.png', 'Sin tildes ni ñ'], ['enemigo.png', 'enemigo (2).png', 'Sin copias ni paréntesis']];
+  el.innerHTML = `<div class="ft"><div><div class="ft-tree">${N.map(n => `<div class="ft-row ${n.k === 'spr' ? 'on' : ''}" data-k="${n.k}" style="margin-left:${n.i * 30}px"><canvas width="24" height="24" data-fi="${n.file ? 'f' : 'd'}"></canvas><b>${n.t}</b>${n.c ? `<span class="muted small">← ${n.c}</span>` : ''}</div>`).join('')}</div>
+      <div class="card" id="ftDet" style="margin-top:12px"></div></div>
+    <div><h4 style="margin:0 0 8px">Cómo nombrar los archivos</h4><div class="nm">${RULES.map(([ok, bad, why]) => `<div class="nm-r"><span class="nm-ok"><i>✔</i><code>${ok}</code></span><span class="nm-bad"><i>✖</i><code>${bad}</code></span><small>${why}</small></div>`).join('')}</div>
+      <p class="small muted" style="margin:10px 0 0">Copiá los archivos con el explorador de Windows o Finder dentro de la carpeta del proyecto.</p></div></div>`;
+  $$('canvas[data-fi]', el).forEach(c => { const g = c.getContext('2d'); g.imageSmoothingEnabled = false; if (c.dataset.fi === 'd') { g.fillStyle = '#c99a00'; g.fillRect(2, 5, 9, 4); g.fillStyle = '#ffd23f'; g.fillRect(2, 8, 20, 13); g.fillStyle = '#ffe58a'; g.fillRect(2, 8, 20, 3); } else { g.fillStyle = '#3ee6ff'; g.fillRect(4, 3, 16, 18); g.fillStyle = '#0e1630'; g.fillRect(6, 5, 12, 14); g.fillStyle = '#7cff6b'; g.fillRect(7, 14, 10, 4); g.fillStyle = '#ffd23f'; g.fillRect(14, 7, 3, 3); } });
+  const show = k => { const n = N.find(x => x.k === k); $$('.ft-row', el).forEach(r => r.classList.toggle('on', r.dataset.k === k)); $('#ftDet').innerHTML = `<h3 style="color:var(--cur)">${n.t}</h3><p>${n.d}</p>${n.ex.length ? `<div class="pk-chips">${n.ex.map(x => `<i>${x}</i>`).join('')}</div>` : ''}${n.sz ? `<p class="small muted" style="margin:8px 0 0"><b>Tamaño típico:</b> ${n.sz}</p>` : ''}`; };
+  $$('.ft-row', el).forEach(r => r.onclick = () => show(r.dataset.k)); show('spr');
+};
+
+/* ---------- 3 · el nombre es un contrato ---------- */
+MOUNTS.nameContract = el => {
+  const C = [
+    { l: 'Todo coincide', f: 'assets/sprites/jugador.png', s: 'assets/sprites/jugador.png', ok: true },
+    { l: 'Mayúscula distinta', f: 'assets/sprites/jugador.png', s: 'assets/sprites/Jugador.png', ok: false, why: 'Para el juego, “Jugador” y “jugador” son nombres distintos.' },
+    { l: 'Carpeta equivocada', f: 'assets/sprites/jugador.png', s: 'assets/jugador.png', ok: false, why: 'El archivo está en sprites/, pero el juego lo busca afuera.' }
+  ];
+  el.innerHTML = `<div class="nc"><div class="nc-l"><div class="pill-list" id="ncP">${C.map((c, i) => `<span class="pill ${i === 0 ? 'on' : ''}" data-i="${i}">${c.l}</span>`).join('')}</div>
+      <div class="nc-box"><small>📁 El archivo que vos guardaste</small><code id="ncF"></code></div><div class="nc-eq" id="ncEq"></div><div class="nc-box"><small>🎮 Lo que el juego busca</small><code id="ncS"></code></div>
+      <p class="small muted" style="margin:10px 0 0">La carpeta y el nombre tienen que coincidir <b>letra por letra</b>. No tenés que escribir código: tenés que saber que esto existe para poder describirle el problema a la IA.</p></div>
+    <div class="nc-r"><canvas id="ncCv" width="160" height="96"></canvas><div class="nc-msg" id="ncMsg"></div></div></div>`;
+  const cv = $('#ncCv'), g = cv.getContext('2d'); g.imageSmoothingEnabled = false; let cur = 0, t = 0, last = performance.now(), raf;
+  const set = i => { cur = i; const c = C[i]; $$('#ncP .pill', el).forEach(p => p.classList.toggle('on', +p.dataset.i === i)); $('#ncF').textContent = c.f; $('#ncS').textContent = c.s; $('#ncS').className = c.ok ? 'ok' : 'bad'; $('#ncEq').innerHTML = c.ok ? '<b class="ok">=</b> coinciden' : '<b class="bad">≠</b> no coinciden';
+    $('#ncMsg').innerHTML = c.ok ? '<b class="ok">✔ Se ve el personaje.</b><br><span class="small muted">El juego encontró la imagen y la dibuja.</span>' : `<b class="bad">✖ Error 404:</b> <code>no se encontró ${c.s}</code><br><span class="small muted">${c.why} En pantalla queda un cuadrado verde o nada.</span>`; };
+  $$('#ncP .pill', el).forEach(p => p.onclick = () => set(+p.dataset.i));
+  const frame = now => { if (!document.body.contains(cv)) return; t += Math.min(.05, (now - last) / 1000); last = now; g.fillStyle = '#0b0f1e'; g.fillRect(0, 0, 160, 96); for (let x = 0; x < 160; x += 16) g.drawImage(sprite('floor', 2), x, 80);
+    if (C[cur].ok) GMK.char(g, 62, 80 - 39 * .85 + Math.sin(t * 6) * 0, .85, { walk: Math.floor(t * 6) % 2 ? 1 : -1 }); else { g.fillStyle = Math.floor(t * 3) % 2 ? '#35b36b' : '#2a8a52'; g.fillRect(62, 46, 34, 34); g.fillStyle = '#fff'; g.font = 'bold 20px monospace'; g.fillText('?', 73, 71); }
+    raf = requestAnimationFrame(frame); };
+  ACTIVE_GAMES.add({ destroy: () => cancelAnimationFrame(raf) }); set(0); raf = requestAnimationFrame(frame);
+};
+
+/* ---------- 4 · manifiesto + Prompt 6 ---------- */
+MOUNTS.manifest = el => {
+  const sp = () => STATE.e2.sp || {}, tam = () => { const m = ((STATE.e2.ip && STATE.e2.ip.tam) || '').match(/(\d+)\s*[x×X]\s*(\d+)/); return m ? [m[1], m[2]] : ['32', '32']; };
+  const seed = () => { const t = tam(), w = sp().w || t[0], h = sp().h || t[1], fr = (STATE.e2.sts || []).filter(s => s.on).reduce((a, s) => a + s.n, 0), fn = sp().file || (MY_SAMPLE.name ? MY_SAMPLE.name.replace(/\.[^.]+$/, '') : 'jugador');
+    return [{ n: 'jugador', f: `assets/sprites/${fn}.png`, s: fr ? `${w}x${h} por frame, ${fr} frames` : `${w}x${h}`, u: 'reemplaza al rectángulo celeste' }, { n: 'enemigo', f: 'assets/sprites/enemigo.png', s: `${t[0]}x${t[1]}`, u: 'reemplaza a los rectángulos rojos' }, { n: 'moneda', f: 'assets/sprites/moneda.png', s: '16x16', u: 'reemplaza a los cuadrados amarillos' }, { n: 'fondo', f: 'assets/fondo.png', s: '960x540', u: 'reemplaza al fondo liso' }]; };
+  if (!Array.isArray(STATE.e2.manifest) || !STATE.e2.manifest.length) { STATE.e2.manifest = seed(); saveState(); }
+  const txt = () => STATE.e2.manifest.filter(m => m.n || m.f).map(m => `- ${m.n || '?'}: ${m.f || '?'} (${m.s || '?'})${m.u ? ' → ' + m.u : ''}`).join('\n') || '(manifiesto vacío)';
+  const p6 = () => PROMPTS.find(p => p.id === 'p6').text.replace('[PEGAR MANIFIESTO]', txt());
+  const render = () => {
+    const M = STATE.e2.manifest;
+    el.innerHTML = `<div class="pb"><div><div class="mf-h"><span>Elemento</span><span>Archivo</span><span>Tamaño</span><span></span></div>
+      ${M.map((m, i) => `<div class="mf-row"><input data-m="${i}" data-f="n" value="${esc(m.n)}" placeholder="jugador"><input data-m="${i}" data-f="f" value="${esc(m.f)}" placeholder="assets/sprites/jugador.png"><input data-m="${i}" data-f="s" value="${esc(m.s)}" placeholder="32x32"><button class="x" data-del="${i}" title="Quitar">✕</button></div>`).join('')}
+      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:10px"><button class="btn sm" id="mAdd">+ Agregar fila</button><button class="btn sm ghost" id="mSeed">↺ Completar con mis datos</button></div>
+      <p class="small muted" style="margin:8px 0 0">Ya viene armado con lo que cargaste en los bloques anteriores. Corregí los nombres para que coincidan con tus archivos.</p></div>
+      <div class="pb-out"><div class="prompt-box"><div class="ph"><span class="t">Prompt 6 · Incorporar assets al proyecto</span><button class="btn sm primary" id="mCopyP6">⧉ Copiar</button></div><pre id="mOut"></pre></div></div></div>`;
+    const out = () => $('#mOut').textContent = p6(); out();
+    $$('[data-m]', el).forEach(i => i.oninput = () => { M[i.dataset.m][i.dataset.f] = i.value; saveState(); out(); });
+    $$('[data-del]', el).forEach(b => b.onclick = () => { M.splice(+b.dataset.del, 1); saveState(); render(); });
+    $('#mAdd').onclick = () => { M.push({ n: '', f: '', s: '', u: '' }); saveState(); render(); };
+    $('#mSeed').onclick = () => { STATE.e2.manifest = seed(); saveState(); render(); toast('Manifiesto completado con tus datos'); };
+    $('#mCopyP6').onclick = () => copyText(p6(), 'Prompt 6 copiado con tu manifiesto');
+  };
+  render();
+};
+
+/* ---------- 5 · algo se ve mal ---------- */
+MOUNTS.assetDiag = el => {
+  const D = [
+    ['d_404', 'No aparece la imagen', 'Se ve un cuadrado verde, o nada. El nombre o la carpeta del archivo no coinciden con lo que busca el juego.', '“Verificá que cada archivo exista y se cargue sin error 404.”'],
+    ['d_cut', 'Se ve cortado', 'Aparecen pedazos de otro frame. El tamaño de frame que se le dijo al juego no es el real.', '“Cada frame mide 32x32 px. Todos tienen el mismo tamaño.”'],
+    ['d_size', 'Gigante o diminuto', 'La imagen nueva tiene otro tamaño que el rectángulo que reemplazó.', '“Escalá la imagen al tamaño del rectángulo original, sin tocar la lógica.”'],
+    ['d_hit', 'Choca con el aire', 'La zona de choque quedó del tamaño del rectángulo viejo, no del dibujo nuevo.', '“Ajustá la zona de choque al dibujo que se ve.”'],
+    ['d_blur', 'Se ve borroso', 'El navegador suaviza la imagen cuando la agranda.', '“Mostrá las imágenes sin suavizado (pixel art).”'],
+    ['d_bg', 'Fondo blanco alrededor', 'La imagen no tiene transparencia: es un JPG o un PNG con fondo.', '“Usá PNG con fondo transparente.” Quitá el fondo con el preparador de sprites.']
+  ];
+  el.innerHTML = `<div class="grid c3 fixed dg">${D.map(([k, t, c, p], i) => `<div class="card"><div class="ico-row"><canvas class="ico" data-ico="${k}" width="48" height="48"></canvas><div><span class="cn">${pad(i + 1)}</span><h3>${t}</h3></div></div><p>${c}</p><p class="small dg-ask"><b>Pedile a la IA:</b> ${p}</p></div>`).join('')}</div>`;
+  MOUNTS.assetIcons(el);
+};
+/* =========================================================
+   E02 · BLOQUE 5 — Interfaz: HUD y flujo de pantallas (v25)
+   ========================================================= */
+
+/* ---------- iconos de las 4 ideas ---------- */
+(function () {
+  const prev = MOUNTS.assetIcons;
+  MOUNTS.assetIcons = el => {
+    prev(el);
+    $$('canvas[data-ico^="u_"]', el).forEach(cv => {
+      const g = cv.getContext('2d'); g.imageSmoothingEnabled = false; const k = cv.dataset.ico; g.fillStyle = '#0e1630'; g.fillRect(0, 0, 48, 48);
+      if (k === 'u_hud') { g.fillStyle = '#1a2b45'; g.fillRect(3, 8, 42, 32); g.fillStyle = '#ffd23f'; g.fillRect(6, 11, 14, 4); [0, 1, 2].forEach(i => { g.fillStyle = '#ff5a5a'; g.fillRect(6 + i * 7, 18, 5, 4); g.fillRect(7 + i * 7, 22, 3, 2); }); g.fillStyle = '#3ee6ff'; g.fillRect(28, 30, 8, 8); }
+      else if (k === 'u_menu') { g.fillStyle = '#1a2b45'; g.fillRect(3, 6, 42, 36); g.fillStyle = '#3ee6ff'; g.fillRect(10, 10, 28, 5); g.fillStyle = '#8fa0d0'; g.fillRect(14, 20, 20, 2); g.fillRect(14, 24, 20, 2); g.fillStyle = '#ffd23f'; g.fillRect(12, 32, 24, 7); g.fillStyle = '#0e1630'; g.fillRect(16, 34, 16, 3); }
+      else if (k === 'u_ind') { g.fillStyle = '#1d2850'; g.fillRect(4, 8, 40, 8); g.fillStyle = '#7cff6b'; g.fillRect(5, 9, 26, 6); g.fillStyle = '#1d2850'; g.fillRect(4, 22, 40, 8); g.fillStyle = '#ffd23f'; g.fillRect(5, 23, 14, 6); GMK.coin(g, 6, 34, 10); g.fillStyle = '#fff'; g.fillRect(20, 36, 4, 6); g.fillRect(26, 36, 4, 6); g.fillRect(32, 36, 4, 6); }
+      else if (k === 'u_scr') { [[2, 2, '#3ee6ff'], [14, 12, '#ffd23f'], [26, 22, '#ff5a5a']].forEach(([x, y, c]) => { g.fillStyle = '#1a2b45'; g.fillRect(x, y, 20, 24); g.strokeStyle = c; g.lineWidth = 2; g.strokeRect(x + 1, y + 1, 18, 22); g.fillStyle = c; g.fillRect(x + 5, y + 8, 10, 3); g.fillRect(x + 5, y + 14, 6, 2); }); }
+    });
+  };
+})();
+
+/* ---------- descripción del HUD (la usa el Prompt 8) ---------- */
+function hudDesc() {
+  const H = STATE.e2.hud, parts = [];
+  if (H.score) parts.push('puntaje numérico'); if (H.lives) parts.push('vidas como íconos de corazón'); if (H.timer) parts.push('tiempo restante en segundos'); if (H.bar) parts.push('barra de energía horizontal'); if (H.keys) parts.push('ícono de la llave/objeto cuando se tiene');
+  const P = { tl: 'esquina superior izquierda', tr: 'esquina superior derecha', bl: 'esquina inferior izquierda', br: 'esquina inferior derecha' };
+  return `HUD en la ${P[H.pos] || P.tl}, con ${parts.join(', ') || '(ningún elemento)'}. Fuente pixel, tamaño legible, con un fondo semitransparente detrás para que se lea sobre cualquier escenario. El HUD debe actualizarse al instante cuando cambia el valor.`;
+}
+
+/* ---------- 2 · diseñador de HUD (animado) ---------- */
+MOUNTS.hudDesigner = el => {
+  const H = STATE.e2.hud; H.pos = H.pos || 'tl';
+  el.innerHTML = `<div class="hd"><div><canvas id="hudCv" width="320" height="180"></canvas><p class="small muted" style="margin:6px 0 0">Los valores cambian solos para que veas cómo se actualiza cada indicador.</p></div>
+    <div><h4>Elementos</h4><div class="pill-list">${[['score', 'Puntaje'], ['lives', 'Vidas'], ['timer', 'Tiempo'], ['bar', 'Barra de energía'], ['keys', 'Llave / objeto']].map(([k, l]) => `<span class="pill ${H[k] ? 'on' : ''}" data-h="${k}">${l}</span>`).join('')}</div>
+    <h4 style="margin-top:12px">Posición principal</h4><div class="pill-list">${[['tl', '↖ arriba izq.'], ['tr', '↗ arriba der.'], ['bl', '↙ abajo izq.'], ['br', '↘ abajo der.']].map(([k, l]) => `<span class="pill ${H.pos === k ? 'on' : ''}" data-pos="${k}">${l}</span>`).join('')}</div>
+    <div class="prompt-box" style="margin-top:12px"><div class="ph"><span class="t">Cómo lo describe el Prompt 8</span></div><pre id="hudTxt"></pre></div></div></div>`;
+  const cv = $('#hudCv'), g = cv.getContext('2d'); g.imageSmoothingEnabled = false; let t = 0, last = performance.now(), raf;
+  const draw = () => {
+    g.fillStyle = '#0e1630'; g.fillRect(0, 0, 320, 180); for (let x = 0; x < 320; x += 8) g.drawImage(sprite('grass', 1), x, 164);
+    g.drawImage(sprite('brick', 1), 140, 130); g.drawImage(sprite('brick', 1), 148, 130); g.drawImage(sprite('coin', 1), 200, 120 + Math.sin(t * 4) * 2); g.drawImage(sprite('player', 1), 60 + Math.round(Math.sin(t) * 12), 150); g.drawImage(sprite('enemy', 1), 240, 156);
+    const right = H.pos.endsWith('r'), bottom = H.pos.startsWith('b'); let y = bottom ? 160 : 8; const dy = bottom ? -14 : 14; const items = [];
+    const sc = 120 + Math.floor(t * 2) * 10, pop = (t * 2) % 1 < .25;
+    if (H.score) items.push(gg => { gg.fillStyle = pop ? '#fff' : '#ffd23f'; gg.font = '8px "Press Start 2P"'; gg.textAlign = right ? 'right' : 'left'; gg.fillText('SCORE ' + String(sc).padStart(4, '0'), right ? 312 : 8, y + 8); });
+    if (H.lives) items.push(gg => { const lost = Math.floor(t / 3) % 4; for (let i = 0; i < 3; i++) { gg.globalAlpha = i >= 3 - (lost % 3) && lost ? .25 : 1; gg.drawImage(sprite('heart', 1), right ? 304 - i * 10 : 8 + i * 10, y); } gg.globalAlpha = 1; });
+    if (H.timer) items.push(gg => { const s = 45 - Math.floor(t) % 45; gg.fillStyle = s < 10 ? '#ff5a5a' : '#fff'; gg.font = '8px "Press Start 2P"'; gg.textAlign = right ? 'right' : 'left'; gg.fillText('00:' + String(s).padStart(2, '0'), right ? 312 : 8, y + 8); });
+    if (H.bar) items.push(gg => { const x = right ? 252 : 8, w = 6 + Math.round((Math.sin(t * .8) * .5 + .5) * 52); gg.fillStyle = '#1d2850'; gg.fillRect(x, y, 60, 8); gg.fillStyle = '#7cff6b'; gg.fillRect(x + 1, y + 1, w, 6); });
+    if (H.keys) items.push(gg => { gg.drawImage(sprite('key', 1), right ? 304 : 8, y); });
+    g.fillStyle = 'rgba(0,0,0,.45)'; const hh = items.length * 14 + 4; g.fillRect(right ? 246 : 4, bottom ? 160 - (items.length - 1) * 14 - 2 : 4, 70, hh);
+    items.forEach(f => { f(g); y += dy; }); g.textAlign = 'left'; };
+  const sync = () => { $('#hudTxt').textContent = hudDesc(); saveState(); document.dispatchEvent(new CustomEvent('e2hud')); };
+  $$('[data-h]', el).forEach(p => p.onclick = () => { H[p.dataset.h] = !H[p.dataset.h]; p.classList.toggle('on', H[p.dataset.h]); sync(); });
+  $$('[data-pos]', el).forEach(p => p.onclick = () => { H.pos = p.dataset.pos; $$('[data-pos]', el).forEach(x => x.classList.toggle('on', x === p)); sync(); });
+  const frame = now => { if (!document.body.contains(cv)) return; t += Math.min(.05, (now - last) / 1000); last = now; draw(); raf = requestAnimationFrame(frame); };
+  ACTIVE_GAMES.add({ destroy: () => cancelAnimationFrame(raf) }); sync(); raf = requestAnimationFrame(frame);
+};
+
+/* ---------- 3 · flujo de pantallas ---------- */
+MOUNTS.screenFlow = el => {
+  const SC = {
+    menu: ['MENÚ', 'Título, cómo se controla y cómo empezar. Es la primera impresión: el nombre y el estilo se ven acá.', 'Al abrir el juego, o al volver desde Game Over o Victoria.', 'ESPACIO → empieza el juego'],
+    play: ['JUEGO', 'La escena principal con el HUD. Todo lo demás son pausas o salidas de esta pantalla.', 'Desde el menú, o al reintentar.', 'P → pausa · vidas 0 → Game Over · meta → Victoria'],
+    pause: ['PAUSA', 'El juego se congela, se oscurece y dice PAUSA. Se vuelve con la misma tecla.', 'Apretando P durante el juego.', 'P → vuelve al juego'],
+    over: ['GAME OVER', 'Se perdió. Contar por qué (sin vidas, sin tiempo) y ofrecer reintentar.', 'Cuando las vidas llegan a 0.', 'R → reintentar · ENTER → menú'],
+    win: ['VICTORIA', 'Se ganó. Puntaje final, un mensaje de recompensa y volver al menú.', 'Cuando el jugador llega a la meta.', 'ENTER → vuelve al menú']
+  };
+  const K = Object.keys(SC), AUTO = ['menu', 'play', 'pause', 'play', 'over', 'menu', 'play', 'win'];
+  el.innerHTML = `<div class="loop sf-nodes">${[['menu', 'MENÚ'], ['→'], ['play', 'JUEGO'], ['⇄'], ['pause', 'PAUSA'], ['→'], ['over', 'GAME OVER'], ['/'], ['win', 'VICTORIA']].map(a => a.length === 1 ? `<span class="arrow">${a[0]}</span>` : `<div class="node ${a[0] === 'menu' ? 'on' : ''}" data-s="${a[0]}">${a[1]}</div>`).join('')}<div class="back">↺ Game Over y Victoria vuelven al menú</div></div>
+    <div class="sf"><canvas id="scCv" width="320" height="180"></canvas><div><div class="card" id="scInfo"></div><div class="sv-ctl" style="margin-top:10px"><button class="btn sm primary" id="scAuto">▶ Recorrer el flujo</button><span class="small muted">o tocá una pantalla</span></div></div></div>`;
+  const cv = $('#scCv'), g = cv.getContext('2d'); g.imageSmoothingEnabled = false; let cur = 'menu', t = 0, last = performance.now(), raf, auto = false, ai = 0, at = 0;
+  const name = () => ((STATE.gdd && STATE.gdd.nombre) || 'SALTO LUNAR').toUpperCase().slice(0, 18);
+  const big = (s, y, c) => { g.fillStyle = c || '#fff'; g.font = '14px "Press Start 2P"'; g.textAlign = 'center'; g.fillText(s, 160, y); g.textAlign = 'left'; };
+  const sm = (s, y, c) => { g.fillStyle = c || '#98a6cf'; g.font = '7px "Press Start 2P"'; g.textAlign = 'center'; g.fillText(s, 160, y); g.textAlign = 'left'; };
+  const scene = () => { g.fillStyle = '#0e1630'; g.fillRect(0, 0, 320, 180); for (let x = 0; x < 320; x += 8) g.drawImage(sprite('grass', 1), x, 164); g.drawImage(sprite('player', 1), 60 + Math.round(Math.sin(t) * 10), 150); g.drawImage(sprite('coin', 1), 200, 120); g.drawImage(sprite('enemy', 1), 240, 156); g.fillStyle = '#ffd23f'; g.font = '8px "Press Start 2P"'; g.fillText('SCORE 0120', 8, 16); for (let i = 0; i < 3; i++) g.drawImage(sprite('heart', 1), 8 + i * 10, 22); };
+  const dim = () => { g.fillStyle = 'rgba(5,8,20,.75)'; g.fillRect(0, 0, 320, 180); };
+  const draw = () => { scene();
+    if (cur === 'menu') { g.fillStyle = '#0b0f1e'; g.fillRect(0, 0, 320, 180); for (let i = 0; i < 30; i++) { g.fillStyle = '#2b3a6b'; g.fillRect((i * 71) % 320, (i * 37) % 160, 2, 2); } g.drawImage(sprite('player', 4), 136, 60 + Math.round(Math.sin(t * 3) * 2)); big(name(), 40, '#3ee6ff'); sm('FLECHAS: MOVER   ESPACIO: SALTAR', 130); if (Math.floor(t * 2) % 2) sm('PRESS START', 156, '#ffd23f'); }
+    if (cur === 'pause') { dim(); big('PAUSA', 90); sm('P PARA CONTINUAR', 112); }
+    if (cur === 'over') { dim(); big('GAME OVER', 80, '#ff5a5a'); sm('TE QUEDASTE SIN VIDAS', 102); sm('R: REINTENTAR', 130, '#ffd23f'); }
+    if (cur === 'win') { dim(); big('¡GANASTE!', 80, '#7cff6b'); sm('PUNTAJE FINAL: 0120', 102); sm('ENTER: VOLVER AL MENU', 130, '#ffd23f'); } };
+  const info = () => { const s = SC[cur]; $('#scInfo').innerHTML = `<h3 style="color:var(--cur)">${s[0]}</h3><p>${s[1]}</p><p class="small"><b>Se llega:</b> ${s[2]}</p><p class="small"><b>Se sale:</b> ${s[3]}</p>`; $$('.node', el).forEach(x => x.classList.toggle('on', x.dataset.s === cur)); };
+  const pick = k => { cur = k; info(); };
+  $$('.node', el).forEach(n => n.onclick = () => { auto = false; $('#scAuto').textContent = '▶ Recorrer el flujo'; pick(n.dataset.s); });
+  $('#scAuto').onclick = () => { auto = !auto; $('#scAuto').textContent = auto ? '■ Detener' : '▶ Recorrer el flujo'; if (auto) { ai = 0; at = 0; pick(AUTO[0]); } };
+  const frame = now => { if (!document.body.contains(cv)) return; const dt = Math.min(.05, (now - last) / 1000); last = now; t += dt; if (auto) { at += dt; if (at > 2) { at = 0; ai = (ai + 1) % AUTO.length; pick(AUTO[ai]); } } draw(); raf = requestAnimationFrame(frame); };
+  ACTIVE_GAMES.add({ destroy: () => cancelAnimationFrame(raf) }); info(); raf = requestAnimationFrame(frame);
+};
+
+/* ---------- 4 · Prompt 8 con campos ---------- */
+MOUNTS.interfacePrompt = el => {
+  const U = STATE.e2.ui = STATE.e2.ui || { nombre: '', colores: '', fuente: '' };
+  const nom = () => U.nombre || (STATE.gdd && STATE.gdd.nombre) || 'Mi videojuego', col = () => U.colores || (STATE.e2.ip && STATE.e2.ip.paleta) || 'los de mi paleta', fue = () => U.fuente || 'pixel';
+  const M = (t) => '\u0001' + t + '\u0002';
+  const mk = (a, b, c) => PROMPTS.find(p => p.id === 'p8').text.replace('[PEGAR DESCRIPCIÓN DEL HUD]', a).replace('[NOMBRE DEL JUEGO]', b).replace('[COLORES / FUENTE]', c);
+  const build = () => mk(hudDesc(), nom(), `colores ${col()}; fuente ${fue()}`);
+  const buildHtml = () => esc(mk(M(hudDesc()), M(nom()), `colores ${M(col())}; fuente ${M(fue())}`)).replace(/\u0001/g, '<span class="yl">').replace(/\u0002/g, '</span>');
+  el.innerHTML = `<div class="pb pb8"><div><div class="gdd-form pb-fields"><div class="field"><label>Nombre del juego <span class="small muted">· viene de tu GDD</span></label><input data-ui="nombre" value="${esc(U.nombre)}"></div>
+      <div class="field"><label>Colores <span class="small muted">· de tu paleta</span></label><input data-ui="colores" value="${esc(U.colores)}"></div><div class="field"><label>Fuente</label><input data-ui="fuente" value="${esc(U.fuente)}"></div></div>
+      <p class="pb8-note">Lo que escribís (o viene de antes) aparece <span class="yl">resaltado en amarillo</span> en el prompt. El HUD viene de <b>Diseñá tu HUD</b>.</p>
+      </div>
+    <div class="pb-out"><div class="prompt-box"><div class="ph"><span class="t">Prompt 8 · HUD, menú y pantallas</span><button class="btn sm primary" id="uiCopy">⧉ Copiar</button></div><pre id="uiOut"></pre></div></div></div>`;
+  const out = () => { $('#uiOut').innerHTML = buildHtml(); const H = STATE.e2.hud; const _c = ['Inicio', 'Juego', 'Pausa', 'Game Over', 'Victoria'].map(s => `<span class="chip">${s}</span>`).join('') + [['score', 'Puntaje'], ['lives', 'Vidas'], ['timer', 'Tiempo'], ['bar', 'Energía'], ['keys', 'Llave']].filter(([k]) => H[k]).map(([, l]) => `<span class="chip acc">HUD · ${l}</span>`).join('');
+    const ph = (k, v) => { const i = $(`[data-ui="${k}"]`, el); if (i) i.placeholder = v; }; ph('nombre', nom()); ph('colores', col()); ph('fuente', fue()); };
+  $$('[data-ui]', el).forEach(i => i.oninput = () => { U[i.dataset.ui] = i.value.trim(); saveState(); out(); });
+  $('#uiCopy').onclick = () => copyText(build(), 'Prompt 8 copiado');
+  document.addEventListener('e2hud', () => { if (document.body.contains(el)) out(); });
+  document.addEventListener('input', () => { if (document.body.contains(el)) out(); });
+  out();
+};
+
+/* ---------- 6 · checklist del Encuentro 02 ---------- */
+MOUNTS.checklistE2 = el => {
+  const B = ['Bloque 2', 'Bloque 2', 'Bloque 3', 'Bloque 4', 'Bloque 4', 'Bloque 5', 'Bloque 5'];
+  const render = () => { const done = CHECKS_E2.filter((_, i) => STATE.e2.check[i]).length;
+    el.innerHTML = CHECKS_E2.map((t, i) => `<div class="check ${STATE.e2.check[i] ? 'done' : ''}" data-i="${i}"><div class="box">${STATE.e2.check[i] ? '✔' : ''}</div><span class="t">${esc(t)}</span><span class="chip ck-b">${B[i] || ''}</span></div>`).join('')
+      + `<div style="margin-top:12px;display:flex;align-items:center;gap:12px;flex-wrap:wrap"><div class="bar striped" style="flex:1;min-width:200px"><i style="width:${done / CHECKS_E2.length * 100}%"></i></div><b class="px">${done}/${CHECKS_E2.length}</b></div>`
+      + (done === CHECKS_E2.length ? '<div class="callout fade" style="border-color:var(--acc4)"><b style="color:var(--acc4)">★ ENCUENTRO 02 COMPLETADO.</b> Tu juego ya tiene cara. En el Encuentro 03 le damos cuerpo: niveles, enemigos y reglas.</div>' : '');
+    $$('.check', el).forEach(x => x.onclick = () => { STATE.e2.check[x.dataset.i] = !STATE.e2.check[x.dataset.i]; saveState(); render(); }); };
+  render();
+};
 /* =========================================================
    ENCUENTRO 03 — MECÁNICAS, NIVELES E INTELIGENCIA
    ========================================================= */
@@ -3028,7 +3813,7 @@ MOUNTS.rubric = el => {
   render();
 };
 MOUNTS.checklistE4 = el => { const render = () => { const done = CHECKS_E4.filter((_, i) => STATE.e4.check[i]).length; el.innerHTML = CHECKS_E4.map((t, i) => `<div class="check ${STATE.e4.check[i] ? 'done' : ''}" data-i="${i}"><div class="box">${STATE.e4.check[i] ? '✔' : ''}</div><span class="t">${esc(t)}</span></div>`).join('') + `<div style="margin-top:14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap"><div class="bar striped" style="flex:1;min-width:200px"><i style="width:${done / CHECKS_E4.length * 100}%"></i></div><b class="px">${done}/${CHECKS_E4.length}</b><button class="btn sm" id="exportCourse">⬇ Exportar todo el curso (.txt)</button></div>${done === CHECKS_E4.length ? '<div class="callout fade" style="border-color:var(--acc4)"><b style="color:var(--acc4)">★ CURSO COMPLETADO.</b> Diseñaste, construiste y publicaste un videojuego. Lo que viene: hacé otro. El segundo sale en la mitad de tiempo.</div>' : ''}`; const c = $('#checkCountE4'); if (c) c.textContent = `${done}/${CHECKS_E4.length} completadas`; $$('.check', el).forEach(x => x.onclick = () => { STATE.e4.check[x.dataset.i] = !STATE.e4.check[x.dataset.i]; saveState(); render(); }); $('#exportCourse').onclick = () => downloadText('mi-curso-gamedev-ia.txt', exportCourse()); }; render(); };
-function exportCourse() { const ck = (arr, st) => arr.map((t, i) => `[${st[i] ? 'x' : ' '}] ${t}`).join('\n'); return exportAll() + `\n\n== ENCUENTRO 02 ==\nEstilo: ${STATE.e2.style || '-'} · ${STATE.e2.styleRef || ''}\nEstados: ${STATE.e2.states || '-'}\nManifiesto:\n${STATE.e2.manifest.map(m => `- ${m.n}: ${m.f} (${m.s}) → ${m.u}`).join('\n') || '-'}\n${ck(CHECKS_E2, STATE.e2.check)}\n\n== ENCUENTRO 03 ==\nReglas:\n${STATE.e3.rules || '-'}\nNivel:\n${(STATE.e3.level || []).join('\n')}\n${ck(CHECKS_E3, STATE.e3.check)}\n\n== ENCUENTRO 04 ==\nTítulo: ${STATE.e4.title.nombre || ''} · ${STATE.e4.title.frase || ''}\nEnlace publicado: ${STATE.e4.link || '-'}\nPlaytests: ${STATE.e4.testers.length}\nBugs: ${STATE.e4.bugs.map(b => `[${b.done ? 'x' : ' '}] ${b.sev}: ${b.txt}`).join(' | ') || '-'}\n${ck(CHECKS_E4, STATE.e4.check)}`; }
+function exportCourse() { const ck = (arr, st) => arr.map((t, i) => `[${st[i] ? 'x' : ' '}] ${t}`).join('\n'); return exportAll() + `\n\n== ENCUENTRO 02 ==\nEstilo: ${[STATE.e2.bitsName, STATE.e2.style].filter(Boolean).join(' · ') || '-'}\nEstados: ${STATE.e2.states || '-'}\nManifiesto:\n${STATE.e2.manifest.map(m => `- ${m.n}: ${m.f} (${m.s}) → ${m.u}`).join('\n') || '-'}\n${ck(CHECKS_E2, STATE.e2.check)}\n\n== ENCUENTRO 03 ==\nReglas:\n${STATE.e3.rules || '-'}\nNivel:\n${(STATE.e3.level || []).join('\n')}\n${ck(CHECKS_E3, STATE.e3.check)}\n\n== ENCUENTRO 04 ==\nTítulo: ${STATE.e4.title.nombre || ''} · ${STATE.e4.title.frase || ''}\nEnlace publicado: ${STATE.e4.link || '-'}\nPlaytests: ${STATE.e4.testers.length}\nBugs: ${STATE.e4.bugs.map(b => `[${b.done ? 'x' : ' '}] ${b.sev}: ${b.txt}`).join(' | ') || '-'}\n${ck(CHECKS_E4, STATE.e4.check)}`; }
 
 /* =========================================================
    BLOQUES E04
@@ -3360,7 +4145,7 @@ function openEncModal(n) {
     <p class="muted"><b style="color:var(--cur)">Entregable:</b> ${esc(e.deliverable)}</p>
     ${parts.map((p, i) => `<div class="blk"><h4>PARTE ${i + 1} · ${minutesOf(p)} MIN</h4>${p.map(b => `<div class="row"><span>${b.num} ${esc(b.title)}</span><span class="t">${b.start}–${b.end} min · ${b.end - b.start}'</span></div>`).join('')}</div>`).join('')}
   </div>`;
-  const o = isOpen(e); const lockNote = o ? '' : `<div class="soon" style="margin-top:10px">◌ &nbsp;Este encuentro se habilita el <b>${releaseLabel(e.n)}</b> a las 00:01. Por ahora podés leer el programa.</div>`;
+  const o = isOpen(e); const lockNote = o ? '' : `<div class="soon" style="margin-top:10px">◌ &nbsp;Este encuentro se habilita el <b>${releaseLabel(e.n)}</b> a las 08:00. Por ahora podés leer el programa.</div>`;
   modal(`Encuentro 0${e.n} · ${e.title}`, html + lockNote, [...(o ? [{ label: '▶ Entrar al encuentro', primary: true, onClick: () => go({ view: 'enc', e: e.n, b: 0, s: 0 }) }] : []), { label: 'Cerrar', onClick: () => { if (STATE.route.view === 'home') document.documentElement.style.setProperty('--cur', 'var(--e1)'); } }], true);
 }
 
